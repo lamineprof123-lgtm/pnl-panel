@@ -77,7 +77,7 @@ const orbMat=new THREE.ShaderMaterial({uniforms:U,transparent:true,depthWrite:fa
    vec3 c1=vec3(.024,.57,.70),c2=vec3(.063,.73,.506),c3=vec3(.145,.388,.92),acc=vec3(.37,.92,.83);
    vec3 col=mix(c3,c1,smoothstep(-.55,-.05,n));col=mix(col,c2,smoothstep(.0,.5,n));
    col=col*(.06+.34*smoothstep(-.6,.7,n))+mix(c2,acc,.5)*veins*.45+mix(c1,c2,.5+.5*sin(time*.3))*fr*.55;
-   col=pow(col,vec3(1.9))*2.2;gl_FragColor=vec4(col*pulse,1.);}`});
+   col=pow(col,vec3(1.9))*1.25;gl_FragColor=vec4(col*pulse,1.);}`});
 core.add(new THREE.Mesh(new THREE.SphereGeometry(1,96,96),orbMat));
 const heart=sprite(new THREE.Color('#bffcf0'),1.,.22);heart.visible=false;core.add(heart);
 const halo1=sprite(new THREE.Color('#14b8a6'),5,.13);const halo2=sprite(new THREE.Color('#0891b2'),10,.08);const halo3=sprite(new THREE.Color('#2563eb'),18,.03);scene.add(halo1,halo2,halo3);
@@ -144,7 +144,7 @@ function updateTrades(now,dt){let n=0,m=0;const k=1-Math.exp(-dt*2.5);
 
 
 /* ---------- AI eye ---------- */
-const eye=new THREE.Group();scene.add(eye);
+const eye=new THREE.Group();scene.add(eye);eye.scale.setScalar(1.3);
 const EU={time:U.time,pr:U.pr,look:{value:new THREE.Vector2()},blink:{value:0},dil:{value:1},tint:{value:new THREE.Color('#34d399')}};
 const eyeMat=new THREE.ShaderMaterial({uniforms:EU,transparent:true,depthWrite:true,
   vertexShader:`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
@@ -154,12 +154,12 @@ const eyeMat=new THREE.ShaderMaterial({uniforms:EU,transparent:true,depthWrite:t
    float mask=smoothstep(0.,.025,ins)*step(abs(p.x),W);
    float rim=(exp(-pow(inU*30.,2.))+exp(-pow(inL*30.,2.))*.7)*smoothstep(1.,.55,abs(xn));
    vec2 c=look*vec2(.40,.15);vec2 q=p-c;q.x*=1.+.35*abs(look.x);q.y*=1.+.2*abs(look.y);float r=length(q);vec2 dir=q/max(r,1e-4);
-   float R=.31,pr=.105*dil;
+   float R=.34,pr=.12*dil;
    float fib=snoise(vec3(dir*7.,r*3.-time*.2))*.5+.5;fib=mix(fib,snoise(vec3(dir*19.,r*9.+time*.15))*.5+.5,.45);
    float t=smoothstep(pr,R,r);
    vec3 cIn=vec3(.6,1.,.86),cMid=vec3(.06,.78,.74),cOut=vec3(.13,.45,1.);
    vec3 iris=mix(cIn,cMid,smoothstep(0.,.4,t));iris=mix(iris,cOut,smoothstep(.4,1.,t));iris=mix(iris,tint,.22*smoothstep(.45,1.,t));
-   iris*=.35+1.05*fib;iris*=1.-.8*smoothstep(.82,1.,t);
+   iris*=.25+1.25*pow(fib,1.4);iris*=1.-.85*smoothstep(.8,1.,t);iris*=.9;
    iris+=cIn*exp(-pow((r-pr-.03)*38.,2.))*.9;
    float irisM=1.-smoothstep(R-.012,R+.006,r),pupM=1.-smoothstep(pr-.01,pr+.008,r);
    vec3 scl=vec3(.008,.03,.05)+vec3(.02,.14,.2)*pow(1.-abs(xn),.6)*.5;
@@ -190,10 +190,10 @@ const eyePlane=new THREE.Mesh(new THREE.PlaneGeometry(2.3,1.5),eyeMat);eyePlane.
      y+=(sin(x*5.+time*1.1+ph*6.28)*.035*(.25+k*2.)+sin(x*13.-time*1.9+ph*20.)*.01)*sh;
      P=vec3(x*W,y,-k*.35*sh);float pp=fract(time*.22+ph);spark=exp(-pow((s*.5+.5-pp)*12.,2.));
      va=(.05+.16*pow(1.-k,1.6))*pow(sh,.5)+spark*.55*(1.-k)*sh;vc=mix(vec3(.1,.85,.75),vec3(.2,.5,1.),k);}
-   else{float x=k,L=.35+ph*.9;vec2 o=vec2(x*.95,lid(x,side));vec2 n=normalize(vec2(x*.55,side));
+   else{float x=k,L=.2+ph*.45;vec2 o=vec2(x*.95,lid(x,side));vec2 n=normalize(vec2(x*.55,side));
      float t=s*L;vec2 q=o+n*t;q.x+=sin(t*3.+time*1.3+ph*30.)*.06*t+side*.0;q.y+=side*t*t*.15;
      P=vec3(q,-.15*t);float pp=fract(time*.45+ph*7.);spark=exp(-pow((s-pp)*7.,2.));
-     va=(.18*(1.-s)+spark*.6)*(.6+.4*sin(time*2.+ph*40.));vc=mix(vec3(.25,.95,.85),vec3(.35,.6,1.),ph);}
+     va=(.12*(1.-s)+spark*.35)*(1.-s*.6)*(.6+.4*sin(time*2.+ph*40.));vc=mix(vec3(.25,.95,.85),vec3(.35,.6,1.),ph);}
    gl_Position=projectionMatrix*modelViewMatrix*vec4(P,1.);}`,
   fragmentShader:`varying float va;varying vec3 vc;void main(){gl_FragColor=vec4(vc*va,1.);}`}));
  m.renderOrder=3;m.frustumCulled=false;eye.add(m);}
@@ -211,7 +211,7 @@ const eyePlane=new THREE.Mesh(new THREE.PlaneGeometry(2.3,1.5),eyeMat);eyePlane.
    float y=side*((side>0.?.44:.32)*sh*(1.-blink)+off*(.35+.65*sh)+.01);y+=sin(time*1.4+ph*50.)*.012;
    vec4 mv=modelViewMatrix*vec4(x*(1.02+off*.6),y,.02,1.);gl_Position=projectionMatrix*mv;
    a=(.25+.75*pow(.5+.5*sin(time*(2.+ph*4.)+ph*60.),3.))*smoothstep(1.,.75,abs(x));vc=col;gl_PointSize=pr*(1.+fract(ph*13.)*2.2)*34./-mv.z;}`,
-  fragmentShader:`varying float a;varying vec3 vc;void main(){float d=length(gl_PointCoord-.5)*2.;float g=exp(-d*d*4.);if(g<.02)discard;gl_FragColor=vec4(vc*g*a*1.3,1.);}`}));
+  fragmentShader:`varying float a;varying vec3 vc;void main(){float d=length(gl_PointCoord-.5)*2.;float g=exp(-d*d*4.);if(g<.02)discard;gl_FragColor=vec4(vc*g*a*.8,1.);}`}));
  m.renderOrder=3;m.frustumCulled=false;eye.add(m);}
 
 // gaze: follow one orbiting trade at a time
