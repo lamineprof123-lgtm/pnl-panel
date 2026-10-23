@@ -7,7 +7,7 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-23T11:15:06+04:00",
+ "updated_at": "2026-10-23T11:17:06+04:00",
  "balance": 100000.0,
  "equity": 100000.0,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance",
