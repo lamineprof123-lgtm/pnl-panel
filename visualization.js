@@ -146,8 +146,8 @@ function updateTrades(now,dt){let n=0,m=0;const k=1-Math.exp(-dt*2.5);
 /* ---------- AI eye ---------- */
 const eye=new THREE.Group();scene.add(eye);const EYE_S=2;eye.scale.setScalar(EYE_S);
 const EU={time:U.time,pr:U.pr,look:{value:new THREE.Vector2()},blink:{value:0},dil:{value:1},tint:{value:new THREE.Color('#34d399')}};
-const LID=`float shp(float x){return pow(max(1.-x*x,0.),.8);}float lidU(float x){return .30*shp(x)*(1.+.12*x);}float lidL(float x){return .22*shp(x);}`;
-const shp=x=>Math.pow(Math.max(1-x*x,0),.8),lidU=x=>.30*shp(x)*(1+.12*x),lidL=x=>.22*shp(x),EW=.95;
+const LID=`float shp(float x){return pow(max(1.-x*x,0.),.8);}float lidU(float x){return .35*shp(x)*(1.+.12*x);}float lidL(float x){return .26*shp(x);}`;
+const shp=x=>Math.pow(Math.max(1-x*x,0),.8),lidU=x=>.35*shp(x)*(1+.12*x),lidL=x=>.26*shp(x),EW=.95;
 const eyeMat=new THREE.ShaderMaterial({uniforms:EU,transparent:true,depthWrite:true,
   vertexShader:`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
   fragmentShader:NOISE+LID+`uniform float time;uniform vec2 look;uniform float blink;uniform float dil;uniform vec3 tint;varying vec2 vUv;
@@ -155,25 +155,25 @@ const eyeMat=new THREE.ShaderMaterial({uniforms:EU,transparent:true,depthWrite:t
    float up=lidU(xn)*op+.002,lo=lidL(xn)*op+.002;float inU=up-p.y,inL=p.y+lo,ins=min(inU,inL);
    float mask=smoothstep(0.,.03,ins)*step(abs(p.x),W);if(mask<.004)discard;
    vec2 c=look*vec2(.36,.07);vec2 q=p-c;q.x*=1.+.3*abs(look.x);float r=length(q);vec2 dir=q/max(r,1e-4);
-   float R=.47,pr=.1*dil;
-   vec3 scl=vec3(.16,.34,.66)*(.25+.75*pow(1.-abs(xn),.45));scl+=vec3(.1,.25,.45)*exp(-pow((r-R)*6.,2.))*.4;
+   float R=.4,pr=.095*dil;
+   vec3 scl=vec3(.14,.32,.68)*(.25+.75*pow(1.-abs(xn),.45));
    float t=clamp((r-pr)/(R-pr),0.,1.);
    float f1=snoise(vec3(dir*34.,r*3.+time*.05)),f2=snoise(vec3(dir*12.,r*7.-time*.07)),f3=snoise(vec3(dir*75.,r*2.));
    float fib=pow(clamp(.5+.5*(f1*.5+f2*.3+f3*.3),0.,1.),1.5);
-   vec3 deep=vec3(.02,.16,.5),mid=vec3(.08,.5,1.),hi=vec3(.6,.93,1.);
+   vec3 deep=vec3(.01,.1,.42),mid=vec3(.03,.4,1.),hi=vec3(.4,.85,1.);
    vec3 iris=mix(mid,deep,smoothstep(.5,1.,t));iris=mix(iris,tint,.12);
-   iris=iris*(.3+1.15*fib)+hi*pow(fib,4.)*.7*(1.-t*.6);
+   iris=iris*(.2+1.1*fib)+hi*pow(fib,4.)*.45*(1.-t*.6);
    float cr=pr+.08+.025*snoise(vec3(dir*5.,1.7));iris+=hi*.3*exp(-pow((r-cr)*28.,2.));
    iris*=1.-.8*smoothstep(.8,1.,t);
    float irisM=1.-smoothstep(R-.015,R+.01,r),pupM=1.-smoothstep(pr-.012,pr+.01,r);
-   vec3 col=mix(scl,iris,irisM);col=mix(col,vec3(0.,.012,.035),pupM);
+   vec3 col=mix(scl,iris*1.7,irisM);col=mix(col,vec3(0.,.012,.035),pupM);
    vec2 h1=q-vec2(-.07,.055);col+=vec3(.9,.97,1.)*exp(-dot(h1,h1)*2600.)*1.5;
    vec2 h2=(q-vec2(.13,.09))*vec2(1.,2.6);col+=vec3(.6,.85,1.)*exp(-dot(h2,h2)*260.)*.18;
    col*=mix(.12,1.,smoothstep(0.,.12,inU));col*=mix(.4,1.,smoothstep(0.,.035,inL));
    col+=vec3(.45,.85,1.)*exp(-pow(inL*55.,2.))*.3*shp(xn);
    col*=.3+.7*smoothstep(1.,.7,abs(xn));
-   vec2 gp=fract(p*165.)-.5;col*=.6+.55*(1.-smoothstep(.2,.5,length(gp)));
-   gl_FragColor=vec4(col*.9,mask);}`});
+   vec2 gp=fract(p*165.)-.5;col*=.8+.3*(1.-smoothstep(.2,.5,length(gp)));
+   gl_FragColor=vec4(col*.62,mask);}`});
 const eyePlane=new THREE.Mesh(new THREE.PlaneGeometry(2.3,1.5),eyeMat);eyePlane.renderOrder=2;eye.add(eyePlane);
 
 // THE FLOW: dense pixel strands streaming out of the eye, side contour ripples, long sweeping strands
@@ -185,7 +185,7 @@ const eyePlane=new THREE.Mesh(new THREE.PlaneGeometry(2.3,1.5),eyeMat);eyePlane.
   for(let i=0;i<N;i++){const u=-1+2*(i+.5)/N+(rnd()-.5)*.6/N,x0=u*EW*1.03,y0=side>0?lidU(u)+.02:-lidL(u)-.02;
    const dx=u*(side>0?.5:.8),L=(side>0?1.8:2.1)*(.75+rnd()*.5)*(1-.3*u*u),step=.018/Math.sqrt(D),ph=rnd();
    for(let t=0;t<L;t+=step){const s=t/L,x=x0+dx*t+dx*t*t*.14,y=y0+side*t,z=-.1*t*t;
-    let c=pick(blue),b=.32*Math.pow(1-s,1.3)*(.4+.6*rnd())*(.5+.5*Math.exp(-t*1.5));
+    let c=pick(blue),b=.85*Math.pow(1-s,1.3)*(.4+.6*rnd())*(.5+.5*Math.exp(-t*1.5));
     const r=rnd();if(side>0&&t>.1&&t<.7&&r<.32*Math.exp(-Math.pow((t-.35)/.2,2))+.04*(t<.7))c=pick(red),b*=2.4;
     else if(side<0&&t<.8&&r<.07)c=pick(red),b*=2.2;else if(r>.985)c=[.9,.97,1],b*=1.6;
     add(x,y,z,c,b,t,ph,0,.8+rnd()*.7)}}}
@@ -195,10 +195,10 @@ const eyePlane=new THREE.Mesh(new THREE.PlaneGeometry(2.3,1.5),eyeMat);eyePlane.
    const w=1+.03*Math.sin(th*9+k*.7);const x=cs*rx*w,y=sn*ry*w;
    add(x,y,-.06*rx*rx,pick(blue),.3*side*(.5*(1-k/NR)+.1)*(.4+.6*rnd())*(cs<0?1:.75),rx-1.2,ph,1,.8+rnd()*.5)}}
  const NS=Math.round(12*D);
- for(let i=0;i<NS;i++){const sd=i%3===0?-1:1,ph=rnd(),L=3+rnd()*2.5,a0=(sd>0?1.25:1.9)+(rnd()-.5)*.5,bend=(rnd()-.3)*.5;
+ for(let i=0;i<NS;i++){const sd=i%3===0?-1:1,ph=rnd(),L=3+rnd()*2.5,a0=(sd>0?1.25:1.9)+(rnd()-.5)*.5,bend=(.25+rnd()*.5)*(rnd()<.5?1:-1);
   let x=sd*(EW*1.05+rnd()*.3),y=(rnd()-.3)*.25,a=sd>0?a0:Math.PI-a0;const c=rnd()<.5?[.5,.9,1]:[.35,.6,1];
   for(let t=0;t<L;t+=.012/Math.sqrt(D)){a+=bend*.012*sd/Math.sqrt(D)*(sd>0?1:-1);x+=Math.cos(a)*.012/Math.sqrt(D);y+=Math.sin(a)*.012/Math.sqrt(D);
-   add(x,y,-.05*t*t,c,.3*Math.pow(1-t/L,1.2)*(.6+.4*rnd()),t,ph,2,1+rnd()*.6)}}
+   add(x,y,-.05*t*t,c,.22*Math.pow(1-t/L,1.2)*(.6+.4*rnd()),t,ph,2,1+rnd()*.6)}}
  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setAttribute('col',new THREE.Float32BufferAttribute(col,3));g.setAttribute('aux',new THREE.Float32BufferAttribute(aux,4));
  const m=new THREE.Points(g,new THREE.ShaderMaterial({uniforms:EU,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,
   vertexShader:`attribute vec3 col;attribute vec4 aux;uniform float time;uniform float pr;varying vec3 vc;
@@ -215,7 +215,7 @@ const eyePlane=new THREE.Mesh(new THREE.PlaneGeometry(2.3,1.5),eyeMat);eyePlane.
 {const N=mobile?900:2000,s=new Float32Array(N),sd=new Float32Array(N),off=new Float32Array(N),ph=new Float32Array(N),col=new Float32Array(N*3);
  const reds=['#ff4d3d','#ff7a45','#ff4f7b'].map(c=>new THREE.Color(c)),cool=['#7dd3fc','#38bdf8','#e0f2fe','#60a5fa','#a5f3fc','#5eead4'].map(c=>new THREE.Color(c));
  for(let i=0;i<N;i++){const side=Math.random()<.5?1:-1;sd[i]=side;s[i]=Math.random();off[i]=Math.pow(Math.random(),1.8)*(side>0?.38:.55);ph[i]=Math.random();
-   const w=side>0?(off[i]>.05&&off[i]<.3&&Math.random()<.6):Math.random()<.22;const c=w?reds[(Math.random()*3)|0]:cool[(Math.random()*6)|0];col.set([c.r,c.g,c.b],i*3)}
+   if(side>0&&Math.random()<.45)off[i]=.07+Math.random()*.16;const w=side>0?(off[i]>.06&&off[i]<.25&&Math.random()<.75):Math.random()<.22;const c=w?reds[(Math.random()*3)|0]:cool[(Math.random()*6)|0];col.set([c.r,c.g,c.b],i*3)}
  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(new Float32Array(N*3),3));
  [['s',s],['side',sd],['off',off],['ph',ph]].forEach(([n,a])=>g.setAttribute(n,new THREE.BufferAttribute(a,1)));g.setAttribute('col',new THREE.BufferAttribute(col,3));
  const m=new THREE.Points(g,new THREE.ShaderMaterial({uniforms:EU,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,
@@ -229,7 +229,7 @@ const eyePlane=new THREE.Mesh(new THREE.PlaneGeometry(2.3,1.5),eyeMat);eyePlane.
 
 // deep blue atmosphere
 const atmo=new THREE.Group();scene.add(atmo);
-[['#1d4ed8',9,.22,[0,0,-1]],['#0284c7',4.5,.16,[0,.1,-.5]],['#1e40af',22,.13,[0,0,-3]],['#0ea5e9',14,.05,[-3,-2,-2]],['#2563eb',12,.06,[3.5,2,-2]],['#0f766e',16,.04,[-5,3,-3]]]
+[['#1d4ed8',10,.32,[0,0,-1]],['#0284c7',5,.2,[0,.1,-.5]],['#1e3a8a',26,.28,[0,0,-3]],['#0ea5e9',16,.12,[-4,-3,-2]],['#2563eb',14,.12,[4,2.5,-2]],['#0f766e',16,.05,[-5,3,-3]],['#1d4ed8',40,.12,[0,0,-6]]]
   .forEach(([c,sc,o,p])=>atmo.add(sprite(new THREE.Color(c),sc,o,new THREE.Vector3(...p))));
 core.visible=false;halo1.visible=halo2.visible=halo3.visible=false;
 
