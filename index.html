@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PnL Panel · LIVE</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="style.css"></head><body>
+<div class="bg"></div>
+<header><h1>PnL <span>Panel</span></h1>
+<div class="live"><i class="dot"></i>LIVE <span id="ago">connecting…</span></div>
+<div class="tabs" id="tabs"><button data-p="daily" class="on">Daily</button><button data-p="monthly">Monthly</button><button data-p="yearly">Yearly</button></div></header>
+<section class="overview">
+<div class="kpi"><label>Total PnL</label><b id="tot" class="num">0</b></div>
+<div class="kpi"><label>Today</label><b id="today" class="num">0</b></div>
+<div class="kpi"><label>Projects</label><b id="np">0</b></div>
+<div class="kpi"><label>Trades</label><b id="ntr">0</b></div>
+</section>
+<section class="card wide"><h2>Cumulative PnL — all projects</h2><div class="ch"><canvas id="all"></canvas></div></section>
+<main id="cards"></main>
+<footer>Data from bot-written JSON files. Paper results are simulated. Polls every 7s.</footer>
+<script src="app.js"></script></body></html>
