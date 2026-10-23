@@ -5,14 +5,14 @@
  "currency": "USD",
  "start_date": "2026-10-23",
  "start_balance": 1000,
- "updated_at": "2026-10-23T21:30:14.599140+04:00",
+ "updated_at": "2026-10-23T21:34:44.785412+04:00",
  "note": "SOL converted at fixed reset rate $104.13/SOL; open positions valued at cost unless state carries a mark",
  "daily": [
   {
    "date": "2026-10-23",
    "pnl": 0.0,
    "balance": 1000.0,
-   "trades": 1
+   "trades": 2
   }
  ]
 }

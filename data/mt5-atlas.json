@@ -7,22 +7,22 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-23T21:33:35+04:00",
+ "updated_at": "2026-10-23T21:34:35+04:00",
  "balance": 102304.48,
- "equity": 102627.49,
+ "equity": 102599.92,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": -31913.93,
- "combined_total_pnl": -29609.45,
+ "shadow_total_pnl": -32024.61,
+ "combined_total_pnl": -29720.13,
  "daily": [
   {
    "date": "2026-10-23",
    "pnl": 2304.48,
    "balance": 102304.48,
    "trades": 69,
-   "shadow_pnl": -31913.93,
-   "shadow_trades": 3837,
-   "combined_pnl": -29609.45,
-   "equity": 102627.49,
+   "shadow_pnl": -32024.61,
+   "shadow_trades": 3854,
+   "combined_pnl": -29720.13,
+   "equity": 102599.92,
    "open_positions": 5
   }
  ],
@@ -3493,7 +3493,7 @@
    "today_trades": 3,
    "mode": "SHADOW",
    "symbol": "USTEC",
-   "open": 0
+   "open": 1
   },
   "EMAENG_XAU": {
    "pnl": -393.03,
@@ -8104,13 +8104,13 @@
    "open": 0
   },
   "NT_OBI_TOB_BTC": {
-   "pnl": -27040.9,
-   "trades": 822,
+   "pnl": -27101.56,
+   "trades": 829,
    "wins": 71,
-   "sum_r": -67.597,
+   "sum_r": -67.747,
    "max_dd": 28227.42,
-   "today_pnl": -27040.9,
-   "today_trades": 822,
+   "today_pnl": -27101.56,
+   "today_trades": 829,
    "mode": "SHADOW",
    "symbol": "BTCUSD",
    "open": 1
@@ -8128,13 +8128,13 @@
    "open": 0
   },
   "NT_CMM_BTC": {
-   "pnl": -1747.01,
-   "trades": 99,
+   "pnl": -1763.42,
+   "trades": 100,
    "wins": 2,
-   "sum_r": -4.368,
-   "max_dd": 1747.01,
-   "today_pnl": -1747.01,
-   "today_trades": 99,
+   "sum_r": -4.409,
+   "max_dd": 1763.42,
+   "today_pnl": -1763.42,
+   "today_trades": 100,
    "mode": "SHADOW",
    "symbol": "BTCUSD",
    "open": 1
@@ -8224,13 +8224,13 @@
    "open": 0
   },
   "NT_OBI_TOB_SUI": {
-   "pnl": -192.48,
-   "trades": 892,
+   "pnl": -193.5,
+   "trades": 897,
    "wins": 192,
-   "sum_r": -0.456,
+   "sum_r": -0.459,
    "max_dd": 198.64,
-   "today_pnl": -192.48,
-   "today_trades": 892,
+   "today_pnl": -193.5,
+   "today_trades": 897,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
    "open": 1
@@ -8257,7 +8257,7 @@
    "today_trades": 97,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
-   "open": 0
+   "open": 1
   },
   "NT_HVPIN_SUI": {
    "pnl": -34.6,
@@ -8344,13 +8344,13 @@
    "open": 0
   },
   "NT_OBI_TOB_BNB": {
-   "pnl": -882.31,
-   "trades": 579,
+   "pnl": -885.16,
+   "trades": 582,
    "wins": 101,
-   "sum_r": -2.193,
-   "max_dd": 882.31,
-   "today_pnl": -882.31,
-   "today_trades": 579,
+   "sum_r": -2.2,
+   "max_dd": 885.16,
+   "today_pnl": -885.16,
+   "today_trades": 582,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
    "open": 1
@@ -8368,13 +8368,13 @@
    "open": 1
   },
   "NT_CMM_BNB": {
-   "pnl": -1062.16,
-   "trades": 64,
+   "pnl": -1091.9,
+   "trades": 65,
    "wins": 2,
-   "sum_r": -2.654,
-   "max_dd": 1062.16,
-   "today_pnl": -1062.16,
-   "today_trades": 64,
+   "sum_r": -2.728,
+   "max_dd": 1091.9,
+   "today_pnl": -1091.9,
+   "today_trades": 65,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
    "open": 1
