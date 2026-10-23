@@ -7,22 +7,22 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-23T14:36:50+04:00",
+ "updated_at": "2026-10-23T14:37:50+04:00",
  "balance": 101583.01,
- "equity": 101188.45,
+ "equity": 101362.33,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": -5600.0,
- "combined_total_pnl": -4016.99,
+ "shadow_total_pnl": -4000.0,
+ "combined_total_pnl": -2416.99,
  "daily": [
   {
    "date": "2026-10-23",
    "pnl": 1583.01,
    "balance": 101583.01,
    "trades": 14,
-   "shadow_pnl": -5600.0,
-   "shadow_trades": 14,
-   "combined_pnl": -4016.99,
-   "equity": 101188.45,
+   "shadow_pnl": -4000.0,
+   "shadow_trades": 15,
+   "combined_pnl": -2416.99,
+   "equity": 101362.33,
    "open_positions": 4
   }
  ],
@@ -328,16 +328,16 @@
    "open": 0
   },
   "SF_SUI_BB": {
-   "pnl": -2400.0,
-   "trades": 6,
-   "wins": 0,
-   "sum_r": -6.0,
+   "pnl": -800.0,
+   "trades": 7,
+   "wins": 1,
+   "sum_r": -2.0,
    "max_dd": 2400.0,
-   "today_pnl": -2400.0,
-   "today_trades": 6,
+   "today_pnl": -800.0,
+   "today_trades": 7,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
-   "open": 1
+   "open": 0
   },
   "SF_AMD_BRK": {
    "pnl": 0,
@@ -3685,6 +3685,78 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAGUSD",
+   "open": 0
+  },
+  "SF_VWAP_XAU_V2": {
+   "pnl": 0,
+   "trades": 0,
+   "wins": 0,
+   "sum_r": 0,
+   "max_dd": 0.0,
+   "today_pnl": 0.0,
+   "today_trades": 0,
+   "mode": "LIVE",
+   "symbol": "XAUUSD",
+   "open": 0
+  },
+  "SF_SQZ_XAU_V2": {
+   "pnl": 0,
+   "trades": 0,
+   "wins": 0,
+   "sum_r": 0,
+   "max_dd": 0.0,
+   "today_pnl": 0.0,
+   "today_trades": 0,
+   "mode": "LIVE",
+   "symbol": "XAUUSD",
+   "open": 0
+  },
+  "EMAENG_XAG_RE": {
+   "pnl": 0,
+   "trades": 0,
+   "wins": 0,
+   "sum_r": 0,
+   "max_dd": 0.0,
+   "today_pnl": 0.0,
+   "today_trades": 0,
+   "mode": "LIVE",
+   "symbol": "XAGUSD",
+   "open": 0
+  },
+  "EMAENG_XAU_RE": {
+   "pnl": 0,
+   "trades": 0,
+   "wins": 0,
+   "sum_r": 0,
+   "max_dd": 0.0,
+   "today_pnl": 0.0,
+   "today_trades": 0,
+   "mode": "LIVE",
+   "symbol": "XAUUSD",
+   "open": 0
+  },
+  "SF_VWAP_XAU_X_RE": {
+   "pnl": 0,
+   "trades": 0,
+   "wins": 0,
+   "sum_r": 0,
+   "max_dd": 0.0,
+   "today_pnl": 0.0,
+   "today_trades": 0,
+   "mode": "LIVE",
+   "symbol": "XAUUSD",
+   "open": 0
+  },
+  "SF_SQZ_XAU_X_RE": {
+   "pnl": 0,
+   "trades": 0,
+   "wins": 0,
+   "sum_r": 0,
+   "max_dd": 0.0,
+   "today_pnl": 0.0,
+   "today_trades": 0,
+   "mode": "LIVE",
+   "symbol": "XAUUSD",
    "open": 0
   }
  }
