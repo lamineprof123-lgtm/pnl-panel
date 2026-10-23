@@ -154,9 +154,9 @@ const eyeMat=new THREE.ShaderMaterial({uniforms:EU,transparent:true,depthWrite:t
   void main(){vec2 p=(vUv-.5)*vec2(2.3,1.5);float W=.95,xn=clamp(p.x/W,-1.,1.),op=1.-blink;
    float up=lidU(xn)*op+.002,lo=lidL(xn)*op+.002;float inU=up-p.y,inL=p.y+lo,ins=min(inU,inL);
    float mask=smoothstep(0.,.03,ins)*step(abs(p.x),W);if(mask<.004)discard;
-   vec2 c=look*vec2(.36,.07);vec2 q=p-c;q.x*=1.+.3*abs(look.x);float r=length(q);vec2 dir=q/max(r,1e-4);
-   float R=.4,pr=.095*dil;
-   vec3 scl=vec3(.02,.2,.65)*(.25+.75*pow(1.-abs(xn),.45));
+   vec2 c=look*vec2(.26,.05);vec2 q=p-c;q.x*=1.+.3*abs(look.x);float r=length(q);vec2 dir=q/max(r,1e-4);
+   float R=.5,pr=.105*dil;
+   vec3 scl=vec3(.03,.26,.8)*(.3+.7*pow(1.-abs(xn),.45))*(.55+.6*exp(-max(r-R,0.)*5.));
    float t=clamp((r-pr)/(R-pr),0.,1.);
    float f1=snoise(vec3(dir*34.,r*3.+time*.05)),f2=snoise(vec3(dir*12.,r*7.-time*.07)),f3=snoise(vec3(dir*75.,r*2.));
    float fib=pow(clamp(.5+.5*(f1*.5+f2*.3+f3*.3),0.,1.),1.5);
@@ -164,8 +164,8 @@ const eyeMat=new THREE.ShaderMaterial({uniforms:EU,transparent:true,depthWrite:t
    vec3 iris=mix(mid,deep,smoothstep(.5,1.,t));iris=mix(iris,tint,.12);
    iris=iris*(.2+1.1*fib)+hi*pow(fib,4.)*.45*(1.-t*.6);
    float cr=pr+.08+.025*snoise(vec3(dir*5.,1.7));iris+=hi*.3*exp(-pow((r-cr)*28.,2.));
-   iris*=1.-.8*smoothstep(.8,1.,t);
-   float irisM=1.-smoothstep(R-.015,R+.01,r),pupM=1.-smoothstep(pr-.012,pr+.01,r);
+   iris*=1.-.55*smoothstep(.78,1.,t);
+   float irisM=1.-smoothstep(R-.045,R+.015,r),pupM=1.-smoothstep(pr-.012,pr+.01,r);
    vec3 col=mix(scl,iris*1.7,irisM);col=mix(col,vec3(0.,.012,.035),pupM);
    vec2 h1=q-vec2(-.07,.055);col+=vec3(.9,.97,1.)*exp(-dot(h1,h1)*2600.)*1.5;
    vec2 h2=(q-vec2(.13,.09))*vec2(1.,2.6);col+=vec3(.6,.85,1.)*exp(-dot(h2,h2)*260.)*.18;
@@ -173,7 +173,7 @@ const eyeMat=new THREE.ShaderMaterial({uniforms:EU,transparent:true,depthWrite:t
    col+=vec3(.45,.85,1.)*exp(-pow(inL*55.,2.))*.3*shp(xn);
    col*=.3+.7*smoothstep(1.,.7,abs(xn));
    vec2 gp=fract(p*165.)-.5;col*=.8+.3*(1.-smoothstep(.2,.5,length(gp)));
-   gl_FragColor=vec4(col*.5,mask);}`});
+   gl_FragColor=vec4(col*.6,mask);}`});
 const eyePlane=new THREE.Mesh(new THREE.PlaneGeometry(2.3,1.5),eyeMat);eyePlane.renderOrder=2;eye.add(eyePlane);
 
 // THE FLOW: dense pixel strands streaming out of the eye, side contour ripples, long sweeping strands
