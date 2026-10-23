@@ -7,12 +7,12 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-24T01:22:05+04:00",
+ "updated_at": "2026-10-24T01:23:05+04:00",
  "balance": 101374.05,
  "equity": 102119.64,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": -20288.82,
- "combined_total_pnl": -18914.77,
+ "shadow_total_pnl": -20294.95,
+ "combined_total_pnl": -18920.9,
  "daily": [
   {
    "date": "2026-10-23",
@@ -28,9 +28,9 @@
    "pnl": 543.41,
    "balance": 101374.05,
    "trades": 4,
-   "shadow_pnl": 2484.39,
-   "shadow_trades": 833,
-   "combined_pnl": 3027.8,
+   "shadow_pnl": 2478.26,
+   "shadow_trades": 853,
+   "combined_pnl": 3021.67,
    "equity": 102119.64,
    "open_positions": 4
   }
@@ -418,7 +418,7 @@
    "today_trades": 4,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
-   "open": 0
+   "open": 1
   },
   "SF_LINK_VWAP_V2": {
    "pnl": 0,
@@ -16863,13 +16863,13 @@
    "open": 0
   },
   "NT_OBI_TOB_SUI": {
-   "pnl": -258.01,
-   "trades": 1714,
+   "pnl": -261.61,
+   "trades": 1728,
    "wins": 487,
-   "sum_r": -0.611,
+   "sum_r": -0.62,
    "max_dd": 311.31,
-   "today_pnl": 41.22,
-   "today_trades": 274,
+   "today_pnl": 37.62,
+   "today_trades": 288,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
    "open": 1
@@ -16923,13 +16923,13 @@
    "open": 0
   },
   "NT_OBI_TOB_DOGE": {
-   "pnl": -365.73,
-   "trades": 1192,
-   "wins": 446,
-   "sum_r": -0.905,
+   "pnl": -363.8,
+   "trades": 1195,
+   "wins": 449,
+   "sum_r": -0.9,
    "max_dd": 980.22,
-   "today_pnl": 220.82,
-   "today_trades": 102,
+   "today_pnl": 222.75,
+   "today_trades": 105,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
    "open": 1
@@ -16983,13 +16983,13 @@
    "open": 0
   },
   "NT_OBI_TOB_BNB": {
-   "pnl": -1648.3,
-   "trades": 1006,
+   "pnl": -1648.65,
+   "trades": 1008,
    "wins": 115,
    "sum_r": -4.101,
-   "max_dd": 1648.3,
-   "today_pnl": -238.86,
-   "today_trades": 155,
+   "max_dd": 1648.65,
+   "today_pnl": -239.21,
+   "today_trades": 157,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
    "open": 1
@@ -17007,16 +17007,16 @@
    "open": 1
   },
   "NT_CMM_BNB": {
-   "pnl": -1700.04,
-   "trades": 94,
+   "pnl": -1704.15,
+   "trades": 95,
    "wins": 2,
-   "sum_r": -4.248,
-   "max_dd": 1700.04,
-   "today_pnl": -186.44,
-   "today_trades": 14,
+   "sum_r": -4.258,
+   "max_dd": 1704.15,
+   "today_pnl": -190.55,
+   "today_trades": 15,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
-   "open": 1
+   "open": 0
   },
   "NT_HVPIN_BNB": {
    "pnl": -26.42,
@@ -17363,7 +17363,7 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-24T01:22:05+04:00",
+  "updated_dubai": "2026-10-24T01:23:05+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
    "target_progress_pct": 13.7,
