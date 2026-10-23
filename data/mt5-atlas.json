@@ -7,22 +7,22 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-23T20:12:35+04:00",
+ "updated_at": "2026-10-23T20:13:35+04:00",
  "balance": 99896.87,
- "equity": 100417.65,
+ "equity": 100434.91,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": -22257.51,
- "combined_total_pnl": -22360.64,
+ "shadow_total_pnl": -22384.96,
+ "combined_total_pnl": -22488.09,
  "daily": [
   {
    "date": "2026-10-23",
    "pnl": -103.13,
    "balance": 99896.87,
    "trades": 59,
-   "shadow_pnl": -22257.51,
-   "shadow_trades": 2593,
-   "combined_pnl": -22360.64,
-   "equity": 100417.65,
+   "shadow_pnl": -22384.96,
+   "shadow_trades": 2608,
+   "combined_pnl": -22488.09,
+   "equity": 100434.91,
    "open_positions": 5
   }
  ],
@@ -7612,13 +7612,13 @@
    "open": 0
   },
   "NT_OBI_TOB_BTC": {
-   "pnl": -15691.55,
-   "trades": 535,
+   "pnl": -15808.0,
+   "trades": 537,
    "wins": 50,
-   "sum_r": -39.219,
-   "max_dd": 16723.29,
-   "today_pnl": -15691.55,
-   "today_trades": 535,
+   "sum_r": -39.51,
+   "max_dd": 16839.74,
+   "today_pnl": -15808.0,
+   "today_trades": 537,
    "mode": "SHADOW",
    "symbol": "BTCUSD",
    "open": 1
@@ -7732,13 +7732,13 @@
    "open": 0
   },
   "NT_OBI_TOB_SUI": {
-   "pnl": -124.36,
-   "trades": 526,
+   "pnl": -128.24,
+   "trades": 537,
    "wins": 101,
-   "sum_r": -0.293,
-   "max_dd": 124.36,
-   "today_pnl": -124.36,
-   "today_trades": 526,
+   "sum_r": -0.303,
+   "max_dd": 128.24,
+   "today_pnl": -128.24,
+   "today_trades": 537,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
    "open": 1
@@ -7825,7 +7825,7 @@
    "today_trades": 52,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
-   "open": 0
+   "open": 1
   },
   "NT_HVPIN_DOGE": {
    "pnl": -3.97,
@@ -7852,13 +7852,13 @@
    "open": 0
   },
   "NT_OBI_TOB_BNB": {
-   "pnl": -540.66,
-   "trades": 388,
+   "pnl": -547.78,
+   "trades": 390,
    "wins": 101,
-   "sum_r": -1.346,
-   "max_dd": 540.66,
-   "today_pnl": -540.66,
-   "today_trades": 388,
+   "sum_r": -1.364,
+   "max_dd": 547.78,
+   "today_pnl": -547.78,
+   "today_trades": 390,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
    "open": 1
