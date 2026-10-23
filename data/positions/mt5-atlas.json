@@ -1,8 +1,34 @@
 {
  "project": "ATLAS-MT5-GK-1",
  "bot": "MT5",
- "updated_at": "2026-10-23T23:07:45+04:00",
+ "updated_at": "2026-10-23T23:08:45+04:00",
  "positions": [
+  {
+   "id": "SH-NT_HVPIN_BNB-1792782518",
+   "opened_at": "2026-10-23T23:08:38+04:00",
+   "closed_at": null,
+   "status": "open",
+   "strategy": "NT_HVPIN_BNB",
+   "asset": "BNBUSD",
+   "side": "sell",
+   "lots": 1.09,
+   "rr": -0.0,
+   "pnl": -0.01,
+   "mode": "shadow"
+  },
+  {
+   "id": "11094382842",
+   "opened_at": "2026-10-23T23:08:00+04:00",
+   "closed_at": null,
+   "status": "open",
+   "strategy": "NT_EMAX_EUR",
+   "asset": "EURUSD",
+   "side": "buy",
+   "lots": 5.88,
+   "rr": -0.01,
+   "pnl": -5.88,
+   "mode": "live"
+  },
   {
    "id": "SH-NT_HVPIN_SUI-1792782261",
    "opened_at": "2026-10-23T23:04:21+04:00",
@@ -13,21 +39,8 @@
    "side": "sell",
    "lots": 820.1,
    "rr": 0.0,
-   "pnl": 1.31,
+   "pnl": 1.72,
    "mode": "shadow"
-  },
-  {
-   "id": "11094345048",
-   "opened_at": "2026-10-23T23:03:00+04:00",
-   "closed_at": null,
-   "status": "open",
-   "strategy": "NT_EMAX_XAG",
-   "asset": "XAGUSD",
-   "side": "buy",
-   "lots": 0.97,
-   "rr": -0.32,
-   "pnl": -126.1,
-   "mode": "live"
   },
   {
    "id": "SH-SF_LINK_VWAP_V3-1792782148",
@@ -38,8 +51,8 @@
    "asset": "LINKUSD",
    "side": "buy",
    "lots": 0.0,
-   "rr": -0.5,
-   "pnl": -200.53,
+   "rr": -1.17,
+   "pnl": -467.91,
    "mode": "shadow"
   },
   {
@@ -52,7 +65,7 @@
    "side": "sell",
    "lots": 10195.0,
    "rr": 0.0,
-   "pnl": 0.16,
+   "pnl": 0.57,
    "mode": "shadow"
   },
   {
@@ -65,7 +78,7 @@
    "side": "sell",
    "lots": 67.85,
    "rr": 0.0,
-   "pnl": 1.22,
+   "pnl": 1.49,
    "mode": "shadow"
   },
   {
@@ -77,8 +90,8 @@
    "asset": "LINKUSD",
    "side": "buy",
    "lots": 678.53,
-   "rr": 0.01,
-   "pnl": 2.71,
+   "rr": 0.0,
+   "pnl": 0.0,
    "mode": "shadow"
   },
   {
@@ -90,8 +103,8 @@
    "asset": "BNBUSD",
    "side": "buy",
    "lots": 43.84,
-   "rr": -0.11,
-   "pnl": -44.82,
+   "rr": -0.17,
+   "pnl": -69.81,
    "mode": "shadow"
   },
   {
@@ -103,8 +116,8 @@
    "asset": "BNBUSD",
    "side": "buy",
    "lots": 8.55,
-   "rr": -0.0,
-   "pnl": -0.78,
+   "rr": -0.01,
+   "pnl": -5.65,
    "mode": "shadow"
   },
   {
@@ -116,8 +129,8 @@
    "asset": "XAGUSD",
    "side": "buy",
    "lots": 5498.78,
-   "rr": -0.4,
-   "pnl": -160.46,
+   "rr": -0.95,
+   "pnl": -380.4,
    "mode": "shadow"
   },
   {
@@ -128,9 +141,9 @@
    "strategy": "NT_OBI_TOB_SUI",
    "asset": "SUIUSD",
    "side": "sell",
-   "lots": 5689.3,
+   "lots": 5824.3,
    "rr": 0.02,
-   "pnl": 9.65,
+   "pnl": 9.28,
    "mode": "shadow"
   },
   {
@@ -142,8 +155,8 @@
    "asset": "USDJPY",
    "side": "sell",
    "lots": 5.86,
-   "rr": 0.03,
-   "pnl": 11.2,
+   "rr": -0.06,
+   "pnl": -26.13,
    "mode": "live"
   },
   {
@@ -155,8 +168,8 @@
    "asset": "USTEC",
    "side": "sell",
    "lots": 0.0,
-   "rr": 0.68,
-   "pnl": 271.67,
+   "rr": 0.74,
+   "pnl": 296.67,
    "mode": "shadow"
   },
   {
@@ -168,8 +181,8 @@
    "asset": "US500",
    "side": "sell",
    "lots": 0.0,
-   "rr": 0.14,
-   "pnl": 55.9,
+   "rr": 0.18,
+   "pnl": 73.36,
    "mode": "shadow"
   },
   {
@@ -181,8 +194,8 @@
    "asset": "DOGEUSD",
    "side": "buy",
    "lots": 305871.0,
-   "rr": -0.12,
-   "pnl": -49.96,
+   "rr": -0.16,
+   "pnl": -62.19,
    "mode": "shadow"
   },
   {
@@ -194,8 +207,8 @@
    "asset": "USTEC",
    "side": "sell",
    "lots": 0.0,
-   "rr": 1.36,
-   "pnl": 544.66,
+   "rr": 1.43,
+   "pnl": 572.22,
    "mode": "shadow"
   },
   {
@@ -207,8 +220,8 @@
    "asset": "SUIUSD",
    "side": "sell",
    "lots": 16402.8,
-   "rr": 0.1,
-   "pnl": 40.19,
+   "rr": 0.12,
+   "pnl": 48.39,
    "mode": "shadow"
   },
   {
@@ -220,8 +233,8 @@
    "asset": "BTCUSD",
    "side": "buy",
    "lots": 0.4,
-   "rr": -0.08,
-   "pnl": -30.88,
+   "rr": -0.13,
+   "pnl": -50.95,
    "mode": "shadow"
   },
   {
@@ -234,7 +247,7 @@
    "side": "sell",
    "lots": 11.87,
    "rr": -0.0,
-   "pnl": -0.92,
+   "pnl": -0.46,
    "mode": "shadow"
   },
   {
@@ -246,8 +259,8 @@
    "asset": "USTEC",
    "side": "buy",
    "lots": 0.0,
-   "rr": -0.22,
-   "pnl": -87.88,
+   "rr": -0.29,
+   "pnl": -115.48,
    "mode": "shadow"
   },
   {
@@ -258,9 +271,9 @@
    "strategy": "NT_OBI_TOB_DOGE",
    "asset": "DOGEUSD",
    "side": "sell",
-   "lots": 2456218.0,
-   "rr": 1.75,
-   "pnl": 698.58,
+   "lots": 2440922.0,
+   "rr": 1.95,
+   "pnl": 779.46,
    "mode": "shadow"
   },
   {
@@ -272,8 +285,8 @@
    "asset": "XAUUSD",
    "side": "buy",
    "lots": 49.87,
-   "rr": 0.0,
-   "pnl": 0.11,
+   "rr": -0.16,
+   "pnl": -62.46,
    "mode": "shadow"
   },
   {
@@ -285,8 +298,8 @@
    "asset": "USDJPY",
    "side": "buy",
    "lots": 200000.0,
-   "rr": -0.26,
-   "pnl": -102.64,
+   "rr": -0.21,
+   "pnl": -84.79,
    "mode": "shadow"
   },
   {
@@ -299,7 +312,7 @@
    "side": "buy",
    "lots": 142125.2,
    "rr": 0.14,
-   "pnl": 56.14,
+   "pnl": 54.01,
    "mode": "shadow"
   },
   {
@@ -311,8 +324,8 @@
    "asset": "USTEC",
    "side": "sell",
    "lots": 0.0,
-   "rr": 1.3,
-   "pnl": 519.49,
+   "rr": 1.34,
+   "pnl": 534.68,
    "mode": "shadow"
   },
   {
@@ -325,7 +338,7 @@
    "side": "sell",
    "lots": 2.0,
    "rr": -0.0,
-   "pnl": -1.32,
+   "pnl": -1.26,
    "mode": "shadow"
   },
   {
@@ -338,7 +351,7 @@
    "side": "buy",
    "lots": 74707.63,
    "rr": 0.13,
-   "pnl": 52.67,
+   "pnl": 51.55,
    "mode": "shadow"
   },
   {
@@ -349,9 +362,9 @@
    "strategy": "NT_OBI_TOB_BTC",
    "asset": "BTCUSD",
    "side": "sell",
-   "lots": 88.46,
-   "rr": 34.16,
-   "pnl": 13664.97,
+   "lots": 88.23,
+   "rr": 44.78,
+   "pnl": 17912.88,
    "mode": "shadow"
   },
   {
@@ -363,8 +376,8 @@
    "asset": "BTCUSD",
    "side": "sell",
    "lots": 2.0,
-   "rr": -0.13,
-   "pnl": -51.51,
+   "rr": -0.12,
+   "pnl": -48.34,
    "mode": "shadow"
   },
   {
@@ -375,9 +388,9 @@
    "strategy": "NT_SSQ_ETH_SWAP",
    "asset": "ETHUSD",
    "side": "buy",
-   "lots": 0.85,
-   "rr": 0.0,
-   "pnl": 0.59,
+   "lots": 1.26,
+   "rr": -0.0,
+   "pnl": -0.38,
    "mode": "shadow"
   },
   {
@@ -389,8 +402,8 @@
    "asset": "ETHUSD",
    "side": "buy",
    "lots": 3.75,
-   "rr": -0.03,
-   "pnl": -13.28,
+   "rr": -0.05,
+   "pnl": -18.05,
    "mode": "shadow"
   },
   {
@@ -401,9 +414,9 @@
    "strategy": "NT_OBI_TOB_LINK",
    "asset": "LINKUSD",
    "side": "buy",
-   "lots": 4257.06,
-   "rr": -0.71,
-   "pnl": -284.63,
+   "lots": 4254.87,
+   "rr": -0.75,
+   "pnl": -301.49,
    "mode": "shadow"
   },
   {
@@ -415,8 +428,8 @@
    "asset": "DOGEUSD",
    "side": "buy",
    "lots": 407828.0,
-   "rr": 0.31,
-   "pnl": 122.35,
+   "rr": 0.27,
+   "pnl": 106.04,
    "mode": "shadow"
   },
   {
@@ -428,8 +441,8 @@
    "asset": "BNBUSD",
    "side": "buy",
    "lots": 10.96,
-   "rr": -0.09,
-   "pnl": -35.07,
+   "rr": -0.1,
+   "pnl": -41.32,
    "mode": "shadow"
   },
   {
@@ -442,7 +455,7 @@
    "side": "buy",
    "lots": 1.87,
    "rr": 0.46,
-   "pnl": 183.26,
+   "pnl": 181.39,
    "mode": "live"
   },
   {
@@ -455,8 +468,229 @@
    "side": "sell",
    "lots": 1.0,
    "rr": 0.16,
-   "pnl": 65.0,
+   "pnl": 64.0,
    "mode": "live"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_DOGE-1792777932-2",
+   "opened_at": "2026-10-23T21:52:12+04:00",
+   "closed_at": "2026-10-23T23:08:35+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_DOGE",
+   "asset": "DOGEUSD",
+   "side": "sell",
+   "lots": 7567.0,
+   "rr": 0.01,
+   "pnl": 2.5,
+   "mode": "shadow"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_DOGE-1792777944",
+   "opened_at": "2026-10-23T21:52:24+04:00",
+   "closed_at": "2026-10-23T23:08:35+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_DOGE",
+   "asset": "DOGEUSD",
+   "side": "sell",
+   "lots": 24201.0,
+   "rr": 0.02,
+   "pnl": 6.8,
+   "mode": "shadow"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_BTC-1792776690-2",
+   "opened_at": "2026-10-23T21:31:30+04:00",
+   "closed_at": "2026-10-23T23:08:33+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_BTC",
+   "asset": "BTCUSD",
+   "side": "sell",
+   "lots": 0.23,
+   "rr": 0.06,
+   "pnl": 25.12,
+   "mode": "shadow"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_BTC-1792776706",
+   "opened_at": "2026-10-23T21:31:46+04:00",
+   "closed_at": "2026-10-23T23:08:33+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_BTC",
+   "asset": "BTCUSD",
+   "side": "sell",
+   "lots": 0.05,
+   "rr": 0.01,
+   "pnl": 5.24,
+   "mode": "shadow"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_BTC-1792776721",
+   "opened_at": "2026-10-23T21:32:01+04:00",
+   "closed_at": "2026-10-23T23:08:33+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_BTC",
+   "asset": "BTCUSD",
+   "side": "sell",
+   "lots": 0.04,
+   "rr": 0.01,
+   "pnl": 4.74,
+   "mode": "shadow"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_BTC-1792776776",
+   "opened_at": "2026-10-23T21:32:56+04:00",
+   "closed_at": "2026-10-23T23:08:33+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_BTC",
+   "asset": "BTCUSD",
+   "side": "sell",
+   "lots": 0.17,
+   "rr": 0.05,
+   "pnl": 19.17,
+   "mode": "shadow"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_SUI-1792781718-3",
+   "opened_at": "2026-10-23T22:55:18+04:00",
+   "closed_at": "2026-10-23T23:08:33+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_SUI",
+   "asset": "SUIUSD",
+   "side": "sell",
+   "lots": 127.8,
+   "rr": 0.0,
+   "pnl": 0.31,
+   "mode": "shadow"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_SUI-1792781764",
+   "opened_at": "2026-10-23T22:56:04+04:00",
+   "closed_at": "2026-10-23T23:08:33+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_SUI",
+   "asset": "SUIUSD",
+   "side": "sell",
+   "lots": 208.6,
+   "rr": 0.0,
+   "pnl": 0.38,
+   "mode": "shadow"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_SUI-1792781940",
+   "opened_at": "2026-10-23T22:59:00+04:00",
+   "closed_at": "2026-10-23T23:08:33+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_SUI",
+   "asset": "SUIUSD",
+   "side": "sell",
+   "lots": 95.7,
+   "rr": 0.0,
+   "pnl": 0.22,
+   "mode": "shadow"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_DOGE-1792777880-5",
+   "opened_at": "2026-10-23T21:51:20+04:00",
+   "closed_at": "2026-10-23T23:08:30+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_DOGE",
+   "asset": "DOGEUSD",
+   "side": "sell",
+   "lots": 21.0,
+   "rr": 0.0,
+   "pnl": 0.01,
+   "mode": "shadow"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_DOGE-1792777932",
+   "opened_at": "2026-10-23T21:52:12+04:00",
+   "closed_at": "2026-10-23T23:08:30+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_DOGE",
+   "asset": "DOGEUSD",
+   "side": "sell",
+   "lots": 1844.0,
+   "rr": 0.0,
+   "pnl": 0.63,
+   "mode": "shadow"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_BTC-1792776661-2",
+   "opened_at": "2026-10-23T21:31:01+04:00",
+   "closed_at": "2026-10-23T23:08:28+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_BTC",
+   "asset": "BTCUSD",
+   "side": "sell",
+   "lots": 0.05,
+   "rr": 0.01,
+   "pnl": 3.57,
+   "mode": "shadow"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_BTC-1792776690",
+   "opened_at": "2026-10-23T21:31:30+04:00",
+   "closed_at": "2026-10-23T23:08:28+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_BTC",
+   "asset": "BTCUSD",
+   "side": "sell",
+   "lots": 0.26,
+   "rr": 0.07,
+   "pnl": 28.29,
+   "mode": "shadow"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_DOGE-1792777880-4",
+   "opened_at": "2026-10-23T21:51:20+04:00",
+   "closed_at": "2026-10-23T23:08:12+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_DOGE",
+   "asset": "DOGEUSD",
+   "side": "sell",
+   "lots": 5431.0,
+   "rr": 0.01,
+   "pnl": 1.91,
+   "mode": "shadow"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_SUI-1792781718-2",
+   "opened_at": "2026-10-23T22:55:18+04:00",
+   "closed_at": "2026-10-23T23:08:11+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_SUI",
+   "asset": "SUIUSD",
+   "side": "sell",
+   "lots": 275.9,
+   "rr": 0.0,
+   "pnl": 0.78,
+   "mode": "shadow"
+  },
+  {
+   "id": "11094345048",
+   "opened_at": "2026-10-23T23:03:00+04:00",
+   "closed_at": "2026-10-23T23:08:00+04:00",
+   "status": "closed",
+   "strategy": "NT_EMAX_XAG",
+   "asset": "XAGUSD",
+   "side": "buy",
+   "lots": 0.97,
+   "rr": -0.65,
+   "pnl": -257.05,
+   "mode": "live"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_LINK-1792767410-4",
+   "opened_at": "2026-10-23T18:56:50+04:00",
+   "closed_at": "2026-10-23T23:07:55+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_LINK",
+   "asset": "LINKUSD",
+   "side": "buy",
+   "lots": 2.19,
+   "rr": -0.0,
+   "pnl": -0.22,
+   "mode": "shadow"
   },
   {
    "id": "SH-NT_OBI_TOB_SUI-1792781608-2",
