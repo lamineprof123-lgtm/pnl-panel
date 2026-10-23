@@ -195,7 +195,7 @@ const eyePlane=new THREE.Mesh(new THREE.PlaneGeometry(2.3,1.5),eyeMat);eyePlane.
    const w=1+.03*Math.sin(th*9+k*.7);const x=cs*rx*w,y=sn*ry*w;
    add(x,y,-.06*rx*rx,pick(blue),.3*side*(.5*(1-k/NR)+.1)*(.4+.6*rnd())*(cs<0?1:.75),rx-1.2,ph,1,.8+rnd()*.5)}}
  const NS=Math.round(12*D);
- for(let i=0;i<NS;i++){const sd=i%3===0?-1:1,ph=rnd(),L=3+rnd()*2.5,a0=(sd>0?1.25:1.9)+(rnd()-.5)*.5,bend=(.25+rnd()*.5)*(rnd()<.5?1:-1);
+ for(let i=0;i<NS;i++){const sd=i%3===0?-1:1,ph=rnd(),L=3+rnd()*2.5,a0=(sd>0?1.25:1.9)+(rnd()-.5)*.5,bend=(.06+rnd()*.18)*(rnd()<.5?1:-1);
   let x=sd*(EW*1.05+rnd()*.3),y=(rnd()-.3)*.25,a=sd>0?a0:Math.PI-a0;const c=rnd()<.5?[.5,.9,1]:[.35,.6,1];
   for(let t=0;t<L;t+=.012/Math.sqrt(D)){a+=bend*.012*sd/Math.sqrt(D)*(sd>0?1:-1);x+=Math.cos(a)*.012/Math.sqrt(D);y+=Math.sin(a)*.012/Math.sqrt(D);
    add(x,y,-.05*t*t,c,.22*Math.pow(1-t/L,1.2)*(.6+.4*rnd()),t,ph,2,1+rnd()*.6)}}
