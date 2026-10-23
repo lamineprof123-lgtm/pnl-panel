@@ -7,12 +7,12 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-24T02:29:14+04:00",
+ "updated_at": "2026-10-24T02:30:14+04:00",
  "balance": 101374.05,
  "equity": 102119.64,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": -18819.38,
- "combined_total_pnl": -17445.33,
+ "shadow_total_pnl": -18818.07,
+ "combined_total_pnl": -17444.02,
  "daily": [
   {
    "date": "2026-10-23",
@@ -28,9 +28,9 @@
    "pnl": 543.41,
    "balance": 101374.05,
    "trades": 4,
-   "shadow_pnl": 3953.83,
-   "shadow_trades": 1422,
-   "combined_pnl": 4497.24,
+   "shadow_pnl": 3955.14,
+   "shadow_trades": 1427,
+   "combined_pnl": 4498.55,
    "equity": 102119.64,
    "open_positions": 4
   }
@@ -16803,13 +16803,13 @@
    "open": 0
   },
   "NT_OBI_TOB_LINK": {
-   "pnl": -162.81,
-   "trades": 426,
+   "pnl": -165.02,
+   "trades": 430,
    "wins": 81,
-   "sum_r": -0.381,
-   "max_dd": 193.64,
-   "today_pnl": -94.54,
-   "today_trades": 114,
+   "sum_r": -0.385,
+   "max_dd": 195.85,
+   "today_pnl": -96.75,
+   "today_trades": 118,
    "mode": "SHADOW",
    "symbol": "LINKUSD",
    "open": 1
@@ -16827,13 +16827,13 @@
    "open": 0
   },
   "NT_CMM_LINK": {
-   "pnl": -1906.72,
-   "trades": 103,
-   "wins": 17,
-   "sum_r": -4.772,
+   "pnl": -1903.2,
+   "trades": 104,
+   "wins": 18,
+   "sum_r": -4.763,
    "max_dd": 1906.72,
-   "today_pnl": -53.49,
-   "today_trades": 9,
+   "today_pnl": -49.97,
+   "today_trades": 10,
    "mode": "SHADOW",
    "symbol": "LINKUSD",
    "open": 1
@@ -17363,7 +17363,7 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-24T02:29:14+04:00",
+  "updated_dubai": "2026-10-24T02:30:14+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
    "target_progress_pct": 13.7,
