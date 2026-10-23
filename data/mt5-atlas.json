@@ -7,9 +7,9 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-23T13:15:57+04:00",
+ "updated_at": "2026-10-23T13:16:50+04:00",
  "balance": 101072.37,
- "equity": 101579.43,
+ "equity": 101415.37,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
  "shadow_total_pnl": -2000.0,
  "combined_total_pnl": -927.63,
@@ -18,12 +18,12 @@
    "date": "2026-10-23",
    "pnl": 1072.37,
    "balance": 101072.37,
-   "trades": 3,
+   "trades": 2,
    "shadow_pnl": -2000.0,
    "shadow_trades": 5,
    "combined_pnl": -927.63,
-   "equity": 101579.43,
-   "open_positions": 2
+   "equity": 101415.37,
+   "open_positions": 3
   }
  ],
  "strategies": {
@@ -337,7 +337,7 @@
    "today_trades": 3,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
-   "open": 1
+   "open": 0
   },
   "SF_AMD_BRK": {
    "pnl": 0,
@@ -496,13 +496,13 @@
    "open": 0
   },
   "SF_SQZ_XAU_X": {
-   "pnl": -259.26,
-   "trades": 2,
+   "pnl": -129.63,
+   "trades": 1,
    "wins": 0,
-   "sum_r": -0.644,
-   "max_dd": 259.26,
-   "today_pnl": -259.26,
-   "today_trades": 2,
+   "sum_r": -0.322,
+   "max_dd": 129.63,
+   "today_pnl": -129.63,
+   "today_trades": 1,
    "mode": "LIVE",
    "symbol": "XAUUSD",
    "open": 0
@@ -3517,7 +3517,7 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAGUSD",
-   "open": 0
+   "open": 1
   },
   "WICK_V2_AMD": {
    "pnl": 0,
