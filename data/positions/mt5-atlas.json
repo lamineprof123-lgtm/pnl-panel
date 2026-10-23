@@ -1,8 +1,21 @@
 {
  "project": "ATLAS-MT5-GK-1",
  "bot": "MT5",
- "updated_at": "2026-10-23T22:03:45+04:00",
+ "updated_at": "2026-10-23T22:04:45+04:00",
  "positions": [
+  {
+   "id": "SH-SF_SUI_BB-1792778655",
+   "opened_at": "2026-10-23T22:04:15+04:00",
+   "closed_at": null,
+   "status": "open",
+   "strategy": "SF_SUI_BB",
+   "asset": "SUIUSD",
+   "side": "buy",
+   "lots": 0.0,
+   "rr": -0.4,
+   "pnl": -161.94,
+   "mode": "shadow"
+  },
   {
    "id": "SH-NT_OBI_TOB_BNB-1792778609",
    "opened_at": "2026-10-23T22:03:29+04:00",
@@ -11,9 +24,9 @@
    "strategy": "NT_OBI_TOB_BNB",
    "asset": "BNBUSD",
    "side": "sell",
-   "lots": 0.18,
-   "rr": -0.0,
-   "pnl": -0.0,
+   "lots": 1.23,
+   "rr": 0.0,
+   "pnl": 0.4,
    "mode": "shadow"
   },
   {
@@ -25,8 +38,8 @@
    "asset": "USTEC",
    "side": "sell",
    "lots": 0.0,
-   "rr": 0.05,
-   "pnl": 19.29,
+   "rr": 0.52,
+   "pnl": 208.5,
    "mode": "shadow"
   },
   {
@@ -38,8 +51,8 @@
    "asset": "XAGUSD",
    "side": "buy",
    "lots": 1799.27,
-   "rr": -0.02,
-   "pnl": -6.3,
+   "rr": -0.05,
+   "pnl": -20.68,
    "mode": "shadow"
   },
   {
@@ -51,8 +64,8 @@
    "asset": "BNBUSD",
    "side": "sell",
    "lots": 0.0,
-   "rr": 1.5,
-   "pnl": 600.88,
+   "rr": 2.41,
+   "pnl": 965.7,
    "mode": "shadow"
   },
   {
@@ -64,8 +77,8 @@
    "asset": "EURUSD",
    "side": "buy",
    "lots": 5.88,
-   "rr": 0.15,
-   "pnl": 58.8,
+   "rr": 0.16,
+   "pnl": 64.68,
    "mode": "live"
   },
   {
@@ -77,8 +90,8 @@
    "asset": "XAUUSD",
    "side": "buy",
    "lots": 0.66,
-   "rr": 0.27,
-   "pnl": 108.24,
+   "rr": 0.26,
+   "pnl": 102.3,
    "mode": "live"
   },
   {
@@ -91,7 +104,7 @@
    "side": "buy",
    "lots": 67.85,
    "rr": -0.0,
-   "pnl": -0.57,
+   "pnl": -0.78,
    "mode": "shadow"
   },
   {
@@ -102,9 +115,9 @@
    "strategy": "NT_OBI_TOB_SUI",
    "asset": "SUIUSD",
    "side": "buy",
-   "lots": 1404.7,
+   "lots": 611.2,
    "rr": -0.0,
-   "pnl": -1.06,
+   "pnl": -1.07,
    "mode": "shadow"
   },
   {
@@ -116,8 +129,8 @@
    "asset": "XAGUSD",
    "side": "buy",
    "lots": 0.79,
-   "rr": 0.47,
-   "pnl": 185.65,
+   "rr": 0.59,
+   "pnl": 237.0,
    "mode": "live"
   },
   {
@@ -129,8 +142,8 @@
    "asset": "DOGEUSD",
    "side": "sell",
    "lots": 10195.0,
-   "rr": -0.0,
-   "pnl": -0.0,
+   "rr": 0.0,
+   "pnl": 0.71,
    "mode": "shadow"
   },
   {
@@ -142,8 +155,8 @@
    "asset": "SUIUSD",
    "side": "sell",
    "lots": 820.1,
-   "rr": -0.0,
-   "pnl": -0.41,
+   "rr": 0.0,
+   "pnl": 0.57,
    "mode": "shadow"
   },
   {
@@ -155,8 +168,8 @@
    "asset": "SUIUSD",
    "side": "sell",
    "lots": 16402.8,
-   "rr": 0.03,
-   "pnl": 10.66,
+   "rr": 0.08,
+   "pnl": 30.35,
    "mode": "shadow"
   },
   {
@@ -169,7 +182,7 @@
    "side": "buy",
    "lots": 0.3,
    "rr": -0.03,
-   "pnl": -12.35,
+   "pnl": -13.55,
    "mode": "shadow"
   },
   {
@@ -182,7 +195,7 @@
    "side": "sell",
    "lots": 11.87,
    "rr": -0.0,
-   "pnl": -1.35,
+   "pnl": -1.27,
    "mode": "shadow"
   },
   {
@@ -194,8 +207,8 @@
    "asset": "USTEC",
    "side": "buy",
    "lots": 0.0,
-   "rr": 1.1,
-   "pnl": 438.46,
+   "rr": 0.62,
+   "pnl": 248.91,
    "mode": "shadow"
   },
   {
@@ -207,8 +220,8 @@
    "asset": "DOGEUSD",
    "side": "sell",
    "lots": 816462.0,
-   "rr": 0.08,
-   "pnl": 31.9,
+   "rr": 0.22,
+   "pnl": 89.05,
    "mode": "shadow"
   },
   {
@@ -219,9 +232,9 @@
    "strategy": "NT_CMM_BNB",
    "asset": "BNBUSD",
    "side": "buy",
-   "lots": 32.88,
-   "rr": -0.1,
-   "pnl": -39.12,
+   "lots": 43.84,
+   "rr": -0.13,
+   "pnl": -52.6,
    "mode": "shadow"
   },
   {
@@ -233,8 +246,8 @@
    "asset": "XAUUSD",
    "side": "buy",
    "lots": 49.87,
-   "rr": 0.39,
-   "pnl": 155.8,
+   "rr": 0.31,
+   "pnl": 123.45,
    "mode": "shadow"
   },
   {
@@ -246,8 +259,8 @@
    "asset": "LINKUSD",
    "side": "sell",
    "lots": 1357.06,
-   "rr": 0.05,
-   "pnl": 19.0,
+   "rr": 0.06,
+   "pnl": 23.07,
    "mode": "shadow"
   },
   {
@@ -259,8 +272,8 @@
    "asset": "USDJPY",
    "side": "buy",
    "lots": 200000.0,
-   "rr": -0.15,
-   "pnl": -59.91,
+   "rr": -0.14,
+   "pnl": -54.82,
    "mode": "shadow"
   },
   {
@@ -273,7 +286,7 @@
    "side": "buy",
    "lots": 142125.2,
    "rr": 0.06,
-   "pnl": 25.58,
+   "pnl": 23.45,
    "mode": "shadow"
   },
   {
@@ -285,8 +298,8 @@
    "asset": "USTEC",
    "side": "sell",
    "lots": 0.0,
-   "rr": 0.57,
-   "pnl": 229.87,
+   "rr": 0.84,
+   "pnl": 334.18,
    "mode": "shadow"
   },
   {
@@ -298,8 +311,8 @@
    "asset": "ETHUSD",
    "side": "sell",
    "lots": 2.0,
-   "rr": -0.01,
-   "pnl": -3.44,
+   "rr": -0.0,
+   "pnl": -1.72,
    "mode": "shadow"
   },
   {
@@ -311,8 +324,8 @@
    "asset": "GBPUSD",
    "side": "buy",
    "lots": 149527.69,
-   "rr": 0.06,
-   "pnl": 23.19,
+   "rr": 0.03,
+   "pnl": 11.97,
    "mode": "shadow"
   },
   {
@@ -324,8 +337,8 @@
    "asset": "BTCUSD",
    "side": "sell",
    "lots": 56.77,
-   "rr": 16.14,
-   "pnl": 6455.31,
+   "rr": 16.71,
+   "pnl": 6682.38,
    "mode": "shadow"
   },
   {
@@ -337,8 +350,8 @@
    "asset": "BTCUSD",
    "side": "sell",
    "lots": 2.0,
-   "rr": -0.15,
-   "pnl": -60.36,
+   "rr": -0.13,
+   "pnl": -51.36,
    "mode": "shadow"
   },
   {
@@ -351,7 +364,7 @@
    "side": "buy",
    "lots": 0.85,
    "rr": 0.02,
-   "pnl": 8.54,
+   "pnl": 6.82,
    "mode": "shadow"
   },
   {
@@ -363,8 +376,8 @@
    "asset": "ETHUSD",
    "side": "buy",
    "lots": 3.75,
-   "rr": 0.04,
-   "pnl": 14.45,
+   "rr": 0.03,
+   "pnl": 11.58,
    "mode": "shadow"
   },
   {
@@ -376,8 +389,8 @@
    "asset": "LINKUSD",
    "side": "buy",
    "lots": 3433.56,
-   "rr": -0.07,
-   "pnl": -29.68,
+   "rr": -0.1,
+   "pnl": -39.98,
    "mode": "shadow"
   },
   {
@@ -389,8 +402,8 @@
    "asset": "DOGEUSD",
    "side": "buy",
    "lots": 407828.0,
-   "rr": 0.73,
-   "pnl": 293.64,
+   "rr": 0.66,
+   "pnl": 265.09,
    "mode": "shadow"
   },
   {
@@ -402,8 +415,8 @@
    "asset": "BNBUSD",
    "side": "buy",
    "lots": 10.96,
-   "rr": -0.03,
-   "pnl": -13.15,
+   "rr": -0.04,
+   "pnl": -16.88,
    "mode": "shadow"
   },
   {
@@ -416,7 +429,7 @@
    "side": "buy",
    "lots": 1.87,
    "rr": 0.36,
-   "pnl": 140.25,
+   "pnl": 143.99,
    "mode": "live"
   },
   {
@@ -428,8 +441,8 @@
    "asset": "SUIUSD",
    "side": "sell",
    "lots": 8201.4,
-   "rr": 0.21,
-   "pnl": 82.83,
+   "rr": 0.23,
+   "pnl": 92.68,
    "mode": "shadow"
   },
   {
@@ -442,7 +455,7 @@
    "side": "sell",
    "lots": 1.0,
    "rr": 0.21,
-   "pnl": 87.0,
+   "pnl": 86.0,
    "mode": "live"
   },
   {
