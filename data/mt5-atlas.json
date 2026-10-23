@@ -7,9 +7,9 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-23T14:05:50+04:00",
+ "updated_at": "2026-10-23T14:06:50+04:00",
  "balance": 101336.25,
- "equity": 101917.53,
+ "equity": 101994.87,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
  "shadow_total_pnl": -4400.0,
  "combined_total_pnl": -3063.75,
@@ -22,7 +22,7 @@
    "shadow_pnl": -4400.0,
    "shadow_trades": 11,
    "combined_pnl": -3063.75,
-   "equity": 101917.53,
+   "equity": 101994.87,
    "open_positions": 4
   }
  ],
