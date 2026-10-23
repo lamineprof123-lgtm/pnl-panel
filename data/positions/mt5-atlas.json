@@ -1,8 +1,21 @@
 {
  "project": "ATLAS",
  "bot": "MT5",
- "updated_at": "2026-10-23T17:39:32+04:00",
+ "updated_at": "2026-10-23T17:40:32+04:00",
  "positions": [
+  {
+   "id": "SH-PHM_SPX-1792762800",
+   "opened_at": "2026-10-23T17:40:00+04:00",
+   "closed_at": null,
+   "status": "open",
+   "strategy": "PHM_SPX",
+   "asset": "US500",
+   "side": "sell",
+   "lots": 0.0,
+   "rr": -0.01,
+   "pnl": -3.5,
+   "mode": "shadow"
+  },
   {
    "id": "SH-EMA_ES-1792762501",
    "opened_at": "2026-10-23T17:35:01+04:00",
@@ -12,8 +25,8 @@
    "asset": "US500",
    "side": "sell",
    "lots": 0.0,
-   "rr": 0.37,
-   "pnl": 149.56,
+   "rr": 0.47,
+   "pnl": 188.91,
    "mode": "shadow"
   },
   {
@@ -25,8 +38,8 @@
    "asset": "USTEC",
    "side": "sell",
    "lots": 0.0,
-   "rr": 0.32,
-   "pnl": 128.86,
+   "rr": -0.02,
+   "pnl": -9.01,
    "mode": "shadow"
   },
   {
@@ -38,8 +51,8 @@
    "asset": "XAGUSD",
    "side": "sell",
    "lots": 0.49,
-   "rr": -0.02,
-   "pnl": -7.35,
+   "rr": 0.15,
+   "pnl": 58.8,
    "mode": "live"
   },
   {
@@ -51,8 +64,8 @@
    "asset": "XAUUSD",
    "side": "sell",
    "lots": 1.04,
-   "rr": 0.23,
-   "pnl": 85.28,
+   "rr": 0.5,
+   "pnl": 182.0,
    "mode": "live"
   },
   {
@@ -64,8 +77,8 @@
    "asset": "XAUUSD",
    "side": "sell",
    "lots": 0.59,
-   "rr": 0.2,
-   "pnl": 75.52,
+   "rr": 0.34,
+   "pnl": 130.39,
    "mode": "live"
   },
   {
@@ -78,7 +91,7 @@
    "side": "sell",
    "lots": 0.91,
    "rr": 0.08,
-   "pnl": 30.03,
+   "pnl": 31.85,
    "mode": "live"
   },
   {
@@ -91,7 +104,7 @@
    "side": "sell",
    "lots": 1.0,
    "rr": 0.04,
-   "pnl": 16.0,
+   "pnl": 18.0,
    "mode": "live"
   },
   {
@@ -103,8 +116,8 @@
    "asset": "USTEC",
    "side": "sell",
    "lots": 0.0,
-   "rr": 2.66,
-   "pnl": 1065.18,
+   "rr": 2.2,
+   "pnl": 881.97,
    "mode": "shadow"
   },
   {
