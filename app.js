@@ -9,6 +9,10 @@ const pct=v=>v==null||!isFinite(v)?'—':(v>0?'+':'')+v.toFixed(2)+'%';
 const cls=v=>v>0?'pos':v<0?'neg':'zero';
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function setCls(el,v){el.classList.remove('pos','neg','zero');el.classList.add(cls(v))}
+const NAMES={'polymarket-weather-v2':['Polymarket Weather','Grok Bot'],'tennis-late-edge':['Stake Tennis','Stake'],
+  'walletplay-copytrade-sim':['Solana Copytrade','WalletPlay'],'robinhood-etf-momentum':['Robinhood ETFs','Robinhood'],
+  'robinhood-spacex-agent':['Robinhood SpaceX','Robinhood']};
+const dname=(s,p)=>(NAMES[s]||[])[0]||p.project||s, dbot=(s,p)=>(NAMES[s]||[])[1]||p.bot||'';
 const perName=()=>({daily:'Today',monthly:'This month',yearly:'This year'}[period]);
 
 /* data */
@@ -62,7 +66,7 @@ function spark(id,labels,data,col,flat,cur){
 /* cards */
 function makeCard(slug,i){
   const el=document.createElement('section');el.className='card rise';el.style.setProperty('--d',3+i);el.id='c-'+slug;
-  el.innerHTML=`<div class="c-top"><h3></h3><span class="badge"></span></div>
+  el.innerHTML=`<div class="c-top"><div class="c-name"><h3></h3><div class="c-bot"></div></div><span class="badge"></span></div>
   <div class="c-mid"><div class="c-pnl">$0.00</div><div class="c-roi">0.00%</div></div>
   <div class="c-bal">Balance <b class="eq">—</b></div>
   <div class="spark"><canvas id="sp-${slug}"></canvas><span class="empty">No trades yet</span></div>`;
@@ -70,7 +74,7 @@ function makeCard(slug,i){
 }
 function renderCard(slug,p,i){
   const el=document.getElementById('c-'+slug)||makeCard(slug,i),c=p.cur,live=p.mode==='live';
-  const h=el.querySelector('h3');h.textContent=p.project||slug;h.title=p.bot?`${p.project} · ${p.bot}`:'';
+  const h=el.querySelector('h3');h.textContent=dname(slug,p);h.title=p.project||'';el.querySelector('.c-bot').textContent=dbot(slug,p);
   const b=el.querySelector('.badge');b.className='badge '+(live?'b-live':'b-paper');b.textContent=live?'LIVE':'PAPER';
   const pe=el.querySelector('.c-pnl');tween(pe,p.tot,v=>money(v,c),slug+'tot');setCls(pe,p.tot);
   const re=el.querySelector('.c-roi');re.textContent=pct(p.roi);re.classList.remove('pos','neg');if(p.roi)re.classList.add(cls(p.roi));
