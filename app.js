@@ -90,6 +90,7 @@ function render(){
   let tot=0,cap=0,per=0;const k=today().slice(0,keyLen[period]);
   order.forEach((s,i)=>{const p=projects[s];renderCard(s,p,i);tot+=p.tot;if(p.base)cap+=p.base;const r=agg(p.rows,period).find(r=>r.key===k);if(r)per+=r.pnl});
   document.querySelectorAll('#cards>.card').forEach(e=>{const s=e.id.slice(2);if(!projects[s]){charts['sp-'+s]?.destroy();delete charts['sp-'+s];e.remove()}});
+  const box=$('#cards'),cur=[...box.children].map(e=>e.id.slice(2)).filter(s=>projects[s]);if(cur.join()!==order.join())order.forEach(s=>box.appendChild(document.getElementById('c-'+s)));
   const h=$('#heroPnl');odo(h,money(tot));setCls(h,tot);
   const roi=cap?tot/cap*100:null,re=$('#heroRoi');re.textContent=pct(roi);re.classList.remove('pos','neg');if(roi)re.classList.add(cls(roi));
   $('#perLbl').textContent=perName();const pe=$('#perPnl');tween(pe,per,v=>money(v),'per'+period);pe.classList.remove('pos','neg');if(per)pe.classList.add(cls(per));
