@@ -1,0 +1,18 @@
+{
+ "project": "FOMO copy-trade",
+ "bot": "FOMO",
+ "mode": "paper",
+ "currency": "USD",
+ "start_date": "2026-10-23",
+ "start_balance": 200,
+ "updated_at": "2026-10-23T08:24:31+04:00",
+ "daily": [
+  {
+   "date": "2026-10-23",
+   "pnl": 0.0,
+   "balance": 200.0,
+   "trades": 0,
+   "equity": 200.0
+  }
+ ]
+}
