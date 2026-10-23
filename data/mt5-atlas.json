@@ -7,23 +7,23 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-23T18:24:15+04:00",
+ "updated_at": "2026-10-23T18:25:15+04:00",
  "balance": 100895.87,
- "equity": 100889.75,
+ "equity": 100889.29,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": -7827.32,
- "combined_total_pnl": -6931.45,
+ "shadow_total_pnl": -7653.77,
+ "combined_total_pnl": -6757.9,
  "daily": [
   {
    "date": "2026-10-23",
    "pnl": 895.87,
    "balance": 100895.87,
    "trades": 49,
-   "shadow_pnl": -7827.32,
-   "shadow_trades": 622,
-   "combined_pnl": -6931.45,
-   "equity": 100889.75,
-   "open_positions": 3
+   "shadow_pnl": -7653.77,
+   "shadow_trades": 659,
+   "combined_pnl": -6757.9,
+   "equity": 100889.29,
+   "open_positions": 5
   }
  ],
  "strategies": {
@@ -4981,7 +4981,7 @@
    "today_trades": 1,
    "mode": "LIVE",
    "symbol": "USDJPY",
-   "open": 0
+   "open": 1
   },
   "NT_EMAR_XAU": {
    "pnl": 0,
@@ -5173,7 +5173,7 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "GBPUSD",
-   "open": 0
+   "open": 1
   },
   "NT_HURST_AUD": {
    "pnl": 0,
@@ -5776,13 +5776,13 @@
    "open": 0
   },
   "NT_OBI_TOB_BTC": {
-   "pnl": 753.76,
-   "trades": 95,
-   "wins": 37,
-   "sum_r": 1.889,
+   "pnl": 1015.15,
+   "trades": 105,
+   "wins": 47,
+   "sum_r": 2.543,
    "max_dd": 1186.68,
-   "today_pnl": 753.76,
-   "today_trades": 95,
+   "today_pnl": 1015.15,
+   "today_trades": 105,
    "mode": "SHADOW",
    "symbol": "BTCUSD",
    "open": 1
@@ -5800,13 +5800,13 @@
    "open": 0
   },
   "NT_CMM_BTC": {
-   "pnl": -686.2,
-   "trades": 30,
+   "pnl": -695.09,
+   "trades": 31,
    "wins": 2,
-   "sum_r": -1.718,
-   "max_dd": 686.2,
-   "today_pnl": -686.2,
-   "today_trades": 30,
+   "sum_r": -1.74,
+   "max_dd": 695.09,
+   "today_pnl": -695.09,
+   "today_trades": 31,
    "mode": "SHADOW",
    "symbol": "BTCUSD",
    "open": 1
@@ -5896,13 +5896,13 @@
    "open": 0
   },
   "NT_OBI_TOB_SUI": {
-   "pnl": -61.3,
-   "trades": 120,
-   "wins": 4,
-   "sum_r": -0.145,
+   "pnl": -59.97,
+   "trades": 129,
+   "wins": 13,
+   "sum_r": -0.142,
    "max_dd": 62.08,
-   "today_pnl": -61.3,
-   "today_trades": 120,
+   "today_pnl": -59.97,
+   "today_trades": 129,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
    "open": 1
@@ -5920,13 +5920,13 @@
    "open": 1
   },
   "NT_CMM_SUI": {
-   "pnl": -954.63,
-   "trades": 35,
+   "pnl": -978.17,
+   "trades": 36,
    "wins": 5,
-   "sum_r": -2.385,
-   "max_dd": 970.27,
-   "today_pnl": -954.63,
-   "today_trades": 35,
+   "sum_r": -2.444,
+   "max_dd": 993.81,
+   "today_pnl": -978.17,
+   "today_trades": 36,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
    "open": 1
@@ -5941,7 +5941,7 @@
    "today_trades": 1,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
-   "open": 0
+   "open": 1
   },
   "NT_OBI_L2_DOGE": {
    "pnl": 0,
@@ -5956,13 +5956,13 @@
    "open": 0
   },
   "NT_OBI_TOB_DOGE": {
-   "pnl": -358.45,
-   "trades": 116,
+   "pnl": -362.18,
+   "trades": 121,
    "wins": 4,
-   "sum_r": -0.893,
-   "max_dd": 358.45,
-   "today_pnl": -358.45,
-   "today_trades": 116,
+   "sum_r": -0.902,
+   "max_dd": 362.18,
+   "today_pnl": -362.18,
+   "today_trades": 121,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
    "open": 1
@@ -6001,7 +6001,7 @@
    "today_trades": 1,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
-   "open": 0
+   "open": 1
   },
   "NT_OBI_L2_BNB": {
    "pnl": 0,
@@ -6016,13 +6016,13 @@
    "open": 0
   },
   "NT_OBI_TOB_BNB": {
-   "pnl": -276.48,
-   "trades": 65,
+   "pnl": -329.49,
+   "trades": 76,
    "wins": 2,
-   "sum_r": -0.692,
-   "max_dd": 276.48,
-   "today_pnl": -276.48,
-   "today_trades": 65,
+   "sum_r": -0.825,
+   "max_dd": 329.49,
+   "today_pnl": -329.49,
+   "today_trades": 76,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
    "open": 1
