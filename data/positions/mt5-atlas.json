@@ -1,7 +1,7 @@
 {
  "project": "ATLAS-MT5-GK-1",
  "bot": "MT5",
- "updated_at": "2026-10-23T23:46:13+04:00",
+ "updated_at": "2026-10-23T23:47:13+04:00",
  "positions": [
   {
    "id": "SH-SF_ADA_TAKER_V4-1792784666",
@@ -12,8 +12,8 @@
    "asset": "ADAUSD",
    "side": "buy",
    "lots": 0.0,
-   "rr": 0.0,
-   "pnl": 0.0,
+   "rr": -0.17,
+   "pnl": -66.67,
    "mode": "shadow"
   },
   {
@@ -25,8 +25,8 @@
    "asset": "BNBUSD",
    "side": "sell",
    "lots": 1.09,
-   "rr": -0.0,
-   "pnl": -0.07,
+   "rr": 0.0,
+   "pnl": 0.15,
    "mode": "shadow"
   },
   {
@@ -38,8 +38,8 @@
    "asset": "LINKUSD",
    "side": "sell",
    "lots": 1357.06,
-   "rr": -0.03,
-   "pnl": -10.86,
+   "rr": 0.02,
+   "pnl": 6.79,
    "mode": "shadow"
   },
   {
@@ -65,7 +65,7 @@
    "side": "sell",
    "lots": 10195.0,
    "rr": -0.0,
-   "pnl": -0.31,
+   "pnl": -0.0,
    "mode": "shadow"
   },
   {
@@ -76,9 +76,9 @@
    "strategy": "NT_OBI_TOB_BNB",
    "asset": "BNBUSD",
    "side": "buy",
-   "lots": 18.5,
-   "rr": 0.0,
-   "pnl": 0.97,
+   "lots": 14.33,
+   "rr": -0.01,
+   "pnl": -3.4,
    "mode": "shadow"
   },
   {
@@ -90,8 +90,8 @@
    "asset": "ADAUSD",
    "side": "buy",
    "lots": 0.0,
-   "rr": 1.0,
-   "pnl": 400.0,
+   "rr": 0.6,
+   "pnl": 240.0,
    "mode": "shadow"
   },
   {
@@ -102,9 +102,9 @@
    "strategy": "NT_OBI_TOB_SUI",
    "asset": "SUIUSD",
    "side": "buy",
-   "lots": 6069.9,
-   "rr": 0.01,
-   "pnl": 4.27,
+   "lots": 8524.8,
+   "rr": -0.01,
+   "pnl": -2.03,
    "mode": "shadow"
   },
   {
@@ -116,8 +116,8 @@
    "asset": "SUIUSD",
    "side": "buy",
    "lots": 16402.8,
-   "rr": 0.04,
-   "pnl": 15.58,
+   "rr": 0.01,
+   "pnl": 2.46,
    "mode": "shadow"
   },
   {
@@ -129,8 +129,8 @@
    "asset": "BTCUSD",
    "side": "sell",
    "lots": 0.03,
-   "rr": -0.01,
-   "pnl": -2.28,
+   "rr": -0.0,
+   "pnl": -1.39,
    "mode": "shadow"
   },
   {
@@ -142,8 +142,8 @@
    "asset": "LINKUSD",
    "side": "sell",
    "lots": 67.85,
-   "rr": -0.0,
-   "pnl": -0.33,
+   "rr": 0.0,
+   "pnl": 0.56,
    "mode": "shadow"
   },
   {
@@ -155,8 +155,8 @@
    "asset": "BNBUSD",
    "side": "buy",
    "lots": 21.92,
-   "rr": 0.04,
-   "pnl": 17.21,
+   "rr": 0.03,
+   "pnl": 12.82,
    "mode": "shadow"
   },
   {
@@ -207,8 +207,8 @@
    "asset": "XAGUSD",
    "side": "buy",
    "lots": 5498.78,
-   "rr": -0.4,
-   "pnl": -160.47,
+   "rr": -0.61,
+   "pnl": -242.93,
    "mode": "shadow"
   },
   {
@@ -220,8 +220,8 @@
    "asset": "DOGEUSD",
    "side": "buy",
    "lots": 203914.0,
-   "rr": 0.01,
-   "pnl": 4.08,
+   "rr": -0.01,
+   "pnl": -2.04,
    "mode": "shadow"
   },
   {
@@ -246,8 +246,8 @@
    "asset": "BTCUSD",
    "side": "buy",
    "lots": 0.2,
-   "rr": -0.03,
-   "pnl": -11.27,
+   "rr": -0.04,
+   "pnl": -16.92,
    "mode": "shadow"
   },
   {
@@ -260,7 +260,7 @@
    "side": "sell",
    "lots": 11.87,
    "rr": -0.0,
-   "pnl": -0.91,
+   "pnl": -0.75,
    "mode": "shadow"
   },
   {
@@ -284,9 +284,9 @@
    "strategy": "NT_OBI_TOB_DOGE",
    "asset": "DOGEUSD",
    "side": "sell",
-   "lots": 2721216.0,
-   "rr": 2.44,
-   "pnl": 974.45,
+   "lots": 2736571.0,
+   "rr": 2.64,
+   "pnl": 1056.39,
    "mode": "shadow"
   },
   {
@@ -298,8 +298,8 @@
    "asset": "XAUUSD",
    "side": "buy",
    "lots": 49.87,
-   "rr": 0.48,
-   "pnl": 193.04,
+   "rr": 0.33,
+   "pnl": 133.66,
    "mode": "shadow"
   },
   {
@@ -311,8 +311,8 @@
    "asset": "USDJPY",
    "side": "buy",
    "lots": 200000.0,
-   "rr": -0.14,
-   "pnl": -55.46,
+   "rr": -0.11,
+   "pnl": -45.27,
    "mode": "shadow"
   },
   {
@@ -325,7 +325,7 @@
    "side": "buy",
    "lots": 142125.2,
    "rr": 0.18,
-   "pnl": 72.48,
+   "pnl": 73.19,
    "mode": "shadow"
   },
   {
@@ -338,7 +338,7 @@
    "side": "sell",
    "lots": 2.0,
    "rr": -0.0,
-   "pnl": -1.9,
+   "pnl": -1.75,
    "mode": "shadow"
   },
   {
@@ -351,7 +351,7 @@
    "side": "buy",
    "lots": 74707.63,
    "rr": 0.13,
-   "pnl": 53.79,
+   "pnl": 51.17,
    "mode": "shadow"
   },
   {
@@ -362,9 +362,9 @@
    "strategy": "NT_OBI_TOB_BTC",
    "asset": "BTCUSD",
    "side": "sell",
-   "lots": 106.8,
-   "rr": 34.14,
-   "pnl": 13657.22,
+   "lots": 108.65,
+   "rr": 41.76,
+   "pnl": 16704.93,
    "mode": "shadow"
   },
   {
@@ -376,8 +376,8 @@
    "asset": "BTCUSD",
    "side": "sell",
    "lots": 2.0,
-   "rr": -0.18,
-   "pnl": -70.83,
+   "rr": -0.14,
+   "pnl": -55.54,
    "mode": "shadow"
   },
   {
@@ -389,8 +389,8 @@
    "asset": "ETHUSD",
    "side": "buy",
    "lots": 2.52,
-   "rr": 0.0,
-   "pnl": 1.19,
+   "rr": -0.0,
+   "pnl": -1.81,
    "mode": "shadow"
   },
   {
@@ -402,8 +402,8 @@
    "asset": "ETHUSD",
    "side": "buy",
    "lots": 5.42,
-   "rr": -0.05,
-   "pnl": -19.26,
+   "rr": -0.06,
+   "pnl": -25.46,
    "mode": "shadow"
   },
   {
@@ -414,9 +414,9 @@
    "strategy": "NT_OBI_TOB_LINK",
    "asset": "LINKUSD",
    "side": "buy",
-   "lots": 5380.24,
-   "rr": -0.92,
-   "pnl": -367.55,
+   "lots": 5380.23,
+   "rr": -1.09,
+   "pnl": -437.41,
    "mode": "shadow"
   },
   {
@@ -428,8 +428,8 @@
    "asset": "DOGEUSD",
    "side": "buy",
    "lots": 407828.0,
-   "rr": 0.02,
-   "pnl": 8.16,
+   "rr": -0.01,
+   "pnl": -4.08,
    "mode": "shadow"
   },
   {
@@ -442,7 +442,7 @@
    "side": "buy",
    "lots": 10.96,
    "rr": -0.1,
-   "pnl": -38.79,
+   "pnl": -40.99,
    "mode": "shadow"
   },
   {
@@ -457,6 +457,32 @@
    "rr": 0.53,
    "pnl": 207.57,
    "mode": "live"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_BNB-1792784427-2",
+   "opened_at": "2026-10-23T23:40:27+04:00",
+   "closed_at": "2026-10-23T23:47:03+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_BNB",
+   "asset": "BNBUSD",
+   "side": "buy",
+   "lots": 0.01,
+   "rr": -0.0,
+   "pnl": -0.02,
+   "mode": "shadow"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_LINK-1792769862-2",
+   "opened_at": "2026-10-23T19:37:42+04:00",
+   "closed_at": "2026-10-23T23:46:25+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_LINK",
+   "asset": "LINKUSD",
+   "side": "buy",
+   "lots": 1.32,
+   "rr": -0.0,
+   "pnl": -0.11,
+   "mode": "shadow"
   },
   {
    "id": "SH-NT_OBI_TOB_BNB-1792784422-2",
