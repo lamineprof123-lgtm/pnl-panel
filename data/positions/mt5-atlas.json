@@ -1,7 +1,7 @@
 {
  "project": "ATLAS",
  "bot": "MT5",
- "updated_at": "2026-10-23T17:38:32+04:00",
+ "updated_at": "2026-10-23T17:39:32+04:00",
  "positions": [
   {
    "id": "SH-EMA_ES-1792762501",
@@ -12,8 +12,8 @@
    "asset": "US500",
    "side": "sell",
    "lots": 0.0,
-   "rr": 0.3,
-   "pnl": 118.07,
+   "rr": 0.37,
+   "pnl": 149.56,
    "mode": "shadow"
   },
   {
@@ -25,8 +25,8 @@
    "asset": "USTEC",
    "side": "sell",
    "lots": 0.0,
-   "rr": 0.31,
-   "pnl": 124.01,
+   "rr": 0.32,
+   "pnl": 128.86,
    "mode": "shadow"
   },
   {
@@ -38,8 +38,8 @@
    "asset": "XAGUSD",
    "side": "sell",
    "lots": 0.49,
-   "rr": 0.1,
-   "pnl": 39.2,
+   "rr": -0.02,
+   "pnl": -7.35,
    "mode": "live"
   },
   {
@@ -51,8 +51,8 @@
    "asset": "XAUUSD",
    "side": "sell",
    "lots": 1.04,
-   "rr": 0.15,
-   "pnl": 56.16,
+   "rr": 0.23,
+   "pnl": 85.28,
    "mode": "live"
   },
   {
@@ -64,8 +64,8 @@
    "asset": "XAUUSD",
    "side": "sell",
    "lots": 0.59,
-   "rr": 0.15,
-   "pnl": 59.0,
+   "rr": 0.2,
+   "pnl": 75.52,
    "mode": "live"
   },
   {
@@ -77,8 +77,8 @@
    "asset": "EURUSD",
    "side": "sell",
    "lots": 0.91,
-   "rr": 0.05,
-   "pnl": 18.2,
+   "rr": 0.08,
+   "pnl": 30.03,
    "mode": "live"
   },
   {
@@ -90,8 +90,8 @@
    "asset": "GBPUSD",
    "side": "sell",
    "lots": 1.0,
-   "rr": -0.01,
-   "pnl": -5.0,
+   "rr": 0.04,
+   "pnl": 16.0,
    "mode": "live"
   },
   {
@@ -103,8 +103,8 @@
    "asset": "USTEC",
    "side": "sell",
    "lots": 0.0,
-   "rr": 2.65,
-   "pnl": 1058.73,
+   "rr": 2.66,
+   "pnl": 1065.18,
    "mode": "shadow"
   },
   {
