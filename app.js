@@ -11,7 +11,7 @@ const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 function setCls(el,v){el.classList.remove('pos','neg','zero');el.classList.add(cls(v))}
 const NAMES={'polymarket-weather-v2':['Polymarket Weather','Grok Bot'],'tennis-late-edge':['Stake Tennis','Stake'],
   'walletplay-copytrade-sim':['Solana Copytrade','WalletPlay'],'robinhood-etf-momentum':['Robinhood ETFs','Robinhood'],
-  'robinhood-spacex-agent':['Robinhood SpaceX','Robinhood']};
+  'robinhood-spacex-agent':['Robinhood SpaceX','Robinhood'],'fomo-copytrade':['Fomo Copytrade','FOMO']};
 const dname=(s,p)=>(NAMES[s]||[])[0]||p.project||s, dbot=(s,p)=>(NAMES[s]||[])[1]||p.bot||'';
 const perName=()=>({daily:'Today',monthly:'This month',yearly:'This year'}[period]);
 
