@@ -121,3 +121,4 @@ label{display:block;font-size:11px;font-weight:600;letter-spacing:.22em;text-tra
 @media(max-width:600px){.ctl #fSort{grid-column:1/-1}}
 .tbl .tag{display:inline-block!important;width:auto!important;height:auto!important;position:static!important;margin:0 0 0 8px!important}
 .tbl td.ca{white-space:nowrap}
+.held{font-size:11px;color:var(--dim);margin-top:2px;font-variant-numeric:tabular-nums}

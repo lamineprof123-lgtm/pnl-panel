@@ -11,6 +11,9 @@ const num=(v,d)=>v==null||v===''||!isFinite(+v)?null:(+v).toFixed(d).replace(/\.
 function when(s){if(!s)return'—';const d=new Date(s);if(isNaN(d))return esc(s);
   return d.toLocaleDateString('en-GB',{day:'2-digit',month:'short',timeZone:'Asia/Dubai'})+' <span class="t">'+d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',timeZone:'Asia/Dubai'})+'</span>'}
 function opts(q,lbl,vals,cur){const el=$(q),k=vals.join('|');if(el._k!==k){el.innerHTML=`<option value="">${lbl}</option>`+vals.map(v=>`<option>${esc(v)}</option>`).join('');el._k=k}el.value=vals.includes(cur)?cur:''}
+function held(p){const o=Date.parse(p.opened_at);if(isNaN(o))return'';const c=Date.parse(p.closed_at);
+  if(p.status!=='open'&&!isNaN(c))return`<div class="held">${Math.max(0,Math.round((c-o)/1e3)).toLocaleString('en-US')}s</div>`;
+  return`<div class="held" data-o="${o}">${Math.max(0,Math.round((Date.now()-o)/1e3)).toLocaleString('en-US')}s</div>`}
 function render(){
   const slugs=Object.keys(books);if(!sel||!books[sel])sel=slugs.includes('mt5-atlas')?'mt5-atlas':slugs[0];
   $('#tabs').innerHTML=slugs.length>1?slugs.map(s=>`<button data-s="${esc(s)}" class="${s===sel?'on':''}">${esc(NAMES[s]||books[s].project||s)}</button>`).join(''):'';
@@ -25,7 +28,7 @@ function render(){
   $('#rows').innerHTML=ps.map(p=>{const id=sel+':'+(p.id??p.opened_at+p.asset),isNew=!first&&!seen.has(id);seen.add(id);
     const open=p.status==='open',v=+p.pnl,rr=num(p.rr,2),lots=num(p.lots,2),side=p.side?`<span class="sd ${p.side==='sell'?'neg':'pos'}">${p.side==='sell'?'S':'B'}</span>`:'';
     return `<tr class="${isNew?'new':''}${p.mode==='shadow'?' sh':''}"><td class="cd">${when(p.opened_at)}</td><td class="cs">${esc(p.strategy)}</td><td class="ca">${side}${esc(asset(p.asset))}</td>
-    <td class="r mut cr">${rr!=null?rr+'R':'—'} · ${lots&&+lots?lots:'—'}</td>
+    <td class="r mut cr">${rr!=null?rr+'R':'—'} · ${lots&&+lots?lots:'—'}${held(p)}</td>
     <td class="r cp ${v>0?'pos':v<0?'neg':''}">${open?'<i class="dot"></i>':''}${money(v)}</td></tr>`}).join('');
   first=false;
 }
@@ -34,5 +37,6 @@ async function poll(){try{const b='?t='+Date.now(),idx=await(await fetch('data/p
   books=n;lastOk=Date.now();render()}catch(e){console.warn(e)}}
 $('#tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(b){sel=b.dataset.s;render()}});
 document.querySelectorAll('.ctl select').forEach(el=>el.addEventListener('change',()=>{F[el.dataset.k]=el.value;localStorage.setItem('posF',JSON.stringify(F));seen=new Set();first=true;render()}));
+setInterval(()=>document.querySelectorAll('.held[data-o]').forEach(e=>e.textContent=Math.max(0,Math.round((Date.now()-+e.dataset.o)/1e3)).toLocaleString('en-US')+'s'),1000);
 setInterval(()=>{const s=lastOk?Math.round((Date.now()-lastOk)/1e3):null;$('#ago').textContent=s==null?'Connecting':s<10?'Live':`Live · ${s}s`;$('#live').classList.toggle('stale',s!=null&&s>30)},1000);
 poll();setInterval(poll,POLL);
