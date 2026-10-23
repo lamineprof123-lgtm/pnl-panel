@@ -7,23 +7,23 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-23T14:09:50+04:00",
- "balance": 101292.49,
- "equity": 101681.35,
+ "updated_at": "2026-10-23T14:10:50+04:00",
+ "balance": 101463.01,
+ "equity": 101709.97,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
  "shadow_total_pnl": -4800.0,
- "combined_total_pnl": -3507.51,
+ "combined_total_pnl": -3336.99,
  "daily": [
   {
    "date": "2026-10-23",
-   "pnl": 1292.49,
-   "balance": 101292.49,
-   "trades": 12,
+   "pnl": 1463.01,
+   "balance": 101463.01,
+   "trades": 13,
    "shadow_pnl": -4800.0,
    "shadow_trades": 12,
-   "combined_pnl": -3507.51,
-   "equity": 101681.35,
-   "open_positions": 4
+   "combined_pnl": -3336.99,
+   "equity": 101709.97,
+   "open_positions": 3
   }
  ],
  "strategies": {
@@ -700,16 +700,16 @@
    "open": 0
   },
   "SF_VOL_GBP_X": {
-   "pnl": 235.2,
-   "trades": 1,
-   "wins": 1,
-   "sum_r": 0.588,
+   "pnl": 405.72,
+   "trades": 2,
+   "wins": 2,
+   "sum_r": 1.002,
    "max_dd": 0.0,
-   "today_pnl": 235.2,
-   "today_trades": 1,
+   "today_pnl": 405.72,
+   "today_trades": 2,
    "mode": "LIVE",
    "symbol": "GBPUSD",
-   "open": 1
+   "open": 0
   },
   "ORB_GBP_X": {
    "pnl": 0,
