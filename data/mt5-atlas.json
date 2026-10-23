@@ -7,22 +7,22 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-23T20:00:35+04:00",
+ "updated_at": "2026-10-23T20:01:35+04:00",
  "balance": 99896.87,
- "equity": 99960.22,
+ "equity": 100031.77,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": -18406.01,
- "combined_total_pnl": -18509.14,
+ "shadow_total_pnl": -18425.93,
+ "combined_total_pnl": -18529.06,
  "daily": [
   {
    "date": "2026-10-23",
    "pnl": -103.13,
    "balance": 99896.87,
    "trades": 59,
-   "shadow_pnl": -18406.01,
-   "shadow_trades": 2443,
-   "combined_pnl": -18509.14,
-   "equity": 99960.22,
+   "shadow_pnl": -18425.93,
+   "shadow_trades": 2447,
+   "combined_pnl": -18529.06,
+   "equity": 100031.77,
    "open_positions": 5
   }
  ],
@@ -3493,7 +3493,7 @@
    "today_trades": 2,
    "mode": "SHADOW",
    "symbol": "USTEC",
-   "open": 0
+   "open": 1
   },
   "EMAENG_XAU": {
    "pnl": -393.03,
@@ -7636,13 +7636,13 @@
    "open": 0
   },
   "NT_CMM_BTC": {
-   "pnl": -1491.46,
-   "trades": 80,
+   "pnl": -1503.55,
+   "trades": 81,
    "wins": 2,
-   "sum_r": -3.73,
-   "max_dd": 1491.46,
-   "today_pnl": -1491.46,
-   "today_trades": 80,
+   "sum_r": -3.76,
+   "max_dd": 1503.55,
+   "today_pnl": -1503.55,
+   "today_trades": 81,
    "mode": "SHADOW",
    "symbol": "BTCUSD",
    "open": 1
@@ -7792,13 +7792,13 @@
    "open": 0
   },
   "NT_OBI_TOB_DOGE": {
-   "pnl": -702.72,
-   "trades": 553,
-   "wins": 109,
-   "sum_r": -1.754,
+   "pnl": -700.33,
+   "trades": 555,
+   "wins": 111,
+   "sum_r": -1.748,
    "max_dd": 749.25,
-   "today_pnl": -702.72,
-   "today_trades": 553,
+   "today_pnl": -700.33,
+   "today_trades": 555,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
    "open": 1
@@ -7816,13 +7816,13 @@
    "open": 1
   },
   "NT_CMM_DOGE": {
-   "pnl": -573.0,
-   "trades": 48,
+   "pnl": -583.22,
+   "trades": 49,
    "wins": 16,
-   "sum_r": -1.433,
-   "max_dd": 633.86,
-   "today_pnl": -573.0,
-   "today_trades": 48,
+   "sum_r": -1.459,
+   "max_dd": 644.08,
+   "today_pnl": -583.22,
+   "today_trades": 49,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
    "open": 1
@@ -7837,7 +7837,7 @@
    "today_trades": 4,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
-   "open": 0
+   "open": 1
   },
   "NT_OBI_L2_BNB": {
    "pnl": 0,
