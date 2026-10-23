@@ -25,7 +25,7 @@ Object.assign(controls,{enableDamping:true,dampingFactor:.06,enablePan:false,aut
 
 const composer=new EffectComposer(renderer);
 composer.addPass(new RenderPass(scene,camera));
-const bloom=new UnrealBloomPass(new THREE.Vector2(256,256),.65,.45,.24);
+const bloom=new UnrealBloomPass(new THREE.Vector2(256,256),.75,.5,.2);
 composer.addPass(bloom);composer.addPass(new OutputPass());
 
 function resize(){const w=innerWidth,h=innerHeight;renderer.setSize(w,h,false);composer.setSize(w,h);
@@ -77,9 +77,9 @@ const orbMat=new THREE.ShaderMaterial({uniforms:U,transparent:true,depthWrite:fa
    vec3 c1=vec3(.024,.57,.70),c2=vec3(.063,.73,.506),c3=vec3(.145,.388,.92),acc=vec3(.37,.92,.83);
    vec3 col=mix(c3,c1,smoothstep(-.55,-.05,n));col=mix(col,c2,smoothstep(.0,.5,n));
    col=col*(.06+.34*smoothstep(-.6,.7,n))+mix(c2,acc,.5)*veins*.45+mix(c1,c2,.5+.5*sin(time*.3))*fr*.55;
-   col=pow(col,vec3(1.9))*1.25;gl_FragColor=vec4(col*pulse,1.);}`});
+   col=pow(col,vec3(1.9))*2.2*mix(.22,1.,smoothstep(0.,.8,fr*2.2));gl_FragColor=vec4(col*pulse,1.);}`});
 core.add(new THREE.Mesh(new THREE.SphereGeometry(1,96,96),orbMat));
-const heart=sprite(new THREE.Color('#bffcf0'),1.,.22);heart.visible=false;core.add(heart);
+const heart=sprite(new THREE.Color('#bffcf0'),1.,.1);core.add(heart);
 const halo1=sprite(new THREE.Color('#14b8a6'),5,.13);const halo2=sprite(new THREE.Color('#0891b2'),10,.08);const halo3=sprite(new THREE.Color('#2563eb'),18,.03);scene.add(halo1,halo2,halo3);
 
 // neural shell
@@ -144,7 +144,7 @@ function updateTrades(now,dt){let n=0,m=0;const k=1-Math.exp(-dt*2.5);
 
 
 /* ---------- AI eye ---------- */
-const eye=new THREE.Group();scene.add(eye);const EYE_S=2;eye.scale.setScalar(EYE_S);
+const eye=new THREE.Group();scene.add(eye);const EYE_S=.82,EYE_RC=1.1/EYE_S;eye.scale.setScalar(EYE_S);
 const EU={time:U.time,pr:U.pr,look:{value:new THREE.Vector2()},blink:{value:0},dil:{value:1},tint:{value:new THREE.Color('#34d399')}};
 const LID=`float shp(float x){return pow(max(1.-x*x,0.),.8);}float lidU(float x){return .35*shp(x)*(1.+.12*x);}float lidL(float x){return .26*shp(x);}`;
 const shp=x=>Math.pow(Math.max(1-x*x,0),.8),lidU=x=>.35*shp(x)*(1+.12*x),lidL=x=>.26*shp(x),EW=.95;
@@ -180,21 +180,21 @@ const eyePlane=new THREE.Mesh(new THREE.PlaneGeometry(2.3,1.5),eyeMat);eyePlane.
 {const D=mobile?.5:1,pos=[],col=[],aux=[],rnd=Math.random;
  const blue=[[.01,.26,1],[.02,.4,1],[.15,.7,1],[.005,.16,.9],[.01,.33,1]],red=[[1,.22,.18],[1,.42,.25],[1,.3,.45]];
  const pick=a=>a[(rnd()*a.length)|0];
- const add=(x,y,z,c,b,t,ph,k,sz)=>{pos.push(x,y,z);col.push(c[0]*b,c[1]*b,c[2]*b);aux.push(t,ph,k,sz)};
- for(const side of[1,-1]){const N=Math.round((side>0?95:85)*(mobile?.7:1));
+ const add=(x,y,z,c,b,t,ph,k,sz)=>{const rr=Math.hypot(x,y*1.12)/EYE_RC;if(rr>1.12)return;b*=rr<.82?1:Math.max(0,1-(rr-.82)/.3);if(b<.01)return;pos.push(x,y,z);col.push(c[0]*b,c[1]*b,c[2]*b);aux.push(t,ph,k,sz)};
+ for(const side of[1,-1]){const N=Math.round((side>0?50:44)*(mobile?.75:1));
   for(let i=0;i<N;i++){const u=-1+2*(i+.5)/N+(rnd()-.5)*.6/N,x0=u*EW*1.03,y0=side>0?lidU(u)+.02:-lidL(u)-.02;
    const dx=u*(side>0?.5:.8),L=(side>0?1.8:2.1)*(.75+rnd()*.5)*(1-.3*u*u),step=.018/Math.sqrt(D),ph=rnd();
    for(let t=0;t<L;t+=step){const s=t/L,x=x0+dx*t+dx*t*t*.14,y=y0+side*t,z=-.1*t*t;
-    let c=pick(blue),b=.85*Math.pow(1-s,1.3)*(.4+.6*rnd())*(.5+.5*Math.exp(-t*1.5));
+    let c=pick(blue),b=.42*Math.pow(1-s,1.3)*(.4+.6*rnd())*(.5+.5*Math.exp(-t*1.5));
     const r=rnd();if(side>0&&t>.1&&t<.7&&r<.32*Math.exp(-Math.pow((t-.35)/.2,2))+.04*(t<.7))c=pick(red),b*=2.4;
     else if(side<0&&t<.8&&r<.07)c=pick(red),b*=2.2;else if(r>.985)c=[.9,.97,1],b*=1.6;
     add(x,y,z,c,b,t,ph,0,.8+rnd()*.7)}}}
- const NR=Math.round(26*D);
+ const NR=Math.round(10*D)+3;
  for(let k=0;k<NR;k++){const rx=1.2+k*.075,ry=rx*.66,ph=rnd(),stp=.02/Math.sqrt(D)/rx;
   for(let th=0;th<Math.PI*2;th+=stp){const cs=Math.cos(th),sn=Math.sin(th),side=Math.pow(Math.abs(cs),2.5);if(side<.12)continue;
    const w=1+.03*Math.sin(th*9+k*.7);const x=cs*rx*w,y=sn*ry*w;
    add(x,y,-.06*rx*rx,pick(blue),.3*side*(.5*(1-k/NR)+.1)*(.4+.6*rnd())*(cs<0?1:.75),rx-1.2,ph,1,.8+rnd()*.5)}}
- const NS=Math.round(12*D);
+ const NS=Math.round(8*D);
  for(let i=0;i<NS;i++){const sd=i%3===0?-1:1,ph=rnd(),L=3+rnd()*2.5,a0=(sd>0?1.25:1.9)+(rnd()-.5)*.5,bend=(.06+rnd()*.18)*(rnd()<.5?1:-1);
   let x=sd*(EW*1.05+rnd()*.3),y=(rnd()-.3)*.25,a=sd>0?a0:Math.PI-a0;const c=rnd()<.5?[.5,.9,1]:[.35,.6,1];
   for(let t=0;t<L;t+=.012/Math.sqrt(D)){a+=bend*.012*sd/Math.sqrt(D)*(sd>0?1:-1);x+=Math.cos(a)*.012/Math.sqrt(D);y+=Math.sin(a)*.012/Math.sqrt(D);
@@ -212,7 +212,7 @@ const eyePlane=new THREE.Mesh(new THREE.PlaneGeometry(2.3,1.5),eyeMat);eyePlane.
  m.renderOrder=3;m.frustumCulled=false;eye.add(m);}
 
 // THE PIXELS: glittering dust along the lids
-{const N=mobile?900:2000,s=new Float32Array(N),sd=new Float32Array(N),off=new Float32Array(N),ph=new Float32Array(N),col=new Float32Array(N*3);
+{const N=mobile?600:1100,s=new Float32Array(N),sd=new Float32Array(N),off=new Float32Array(N),ph=new Float32Array(N),col=new Float32Array(N*3);
  const reds=['#ff3b2f','#ff6a2a','#ff3d6e'].map(c=>new THREE.Color(c)),cool=['#38bdf8','#3b82f6','#e0f2fe','#2563eb','#7dd3fc','#22d3ee'].map(c=>new THREE.Color(c));
  for(let i=0;i<N;i++){const side=Math.random()<.5?1:-1;sd[i]=side;s[i]=Math.random();off[i]=Math.pow(Math.random(),1.8)*(side>0?.38:.55);ph[i]=Math.random();
    if(side>0&&Math.random()<.45)off[i]=.07+Math.random()*.16;const w=side>0?(off[i]>.06&&off[i]<.25&&Math.random()<.75):Math.random()<.22;const c=w?reds[(Math.random()*3)|0]:cool[(Math.random()*6)|0];col.set([c.r,c.g,c.b],i*3)}
@@ -224,15 +224,27 @@ const eyePlane=new THREE.Mesh(new THREE.PlaneGeometry(2.3,1.5),eyeMat);eyePlane.
    float y=side*((side>0.?lidU(x):lidL(x))*(1.-blink)+off*(.3+.7*sh)+.012)+sin(time*1.3+ph*50.)*.01;
    vec4 mv=modelViewMatrix*vec4(u*(1.03+off*.5),y+(fract(ph*31.)-.5)*ext*.4,.02,1.);gl_Position=projectionMatrix*mv;
    a=(.15+.85*pow(.5+.5*sin(time*(2.+ph*5.)+ph*60.),4.))*(1.-smoothstep(1.,1.2,abs(u)))*(1.-off*1.2);vc=col;gl_PointSize=max(1.,pr*(.9+fract(ph*13.)*1.6)*30./-mv.z);}`,
-  fragmentShader:`varying float a;varying vec3 vc;void main(){float d=length(gl_PointCoord-.5)*2.;if(d>1.)discard;gl_FragColor=vec4(vc*a*(1.-d*d*.6)*.6,1.);}`}));
+  fragmentShader:`varying float a;varying vec3 vc;void main(){float d=length(gl_PointCoord-.5)*2.;if(d>1.)discard;gl_FragColor=vec4(vc*a*(1.-d*d*.6)*.38,1.);}`}));
  m.renderOrder=3;m.frustumCulled=false;eye.add(m);}
 
 // deep blue atmosphere
 const atmo=new THREE.Group();scene.add(atmo);
 [['#0b63d6',9,.16,[0,0,-1]],['#0a84d6',4.5,.12,[0,.1,-.5]],['#0a4fb0',24,.3,[0,0,-3]],['#0a8ae0',14,.1,[-4,-3,-2]],['#0b5cd5',12,.08,[4,2.5,-2]],['#08367a',46,.34,[0,0,-6]],['#0a6fd6',20,.16,[-6,-4,-4]]]
   .forEach(([c,sc,o,p])=>atmo.add(sprite(new THREE.Color(c),sc,o,new THREE.Vector3(...p))));
-core.visible=false;halo1.visible=halo2.visible=halo3.visible=false;
+atmo.children.forEach(o=>o.material.opacity*=.45);
 
+
+
+// glassy front shell: drawn after the eye so the eye reads as sitting inside the orb
+const glass=new THREE.Mesh(new THREE.SphereGeometry(1.005,64,64),new THREE.ShaderMaterial({uniforms:U,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,
+  vertexShader:`varying vec3 vP;varying vec3 vN;varying vec3 vV;void main(){vP=position;vN=normalize(normalMatrix*normal);vec4 mv=modelViewMatrix*vec4(position,1.);vV=normalize(-mv.xyz);gl_Position=projectionMatrix*mv;}`,
+  fragmentShader:NOISE+`uniform float time;varying vec3 vP;varying vec3 vN;varying vec3 vV;
+  void main(){float d=max(dot(vN,vV),0.);float fr=pow(1.-d,2.6);float t=time*.18;
+   float veins=pow(1.-abs(snoise(vP*2.6+vec3(t*.6,-t,t*.4))),9.);
+   vec3 c=mix(vec3(.024,.57,.70),vec3(.063,.73,.506),.5+.5*sin(time*.3));
+   vec2 sp=vec2(vV.x+vN.x,vN.y);float spec=pow(max(dot(vN,normalize(vec3(-.45,.6,.65))),0.),60.);
+   gl_FragColor=vec4(c*fr*1.1+vec3(.3,.9,.8)*veins*.12*(.25+fr)+vec3(.8,1.,.97)*spec*.35,1.);}`}));
+glass.side=THREE.FrontSide;glass.renderOrder=5;core.add(glass);
 
 // gaze: follow one orbiting trade at a time
 const gaze={t:null,until:0,fresh:null,cur:new THREE.Vector2(),tgt:new THREE.Vector2(),blinkAt:-1,nextBlink:2.5,jit:new THREE.Vector2(),jitAt:0};
