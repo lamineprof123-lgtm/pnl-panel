@@ -7,12 +7,12 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-24T01:38:05+04:00",
+ "updated_at": "2026-10-24T01:39:05+04:00",
  "balance": 101374.05,
  "equity": 102119.64,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": -22242.25,
- "combined_total_pnl": -20868.2,
+ "shadow_total_pnl": -22240.9,
+ "combined_total_pnl": -20866.85,
  "daily": [
   {
    "date": "2026-10-23",
@@ -28,9 +28,9 @@
    "pnl": 543.41,
    "balance": 101374.05,
    "trades": 4,
-   "shadow_pnl": 530.96,
-   "shadow_trades": 951,
-   "combined_pnl": 1074.37,
+   "shadow_pnl": 532.31,
+   "shadow_trades": 952,
+   "combined_pnl": 1075.72,
    "equity": 102119.64,
    "open_positions": 4
   }
@@ -16923,13 +16923,13 @@
    "open": 0
   },
   "NT_OBI_TOB_DOGE": {
-   "pnl": -314.94,
-   "trades": 1230,
-   "wins": 484,
-   "sum_r": -0.778,
+   "pnl": -313.59,
+   "trades": 1231,
+   "wins": 485,
+   "sum_r": -0.775,
    "max_dd": 980.22,
-   "today_pnl": 271.61,
-   "today_trades": 140,
+   "today_pnl": 272.96,
+   "today_trades": 141,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
    "open": 1
@@ -17363,7 +17363,7 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-24T01:38:05+04:00",
+  "updated_dubai": "2026-10-24T01:39:05+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
    "target_progress_pct": 13.7,
