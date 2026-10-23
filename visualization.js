@@ -25,7 +25,7 @@ Object.assign(controls,{enableDamping:true,dampingFactor:.06,enablePan:false,aut
 
 const composer=new EffectComposer(renderer);
 composer.addPass(new RenderPass(scene,camera));
-const bloom=new UnrealBloomPass(new THREE.Vector2(256,256),.8,.55,.16);
+const bloom=new UnrealBloomPass(new THREE.Vector2(256,256),.65,.45,.24);
 composer.addPass(bloom);composer.addPass(new OutputPass());
 
 function resize(){const w=innerWidth,h=innerHeight;renderer.setSize(w,h,false);composer.setSize(w,h);
@@ -156,11 +156,11 @@ const eyeMat=new THREE.ShaderMaterial({uniforms:EU,transparent:true,depthWrite:t
    float mask=smoothstep(0.,.03,ins)*step(abs(p.x),W);if(mask<.004)discard;
    vec2 c=look*vec2(.36,.07);vec2 q=p-c;q.x*=1.+.3*abs(look.x);float r=length(q);vec2 dir=q/max(r,1e-4);
    float R=.4,pr=.095*dil;
-   vec3 scl=vec3(.14,.32,.68)*(.25+.75*pow(1.-abs(xn),.45));
+   vec3 scl=vec3(.02,.2,.65)*(.25+.75*pow(1.-abs(xn),.45));
    float t=clamp((r-pr)/(R-pr),0.,1.);
    float f1=snoise(vec3(dir*34.,r*3.+time*.05)),f2=snoise(vec3(dir*12.,r*7.-time*.07)),f3=snoise(vec3(dir*75.,r*2.));
    float fib=pow(clamp(.5+.5*(f1*.5+f2*.3+f3*.3),0.,1.),1.5);
-   vec3 deep=vec3(.01,.1,.42),mid=vec3(.03,.4,1.),hi=vec3(.4,.85,1.);
+   vec3 deep=vec3(.0,.06,.4),mid=vec3(.0,.32,1.),hi=vec3(.15,.75,1.);
    vec3 iris=mix(mid,deep,smoothstep(.5,1.,t));iris=mix(iris,tint,.12);
    iris=iris*(.2+1.1*fib)+hi*pow(fib,4.)*.45*(1.-t*.6);
    float cr=pr+.08+.025*snoise(vec3(dir*5.,1.7));iris+=hi*.3*exp(-pow((r-cr)*28.,2.));
@@ -173,12 +173,12 @@ const eyeMat=new THREE.ShaderMaterial({uniforms:EU,transparent:true,depthWrite:t
    col+=vec3(.45,.85,1.)*exp(-pow(inL*55.,2.))*.3*shp(xn);
    col*=.3+.7*smoothstep(1.,.7,abs(xn));
    vec2 gp=fract(p*165.)-.5;col*=.8+.3*(1.-smoothstep(.2,.5,length(gp)));
-   gl_FragColor=vec4(col*.62,mask);}`});
+   gl_FragColor=vec4(col*.5,mask);}`});
 const eyePlane=new THREE.Mesh(new THREE.PlaneGeometry(2.3,1.5),eyeMat);eyePlane.renderOrder=2;eye.add(eyePlane);
 
 // THE FLOW: dense pixel strands streaming out of the eye, side contour ripples, long sweeping strands
 {const D=mobile?.5:1,pos=[],col=[],aux=[],rnd=Math.random;
- const blue=[[.18,.45,1],[.25,.65,1],[.4,.85,1],[.15,.35,.95]],red=[[1,.22,.18],[1,.42,.25],[1,.3,.45]];
+ const blue=[[.01,.26,1],[.02,.4,1],[.15,.7,1],[.005,.16,.9],[.01,.33,1]],red=[[1,.22,.18],[1,.42,.25],[1,.3,.45]];
  const pick=a=>a[(rnd()*a.length)|0];
  const add=(x,y,z,c,b,t,ph,k,sz)=>{pos.push(x,y,z);col.push(c[0]*b,c[1]*b,c[2]*b);aux.push(t,ph,k,sz)};
  for(const side of[1,-1]){const N=Math.round((side>0?95:85)*(mobile?.7:1));
@@ -213,7 +213,7 @@ const eyePlane=new THREE.Mesh(new THREE.PlaneGeometry(2.3,1.5),eyeMat);eyePlane.
 
 // THE PIXELS: glittering dust along the lids
 {const N=mobile?900:2000,s=new Float32Array(N),sd=new Float32Array(N),off=new Float32Array(N),ph=new Float32Array(N),col=new Float32Array(N*3);
- const reds=['#ff4d3d','#ff7a45','#ff4f7b'].map(c=>new THREE.Color(c)),cool=['#7dd3fc','#38bdf8','#e0f2fe','#60a5fa','#a5f3fc','#5eead4'].map(c=>new THREE.Color(c));
+ const reds=['#ff3b2f','#ff6a2a','#ff3d6e'].map(c=>new THREE.Color(c)),cool=['#38bdf8','#3b82f6','#e0f2fe','#2563eb','#7dd3fc','#22d3ee'].map(c=>new THREE.Color(c));
  for(let i=0;i<N;i++){const side=Math.random()<.5?1:-1;sd[i]=side;s[i]=Math.random();off[i]=Math.pow(Math.random(),1.8)*(side>0?.38:.55);ph[i]=Math.random();
    if(side>0&&Math.random()<.45)off[i]=.07+Math.random()*.16;const w=side>0?(off[i]>.06&&off[i]<.25&&Math.random()<.75):Math.random()<.22;const c=w?reds[(Math.random()*3)|0]:cool[(Math.random()*6)|0];col.set([c.r,c.g,c.b],i*3)}
  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(new Float32Array(N*3),3));
@@ -229,7 +229,7 @@ const eyePlane=new THREE.Mesh(new THREE.PlaneGeometry(2.3,1.5),eyeMat);eyePlane.
 
 // deep blue atmosphere
 const atmo=new THREE.Group();scene.add(atmo);
-[['#1d4ed8',10,.32,[0,0,-1]],['#0284c7',5,.2,[0,.1,-.5]],['#1e3a8a',26,.28,[0,0,-3]],['#0ea5e9',16,.12,[-4,-3,-2]],['#2563eb',14,.12,[4,2.5,-2]],['#0f766e',16,.05,[-5,3,-3]],['#1d4ed8',40,.12,[0,0,-6]]]
+[['#0b63d6',9,.16,[0,0,-1]],['#0a84d6',4.5,.12,[0,.1,-.5]],['#0a4fb0',24,.3,[0,0,-3]],['#0a8ae0',14,.1,[-4,-3,-2]],['#0b5cd5',12,.08,[4,2.5,-2]],['#08367a',46,.34,[0,0,-6]],['#0a6fd6',20,.16,[-6,-4,-4]]]
   .forEach(([c,sc,o,p])=>atmo.add(sprite(new THREE.Color(c),sc,o,new THREE.Vector3(...p))));
 core.visible=false;halo1.visible=halo2.visible=halo3.visible=false;
 
