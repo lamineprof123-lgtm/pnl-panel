@@ -7,12 +7,12 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-24T03:12:14+04:00",
+ "updated_at": "2026-10-24T03:13:14+04:00",
  "balance": 101374.05,
  "equity": 102119.64,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": -21529.14,
- "combined_total_pnl": -20155.09,
+ "shadow_total_pnl": -21247.93,
+ "combined_total_pnl": -19873.88,
  "daily": [
   {
    "date": "2026-10-23",
@@ -28,9 +28,9 @@
    "pnl": 543.41,
    "balance": 101374.05,
    "trades": 4,
-   "shadow_pnl": 1244.07,
-   "shadow_trades": 2286,
-   "combined_pnl": 1787.48,
+   "shadow_pnl": 1525.28,
+   "shadow_trades": 2295,
+   "combined_pnl": 2068.69,
    "equity": 102119.64,
    "open_positions": 4
   }
@@ -16743,13 +16743,13 @@
    "open": 1
   },
   "NT_OBI_TOB_BTC": {
-   "pnl": -12420.9,
-   "trades": 1580,
-   "wins": 586,
-   "sum_r": -31.036,
+   "pnl": -12077.15,
+   "trades": 1583,
+   "wins": 589,
+   "sum_r": -30.177,
    "max_dd": 28516.27,
-   "today_pnl": 11095.65,
-   "today_trades": 452,
+   "today_pnl": 11439.4,
+   "today_trades": 455,
    "mode": "SHADOW",
    "symbol": "BTCUSD",
    "open": 1
@@ -16827,13 +16827,13 @@
    "open": 1
   },
   "NT_CMM_LINK": {
-   "pnl": -3223.78,
-   "trades": 167,
+   "pnl": -3267.44,
+   "trades": 168,
    "wins": 25,
-   "sum_r": -8.064,
-   "max_dd": 3223.78,
-   "today_pnl": -1370.55,
-   "today_trades": 73,
+   "sum_r": -8.173,
+   "max_dd": 3267.44,
+   "today_pnl": -1414.21,
+   "today_trades": 74,
    "mode": "SHADOW",
    "symbol": "LINKUSD",
    "open": 1
@@ -16863,13 +16863,13 @@
    "open": 0
   },
   "NT_OBI_TOB_SUI": {
-   "pnl": -538.03,
-   "trades": 1992,
+   "pnl": -538.44,
+   "trades": 1993,
    "wins": 487,
-   "sum_r": -1.301,
-   "max_dd": 538.03,
-   "today_pnl": -238.8,
-   "today_trades": 552,
+   "sum_r": -1.302,
+   "max_dd": 538.44,
+   "today_pnl": -239.21,
+   "today_trades": 553,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
    "open": 1
@@ -16887,13 +16887,13 @@
    "open": 1
   },
   "NT_CMM_SUI": {
-   "pnl": -4505.22,
-   "trades": 234,
-   "wins": 35,
-   "sum_r": -11.264,
+   "pnl": -4499.42,
+   "trades": 235,
+   "wins": 36,
+   "sum_r": -11.25,
    "max_dd": 4520.86,
-   "today_pnl": -2587.01,
-   "today_trades": 112,
+   "today_pnl": -2581.21,
+   "today_trades": 113,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
    "open": 1
@@ -16923,13 +16923,13 @@
    "open": 0
   },
   "NT_OBI_TOB_DOGE": {
-   "pnl": 346.99,
-   "trades": 1451,
-   "wins": 696,
-   "sum_r": 0.875,
+   "pnl": 356.97,
+   "trades": 1452,
+   "wins": 697,
+   "sum_r": 0.9,
    "max_dd": 980.22,
-   "today_pnl": 933.54,
-   "today_trades": 361,
+   "today_pnl": 943.52,
+   "today_trades": 362,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
    "open": 1
@@ -16947,13 +16947,13 @@
    "open": 1
   },
   "NT_CMM_DOGE": {
-   "pnl": -1509.78,
-   "trades": 103,
+   "pnl": -1541.92,
+   "trades": 104,
    "wins": 27,
-   "sum_r": -3.777,
+   "sum_r": -3.857,
    "max_dd": 1620.3,
-   "today_pnl": -565.23,
-   "today_trades": 38,
+   "today_pnl": -597.37,
+   "today_trades": 39,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
    "open": 1
@@ -16983,13 +16983,13 @@
    "open": 0
   },
   "NT_OBI_TOB_BNB": {
-   "pnl": -2253.16,
-   "trades": 1245,
+   "pnl": -2255.27,
+   "trades": 1246,
    "wins": 115,
-   "sum_r": -5.613,
-   "max_dd": 2253.16,
-   "today_pnl": -843.72,
-   "today_trades": 394,
+   "sum_r": -5.618,
+   "max_dd": 2255.27,
+   "today_pnl": -845.83,
+   "today_trades": 395,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
    "open": 1
@@ -17363,7 +17363,7 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-24T03:12:14+04:00",
+  "updated_dubai": "2026-10-24T03:13:14+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
    "target_progress_pct": 13.7,
