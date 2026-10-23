@@ -1,7 +1,7 @@
 {
  "project": "ATLAS-MT5-GK-1",
  "bot": "MT5",
- "updated_at": "2026-10-23T17:50:16+04:00",
+ "updated_at": "2026-10-23T17:51:16+04:00",
  "positions": [
   {
    "id": "11088246868",
@@ -12,8 +12,8 @@
    "asset": "EURUSD",
    "side": "sell",
    "lots": 5.0,
-   "rr": -0.01,
-   "pnl": -5.0,
+   "rr": -0.13,
+   "pnl": -55.0,
    "mode": "live"
   },
   {
@@ -25,8 +25,8 @@
    "asset": "US500",
    "side": "buy",
    "lots": 0.0,
-   "rr": 0.24,
-   "pnl": 94.32,
+   "rr": 0.03,
+   "pnl": 10.48,
    "mode": "shadow"
   },
   {
@@ -38,8 +38,8 @@
    "asset": "US500",
    "side": "buy",
    "lots": 0.0,
-   "rr": 0.1,
-   "pnl": 40.96,
+   "rr": -0.06,
+   "pnl": -24.57,
    "mode": "shadow"
   },
   {
@@ -51,21 +51,8 @@
    "asset": "XAGUSD",
    "side": "buy",
    "lots": 0.33,
-   "rr": -0.05,
-   "pnl": -21.45,
-   "mode": "live"
-  },
-  {
-   "id": "11087918682",
-   "opened_at": "2026-10-23T17:35:00+04:00",
-   "closed_at": null,
-   "status": "open",
-   "strategy": "EMA_GC",
-   "asset": "XAUUSD",
-   "side": "sell",
-   "lots": 1.04,
-   "rr": 0.76,
-   "pnl": 276.64,
+   "rr": -0.51,
+   "pnl": -199.65,
    "mode": "live"
   },
   {
@@ -77,8 +64,8 @@
    "asset": "XAUUSD",
    "side": "sell",
    "lots": 0.59,
-   "rr": 0.48,
-   "pnl": 184.08,
+   "rr": 0.63,
+   "pnl": 244.26,
    "mode": "live"
   },
   {
@@ -90,8 +77,8 @@
    "asset": "EURUSD",
    "side": "sell",
    "lots": 0.91,
-   "rr": 0.22,
-   "pnl": 86.45,
+   "rr": 0.19,
+   "pnl": 77.35,
    "mode": "live"
   },
   {
@@ -103,8 +90,8 @@
    "asset": "GBPUSD",
    "side": "sell",
    "lots": 1.0,
-   "rr": 0.24,
-   "pnl": 98.0,
+   "rr": 0.19,
+   "pnl": 77.0,
    "mode": "live"
   },
   {
@@ -116,9 +103,22 @@
    "asset": "USTEC",
    "side": "sell",
    "lots": 0.0,
-   "rr": 0.14,
-   "pnl": 57.08,
+   "rr": 0.73,
+   "pnl": 293.68,
    "mode": "shadow"
+  },
+  {
+   "id": "11087918682",
+   "opened_at": "2026-10-23T17:35:00+04:00",
+   "closed_at": "2026-10-23T17:50:27+04:00",
+   "status": "closed",
+   "strategy": "EMA_GC",
+   "asset": "XAUUSD",
+   "side": "sell",
+   "lots": 1.04,
+   "rr": 0.71,
+   "pnl": 261.04,
+   "mode": "live"
   },
   {
    "id": "SH-SF_BNB_VOL-1792762946",
