@@ -16,9 +16,9 @@ function render(){
   if(!ps.length){$('#rows').innerHTML='<tr class="none"><td colspan="5">No positions yet</td></tr>';return}
   $('#rows').innerHTML=ps.map(p=>{const id=sel+':'+(p.id??p.opened_at+p.asset),isNew=!first&&!seen.has(id);seen.add(id);
     const open=p.status==='open',v=+p.pnl,rr=num(p.rr,2),lots=num(p.lots,2),side=p.side?`<span class="sd ${p.side==='sell'?'neg':'pos'}">${p.side==='sell'?'S':'B'}</span>`:'';
-    return `<tr class="${isNew?'new':''}"><td>${when(p.opened_at)}</td><td>${esc(p.strategy)}</td><td>${side}${esc(asset(p.asset))}</td>
-    <td class="r mut">${rr!=null?rr+'R':'—'} · ${lots??'—'}</td>
-    <td class="r ${v>0?'pos':v<0?'neg':''}">${open?'<i class="dot"></i>':''}${money(v)}</td></tr>`}).join('');
+    return `<tr class="${isNew?'new':''}${p.mode==='shadow'?' sh':''}"><td class="cd">${when(p.opened_at)}</td><td class="cs">${esc(p.strategy)}</td><td class="ca">${side}${esc(asset(p.asset))}</td>
+    <td class="r mut cr">${rr!=null?rr+'R':'—'} · ${lots&&+lots?lots:'—'}</td>
+    <td class="r cp ${v>0?'pos':v<0?'neg':''}">${open?'<i class="dot"></i>':''}${money(v)}</td></tr>`}).join('');
   first=false;
 }
 async function poll(){try{const b='?t='+Date.now(),idx=await(await fetch('data/positions/index.json'+b,{cache:'no-store'})).json(),n={};
