@@ -277,7 +277,7 @@ canvas.addEventListener('pointerdown',e=>poke(e,1),{passive:true});
 const gaze={mode:'fix',until:0,t:null,fresh:null,blinkAt:-1,nextBlink:2.5,jit:new THREE.Vector3(),jitAt:0,q:new THREE.Quaternion(),
   cur:new THREE.Vector3(0,0,1),from:new THREE.Vector3(0,0,1),to:new THREE.Vector3(0,0,1),fixP:null,s0:0,dur:.1,next:null,sw:null,constrict:0};
 const vv=new THREE.Vector3(),Z=new THREE.Vector3(0,0,1),mLook=new THREE.Matrix4(),qFace=new THREE.Quaternion(),qInv=new THREE.Quaternion(),O=new THREE.Vector3(),sw3=new THREE.Vector3(),cR=new THREE.Vector3(),cU=new THREE.Vector3(),gv=new THREE.Vector3();
-const YAW=.95,PITCH=.62;
+const YAW=.85,PITCH=.48;
 function gdir(yaw,pitch,out){yaw=THREE.MathUtils.clamp(yaw,-YAW,YAW);pitch=THREE.MathUtils.clamp(pitch,-PITCH,PITCH);return out.set(Math.sin(yaw)*Math.cos(pitch),Math.sin(pitch),Math.cos(yaw)*Math.cos(pitch))}
 function clampDir(v){const y=Math.atan2(v.x,Math.max(v.z,.05)),p=Math.asin(THREE.MathUtils.clamp(v.y,-1,1));return gdir(y,p,v)}
 function tradeDir(t,out){out.set(t.x,t.y,t.z);eye.worldToLocal(out).normalize();return clampDir(out)}
