@@ -136,7 +136,7 @@ function updateTrades(now,dt){let n=0,m=0;const k=1-Math.exp(-dt*2.5);
     t.col.lerp(t.target,k);const R=t.R*(1+(1-a)*2.2),ph=t.ph+now*t.w-(1-a)*1.2;
     const pulse=t.open?.75+.35*Math.sin(now*4+t.ph*3):1,al=a*fade*pulse,sz=t.size*(.4+.6*a)*(t.open?1+.15*Math.sin(now*4+t.ph*3):1);
     posAt(t,ph,R,tmp);t.x=tmp.x;t.y=tmp.y;t.z=tmp.z;t.vis=al>.05;
-    dots.P.setXYZ(n,tmp.x,tmp.y,tmp.z);dots.S.setX(n,sz*(t===hover?1.8:1));dots.A.setX(n,Math.min(1.4,al*(t===hover?1.4:1)));dots.Co.setXYZ(n,t.col.r,t.col.g,t.col.b);n++;
+    dots.P.setXYZ(n,tmp.x,tmp.y,tmp.z);const gl=t.glow||0;if(gl)t.glow=Math.max(0,gl-dt*.9);dots.S.setX(n,sz*(t===hover?1.8:1)*(1+.9*gl));dots.A.setX(n,Math.min(1.6,al*(t===hover?1.4:1)*(1+.6*gl)));dots.Co.setXYZ(n,t.col.r,t.col.g,t.col.b);n++;
     for(let i=1;i<=TRAIL;i++){const f=1-i/(TRAIL+1);posAt(t,ph-i*.022*Math.sign(t.w),R,tmp);
       trails.P.setXYZ(m,tmp.x,tmp.y,tmp.z);trails.S.setX(m,sz*(.25+.45*f));trails.A.setX(m,al*f*f*.3);trails.Co.setXYZ(m,t.col.r,t.col.g,t.col.b);m++}}
   if(list.length!==trades.size)list=[...trades.values()];
@@ -273,12 +273,49 @@ function poke(e,strength){ndc.set(e.clientX/innerWidth*2-1,-(e.clientY/innerHeig
 canvas.addEventListener('pointermove',e=>poke(e,e.pointerType==='mouse'&&!e.buttons?.6:1),{passive:true});
 canvas.addEventListener('pointerdown',e=>poke(e,1),{passive:true});
 
-// gaze: follow one orbiting trade at a time (rotates the eyeball itself)
-const gaze={t:null,until:0,fresh:null,blinkAt:-1,nextBlink:2.5,jit:new THREE.Vector3(),jitAt:0,q:new THREE.Quaternion()};
-const vv=new THREE.Vector3(),Z=new THREE.Vector3(0,0,1),mLook=new THREE.Matrix4(),qFace=new THREE.Quaternion(),qInv=new THREE.Quaternion(),O=new THREE.Vector3(),sw3=new THREE.Vector3(),cR=new THREE.Vector3(),cU=new THREE.Vector3();
-function chooseTarget(){const vis=list.filter(t=>t.vis&&!t.dead&&t!==gaze.t);if(!vis.length)return gaze.t&&!gaze.t.dead?gaze.t:null;
-  if(Math.random()<.55){const r=vis.slice().sort((a,b)=>String(b.p?.opened_at||'').localeCompare(String(a.p?.opened_at||''))).slice(0,6);return r[(Math.random()*r.length)|0]}
+// gaze: active scanning — fast saccades, short fixations w/ micro-jitter, smooth sweeps, analysis fixations on trades
+const gaze={mode:'fix',until:0,t:null,fresh:null,blinkAt:-1,nextBlink:2.5,jit:new THREE.Vector3(),jitAt:0,q:new THREE.Quaternion(),
+  cur:new THREE.Vector3(0,0,1),from:new THREE.Vector3(0,0,1),to:new THREE.Vector3(0,0,1),fixP:null,s0:0,dur:.1,next:null,sw:null,constrict:0};
+const vv=new THREE.Vector3(),Z=new THREE.Vector3(0,0,1),mLook=new THREE.Matrix4(),qFace=new THREE.Quaternion(),qInv=new THREE.Quaternion(),O=new THREE.Vector3(),sw3=new THREE.Vector3(),cR=new THREE.Vector3(),cU=new THREE.Vector3(),gv=new THREE.Vector3();
+const YAW=.95,PITCH=.62;
+function gdir(yaw,pitch,out){yaw=THREE.MathUtils.clamp(yaw,-YAW,YAW);pitch=THREE.MathUtils.clamp(pitch,-PITCH,PITCH);return out.set(Math.sin(yaw)*Math.cos(pitch),Math.sin(pitch),Math.cos(yaw)*Math.cos(pitch))}
+function clampDir(v){const y=Math.atan2(v.x,Math.max(v.z,.05)),p=Math.asin(THREE.MathUtils.clamp(v.y,-1,1));return gdir(y,p,v)}
+function tradeDir(t,out){out.set(t.x,t.y,t.z);eye.worldToLocal(out).normalize();return clampDir(out)}
+function pickTrade(){const vis=list.filter(t=>t.vis&&!t.dead&&t!==gaze.t);if(!vis.length)return null;
+  if(Math.random()<.4){const r=vis.slice().sort((a,b)=>String(b.p?.opened_at||'').localeCompare(String(a.p?.opened_at||''))).slice(0,8);return r[(Math.random()*r.length)|0]}
   return vis[(Math.random()*vis.length)|0]}
+// start a saccade from current gaze toward a point (or a trade); after landing, enter `then` mode
+function saccade(now,t,dir,then,hold){gaze.mode='sac';gaze.from.copy(gaze.cur);gaze.t=t;if(t)tradeDir(t,gaze.to);else gaze.to.copy(dir);
+  const amp=gaze.from.angleTo(gaze.to);gaze.dur=.08+Math.min(.07,amp*.06);gaze.s0=now;gaze.next={mode:then,hold}}
+function planNext(now){const r=Math.random();
+  if(r<.12){// smooth sweep across the orbit ring / an up-down arc
+    const h=Math.random()<.65,sgn=Math.random()<.5?-1:1,y0=(Math.random()-.5)*.5,x0=(Math.random()-.5)*.9;
+    gaze.sw=h?{a:[-YAW*.95*sgn,y0],b:[YAW*.95*sgn,y0+(Math.random()-.5)*.3],arc:(Math.random()-.5)*.5}:{a:[x0,PITCH*.95*sgn],b:[x0+(Math.random()-.5)*.6,-PITCH*.95*sgn],arc:(Math.random()-.5)*.6};
+    gdir(gaze.sw.a[0],gaze.sw.a[1],gv);saccade(now,null,gv,'sweep',1.1+Math.random()*.9);return}
+  if(r<.24){const t=pickTrade();if(t){saccade(now,t,null,'analyze',1+Math.random()*.5);return}}
+  if(r<.6){const t=pickTrade();if(t){saccade(now,t,null,'fix',.2+Math.random()*.6);return}}
+  // random point anywhere around the orb, biased toward the edges
+  const e=Math.pow(Math.random(),.6),a=Math.random()*Math.PI*2;gdir(Math.cos(a)*YAW*e,Math.sin(a)*PITCH*e,gv);
+  saccade(now,null,gv,'fix',.2+Math.random()*.6)}
+function stepGaze(now,dt){
+  if(hover&&!hover.dead){tradeDir(hover,gv);gaze.cur.lerp(gv,1-Math.exp(-dt*14)).normalize();gaze.t=hover;gaze.mode='hover';gaze.until=now;return}
+  if(gaze.mode==='hover'){gaze.mode='fix';gaze.until=now+.3}
+  if(gaze.fresh&&!gaze.fresh.dead&&gaze.mode!=='sac'){const f=gaze.fresh;gaze.fresh=null;saccade(now,f,null,'analyze',1.2+Math.random()*.4);if(gaze.blinkAt<0&&Math.random()<.5)gaze.blinkAt=now+.15}
+  const m=gaze.mode;
+  if(m==='sac'){if(gaze.t&&!gaze.t.dead)tradeDir(gaze.t,gaze.to);let k=Math.min(1,(now-gaze.s0)/gaze.dur);k=k*k*(3-2*k);
+    slerpV(gaze.from,gaze.to,k,gaze.cur).normalize();
+    if(now-gaze.s0>=gaze.dur){const n=gaze.next;gaze.mode=n.mode;gaze.s0=now;gaze.until=now+n.hold;gaze.jit.set(0,0,0);gaze.jitAt=now+.05}}
+  else if(m==='sweep'){const w=gaze.sw,k=Math.min(1,(now-gaze.s0)/(gaze.until-gaze.s0)),e=.5-.5*Math.cos(Math.PI*k),arc=Math.sin(Math.PI*e)*w.arc;
+    gdir(w.a[0]+(w.b[0]-w.a[0])*e+(w.a[0]===w.b[0]?0:0)+(Math.abs(w.a[1]-w.b[1])>.6?arc:0),w.a[1]+(w.b[1]-w.a[1])*e+(Math.abs(w.a[1]-w.b[1])>.6?0:arc),gaze.cur);
+    if(k>=1)planNext(now)}
+  else{// fixation / analysis: track the trade (it orbits) + micro-jitter
+    if(gaze.t&&(gaze.t.dead||!gaze.t.vis))gaze.until=Math.min(gaze.until,now);
+    if(now>gaze.jitAt){const a=m==='analyze'?.012:.022;gaze.jit.set((Math.random()-.5)*a,(Math.random()-.5)*a,0);gaze.jitAt=now+.06+Math.random()*.14}
+    if(gaze.t&&!gaze.t.dead){tradeDir(gaze.t,gv);gaze.cur.copy(gv)}
+    gaze.cur.add(gaze.jit.clone().multiplyScalar(dt*8)).normalize();
+    if(m==='analyze'&&gaze.t){gaze.t.glow=Math.min(1,(gaze.t.glow||0)+dt*4);gaze.constrict=Math.min(1,gaze.constrict+dt*4)}
+    if(now>=gaze.until){if(Math.random()<.12&&gaze.blinkAt<0)gaze.blinkAt=now;planNext(now)}}
+  if(gaze.mode!=='analyze')gaze.constrict=Math.max(0,gaze.constrict-dt*2.5)}
 let eyeInit=false;
 function updateEye(now,dt){phy.now=now;
   // the eye body slowly turns to face the viewer; while dragging it holds still so depth/side are visible
@@ -286,20 +323,12 @@ function updateEye(now,dt){phy.now=now;
   if(!eyeInit){eye.quaternion.copy(qFace);eyeInit=true}
   else if(!phy.drag&&now-phy.rel>1.6)eye.quaternion.slerp(qFace,1-Math.exp(-dt*.45));
   eye.updateMatrixWorld();
-  let t=null;
-  if(hover&&!hover.dead)t=hover;
-  else{if(gaze.fresh&&!gaze.fresh.dead){gaze.t=gaze.fresh;gaze.until=now+5;gaze.fresh=null;if(gaze.blinkAt<0)gaze.blinkAt=now}
-    if(!gaze.t||gaze.t.dead||(!gaze.t.vis&&now-gaze.t.born>2)||now>gaze.until){gaze.t=chooseTarget();gaze.until=now+2.6+Math.random()*2.6;if(Math.random()<.3&&gaze.blinkAt<0)gaze.blinkAt=now}
-    t=gaze.t}
-  if(now>gaze.jitAt){gaze.jit.set((Math.random()-.5)*.05,(Math.random()-.5)*.05,0);gaze.jitAt=now+.4+Math.random()*.9}
-  if(t&&t.x!==undefined){vv.set(t.x,t.y,t.z);eye.worldToLocal(vv).normalize();EU.tint.value.lerp(t.col,1-Math.exp(-dt*3))}
-  else vv.set(Math.sin(now*.4)*.4,Math.sin(now*.27)*.2,1).normalize();
-  vv.add(gaze.jit).normalize();const ang=vv.angleTo(Z),mx=.55;if(ang>mx)slerpV(Z,vv,mx/ang,vv).normalize();
-  gaze.q.setFromUnitVectors(Z,vv);eyeball.quaternion.slerp(gaze.q,1-Math.exp(-dt*7));eyeball.updateMatrix();EU.gq.value.setFromMatrix4(eyeball.matrix);
+  stepGaze(now,dt);const t=gaze.t;if(t&&!t.dead)EU.tint.value.lerp(t.col,1-Math.exp(-dt*3));
+  gaze.q.setFromUnitVectors(Z,gaze.cur);eyeball.quaternion.slerp(gaze.q,1-Math.exp(-dt*45));eyeball.updateMatrix();EU.gq.value.setFromMatrix4(eyeball.matrix);
   if(gaze.blinkAt<0&&now>gaze.nextBlink)gaze.blinkAt=now;
   let b=0;if(gaze.blinkAt>=0){const ph=(now-gaze.blinkAt)/.24;if(ph>=1){gaze.blinkAt=-1;gaze.nextBlink=now+3+Math.random()*5}else b=Math.sin(Math.PI*ph)}
   EU.blink.value=Math.min(1,b*1.05);
-  EU.dil.value=1+.1*Math.sin(now*.7)+.08*Math.sin(now*2.3);
+  EU.dil.value=(1+.1*Math.sin(now*.7)+.08*Math.sin(now*2.3))*(1-.32*gaze.constrict);
   // spring physics: strands lag behind camera rotation (and the eye turning), then wobble back
   const az=controls.getAzimuthalAngle(),po=controls.getPolarAngle();
   if(phy.az!==null&&dt>0){let da=az-phy.az;if(da>Math.PI)da-=2*Math.PI;if(da<-Math.PI)da+=2*Math.PI;phy.w.lerp(new THREE.Vector2(da/dt,(po-phy.po)/dt),.5)}
