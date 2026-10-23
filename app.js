@@ -24,7 +24,8 @@ function norm(p){
   const tot=rows.reduce((a,r)=>a+r.pnl,0),trades=rows.reduce((a,r)=>a+r.trades,0);
   const lastBal=[...rows].reverse().find(r=>r.balance!=null);
   const equity=lastBal?lastBal.balance:(sb!=null?sb+tot:null);
-  return{...p,rows,sb,tot,trades,equity,roi:sb?tot/sb*100:null,cur:p.currency||'USD'};
+  const inv=p.invested!=null&&isFinite(+p.invested)&&+p.invested>0?+p.invested:null,base=inv??sb;
+  return{...p,rows,sb,inv,base,tot,trades,equity,roi:base?tot/base*100:null,cur:p.currency||'USD'};
 }
 function agg(rows,per){const n=keyLen[per],g={};
   rows.forEach(r=>{const k=r.date.slice(0,n);g[k]=g[k]||{key:k,pnl:0,trades:0};g[k].pnl+=r.pnl;g[k].trades+=r.trades});
@@ -68,7 +69,7 @@ function makeCard(slug,i){
   const el=document.createElement('section');el.className='card rise';el.style.setProperty('--d',3+i);el.id='c-'+slug;
   el.innerHTML=`<div class="c-top"><div class="c-name"><h3></h3><div class="c-bot"></div></div><span class="badge"></span></div>
   <div class="c-mid"><div class="c-pnl">$0.00</div><div class="c-roi">0.00%</div></div>
-  <div class="c-bal">Balance <b class="eq">—</b></div>
+  <div class="c-bal">Balance <b class="eq">—</b><span class="stk"></span></div>
   <div class="spark"><canvas id="sp-${slug}"></canvas><span class="empty">No trades yet</span></div>`;
   $('#cards').appendChild(el);return el;
 }
@@ -79,6 +80,7 @@ function renderCard(slug,p,i){
   const pe=el.querySelector('.c-pnl');tween(pe,p.tot,v=>money(v,c),slug+'tot');setCls(pe,p.tot);
   const re=el.querySelector('.c-roi');re.textContent=pct(p.roi);re.classList.remove('pos','neg');if(p.roi)re.classList.add(cls(p.roi));
   tween(el.querySelector('.eq'),p.equity??0,v=>money(v,c,false),slug+'eq');
+  el.querySelector('.stk').textContent=p.inv?' · At stake '+money(p.inv,c,false):'';
   const g=agg(p.rows,period);let cum=0;const labels=['Start',...g.map(r=>r.key)],data=[0,...g.map(r=>+(cum+=r.pnl).toFixed(2))];
   const flat=p.trades===0&&data.every(v=>v===0);
   el.querySelector('.empty').classList.toggle('show',flat);
@@ -86,7 +88,7 @@ function renderCard(slug,p,i){
 }
 function render(){
   let tot=0,cap=0,per=0;const k=today().slice(0,keyLen[period]);
-  order.forEach((s,i)=>{const p=projects[s];renderCard(s,p,i);tot+=p.tot;if(p.sb)cap+=p.sb;const r=agg(p.rows,period).find(r=>r.key===k);if(r)per+=r.pnl});
+  order.forEach((s,i)=>{const p=projects[s];renderCard(s,p,i);tot+=p.tot;if(p.base)cap+=p.base;const r=agg(p.rows,period).find(r=>r.key===k);if(r)per+=r.pnl});
   document.querySelectorAll('#cards>.card').forEach(e=>{const s=e.id.slice(2);if(!projects[s]){charts['sp-'+s]?.destroy();delete charts['sp-'+s];e.remove()}});
   const h=$('#heroPnl');odo(h,money(tot));setCls(h,tot);
   const roi=cap?tot/cap*100:null,re=$('#heroRoi');re.textContent=pct(roi);re.classList.remove('pos','neg');if(roi)re.classList.add(cls(roi));
