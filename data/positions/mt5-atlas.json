@@ -1,8 +1,21 @@
 {
  "project": "ATLAS-MT5-GK-1",
  "bot": "MT5",
- "updated_at": "2026-10-23T17:44:34+04:00",
+ "updated_at": "2026-10-23T17:45:35+04:00",
  "positions": [
+  {
+   "id": "SH-SW59_ES-1792763100",
+   "opened_at": "2026-10-23T17:45:00+04:00",
+   "closed_at": null,
+   "status": "open",
+   "strategy": "SW59_ES",
+   "asset": "US500",
+   "side": "buy",
+   "lots": 0.0,
+   "rr": 0.0,
+   "pnl": 0.0,
+   "mode": "shadow"
+  },
   {
    "id": "11088136251",
    "opened_at": "2026-10-23T17:44:00+04:00",
@@ -12,8 +25,8 @@
    "asset": "XAGUSD",
    "side": "buy",
    "lots": 0.33,
-   "rr": -0.03,
-   "pnl": -11.55,
+   "rr": -0.23,
+   "pnl": -89.1,
    "mode": "live"
   },
   {
@@ -25,8 +38,8 @@
    "asset": "XAUUSD",
    "side": "sell",
    "lots": 1.04,
-   "rr": 0.13,
-   "pnl": 47.84,
+   "rr": 0.54,
+   "pnl": 198.64,
    "mode": "live"
   },
   {
@@ -38,8 +51,8 @@
    "asset": "XAUUSD",
    "side": "sell",
    "lots": 0.59,
-   "rr": 0.14,
-   "pnl": 54.28,
+   "rr": 0.36,
+   "pnl": 139.83,
    "mode": "live"
   },
   {
@@ -51,8 +64,8 @@
    "asset": "EURUSD",
    "side": "sell",
    "lots": 0.91,
-   "rr": 0.19,
-   "pnl": 76.44,
+   "rr": 0.2,
+   "pnl": 80.99,
    "mode": "live"
   },
   {
@@ -64,8 +77,8 @@
    "asset": "GBPUSD",
    "side": "sell",
    "lots": 1.0,
-   "rr": 0.13,
-   "pnl": 51.0,
+   "rr": 0.15,
+   "pnl": 62.0,
    "mode": "live"
   },
   {
@@ -77,8 +90,8 @@
    "asset": "USTEC",
    "side": "sell",
    "lots": 0.0,
-   "rr": 0.39,
-   "pnl": 155.59,
+   "rr": 0.26,
+   "pnl": 105.87,
    "mode": "shadow"
   },
   {
