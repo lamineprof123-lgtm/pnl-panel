@@ -79,7 +79,7 @@ const orbMat=new THREE.ShaderMaterial({uniforms:U,transparent:true,depthWrite:fa
    col=col*(.06+.34*smoothstep(-.6,.7,n))+mix(c2,acc,.5)*veins*.45+mix(c1,c2,.5+.5*sin(time*.3))*fr*.55;
    col=pow(col,vec3(1.9))*2.2;gl_FragColor=vec4(col*pulse,1.);}`});
 core.add(new THREE.Mesh(new THREE.SphereGeometry(1,96,96),orbMat));
-const heart=sprite(new THREE.Color('#bffcf0'),1.,.22);core.add(heart);
+const heart=sprite(new THREE.Color('#bffcf0'),1.,.22);heart.visible=false;core.add(heart);
 const halo1=sprite(new THREE.Color('#14b8a6'),5,.13);const halo2=sprite(new THREE.Color('#0891b2'),10,.08);const halo3=sprite(new THREE.Color('#2563eb'),18,.03);scene.add(halo1,halo2,halo3);
 
 // neural shell
@@ -106,7 +106,7 @@ const dotMat=new THREE.ShaderMaterial({uniforms:U,transparent:true,depthWrite:fa
 function pointsBuf(n){const g=new THREE.BufferGeometry();
   const P=new THREE.BufferAttribute(new Float32Array(n*3),3),S=new THREE.BufferAttribute(new Float32Array(n),1),A=new THREE.BufferAttribute(new Float32Array(n),1),Co=new THREE.BufferAttribute(new Float32Array(n*3),3);
   [P,S,A,Co].forEach(b=>b.setUsage(THREE.DynamicDrawUsage));g.setAttribute('position',P);g.setAttribute('sz',S);g.setAttribute('al',A);g.setAttribute('col',Co);g.setDrawRange(0,0);
-  const o=new THREE.Points(g,dotMat);o.frustumCulled=false;scene.add(o);return{g,P,S,A,Co}}
+  const o=new THREE.Points(g,dotMat);o.frustumCulled=false;o.renderOrder=4;scene.add(o);return{g,P,S,A,Co}}
 const dots=pointsBuf(MAX),trails=pointsBuf(MAX*TRAIL);
 const trades=new Map();let list=[];
 const ring={};
@@ -115,16 +115,16 @@ function orbitFor(strategy){if(ring[strategy])return ring[strategy];const h1=has
   const n=new THREE.Vector3(0,1,0).applyAxisAngle(new THREE.Vector3(1,0,0),inc).applyAxisAngle(new THREE.Vector3(0,1,0),node);
   const u=new THREE.Vector3(1,0,0).applyAxisAngle(new THREE.Vector3(0,1,0),node);const v=new THREE.Vector3().crossVectors(n,u).normalize();
   return ring[strategy]={R,u,v}}
-function sync(positions){const now=performance.now()/1e3,ids=new Set();
+function sync(positions){const now=clock.getElapsedTime(),ids=new Set();let fresh=null;
   positions.slice(0,MAX).forEach(p=>{const id=p.__k;ids.add(id);let t=trades.get(id);const v=+p.pnl||0;
     if(!t){const o=orbitFor(p.strategy||'?'),h=hash(id),h2=hash(id+'~');
       const R=o.R+(h-.5)*.55,tilt=(h2-.5)*.18;
       const u=o.u.clone(),vv=o.v.clone().applyAxisAngle(u,tilt);
-      t={id,R,u,v:vv,ph:h*Math.PI*2,w:.55/Math.pow(R,1.5)*(.85+h2*.3),born:first?now-5-h*2:now,dead:0,col:(v>0?C.pos:v<0?C.neg:C.zero).clone(),size:1};trades.set(id,t)}
+      t={id,R,u,v:vv,ph:h*Math.PI*2,w:.55/Math.pow(R,1.5)*(.85+h2*.3),born:first?now-5-h*2:now,dead:0,col:(v>0?C.pos:v<0?C.neg:C.zero).clone(),size:1};trades.set(id,t);if(!first&&!fresh)fresh=t}
     t.p=p;t.pnl=v;t.open=p.status==='open';t.target=v>0?C.pos:v<0?C.neg:C.zero;t.dead=0;
     t.size=(p.mode==='shadow'?.75:1)*(.85+Math.min(1.1,Math.log10(1+Math.abs(v))*.42))});
   trades.forEach(t=>{if(!ids.has(t.id)&&!t.dead)t.dead=now});
-  first=false;list=[...trades.values()];
+  first=false;list=[...trades.values()];if(fresh)gaze.fresh=fresh;
   const tot=positions.reduce((a,p)=>a+(+p.pnl||0),0),won=positions.filter(p=>+p.pnl>0).length,lost=positions.filter(p=>+p.pnl<0).length;
   const r=$('#readout');r.innerHTML=positions.length?`${positions.length} trades · <span class="pos">${won} won</span> · <span class="neg">${lost} lost</span> · <span class="${tot>0?'pos':tot<0?'neg':''}">${(tot<0?'\u2212':tot>0?'+':'')+Math.abs(tot).toLocaleString('en-US',{style:'currency',currency:'USD'})}</span>`:'Waiting for trades';r.classList.add('on')}
 let first=true;
@@ -141,6 +141,101 @@ function updateTrades(now,dt){let n=0,m=0;const k=1-Math.exp(-dt*2.5);
       trails.P.setXYZ(m,tmp.x,tmp.y,tmp.z);trails.S.setX(m,sz*(.25+.45*f));trails.A.setX(m,al*f*f*.3);trails.Co.setXYZ(m,t.col.r,t.col.g,t.col.b);m++}}
   if(list.length!==trades.size)list=[...trades.values()];
   for(const b of[[dots,n],[trails,m]]){const[o,c]=b;o.g.setDrawRange(0,c);[o.P,o.S,o.A,o.Co].forEach(x=>{x.needsUpdate=true})}}
+
+
+/* ---------- AI eye ---------- */
+const eye=new THREE.Group();scene.add(eye);
+const EU={time:U.time,pr:U.pr,look:{value:new THREE.Vector2()},blink:{value:0},dil:{value:1},tint:{value:new THREE.Color('#34d399')}};
+const eyeMat=new THREE.ShaderMaterial({uniforms:EU,transparent:true,depthWrite:true,
+  vertexShader:`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
+  fragmentShader:NOISE+`uniform float time;uniform vec2 look;uniform float blink;uniform float dil;uniform vec3 tint;varying vec2 vUv;
+  void main(){vec2 p=(vUv-.5)*vec2(2.3,1.5);float W=.95,xn=clamp(p.x/W,-1.,1.),sh=pow(max(1.-xn*xn,0.),.85),op=1.-blink;
+   float up=(.44*sh)*op+.004,lo=(.32*sh)*op+.004;float inU=up-p.y,inL=p.y+lo,ins=min(inU,inL);
+   float mask=smoothstep(0.,.025,ins)*step(abs(p.x),W);
+   float rim=(exp(-pow(inU*30.,2.))+exp(-pow(inL*30.,2.))*.7)*smoothstep(1.,.55,abs(xn));
+   vec2 c=look*vec2(.40,.15);vec2 q=p-c;q.x*=1.+.35*abs(look.x);q.y*=1.+.2*abs(look.y);float r=length(q);vec2 dir=q/max(r,1e-4);
+   float R=.31,pr=.105*dil;
+   float fib=snoise(vec3(dir*7.,r*3.-time*.2))*.5+.5;fib=mix(fib,snoise(vec3(dir*19.,r*9.+time*.15))*.5+.5,.45);
+   float t=smoothstep(pr,R,r);
+   vec3 cIn=vec3(.6,1.,.86),cMid=vec3(.06,.78,.74),cOut=vec3(.13,.45,1.);
+   vec3 iris=mix(cIn,cMid,smoothstep(0.,.4,t));iris=mix(iris,cOut,smoothstep(.4,1.,t));iris=mix(iris,tint,.22*smoothstep(.45,1.,t));
+   iris*=.35+1.05*fib;iris*=1.-.8*smoothstep(.82,1.,t);
+   iris+=cIn*exp(-pow((r-pr-.03)*38.,2.))*.9;
+   float irisM=1.-smoothstep(R-.012,R+.006,r),pupM=1.-smoothstep(pr-.01,pr+.008,r);
+   vec3 scl=vec3(.008,.03,.05)+vec3(.02,.14,.2)*pow(1.-abs(xn),.6)*.5;
+   scl+=vec3(.05,.35,.4)*pow(max(0.,1.-length(q)/.9),3.)*.25;
+   vec3 col=mix(scl,iris,irisM);col=mix(col,vec3(0.,.008,.012),pupM);
+   col+=vec3(.3,.9,.85)*exp(-pow((r-pr)*90.,2.))*.35;
+   vec2 hl=q-vec2(-.085,.085);col+=vec3(1.)*exp(-dot(hl,hl)*1400.)*1.4;
+   col*=mix(.3,1.,smoothstep(0.,.12,inU));
+   col*=.88+.12*sin(p.y*260.+time*5.);
+   vec3 rc=mix(vec3(.2,.95,.8),vec3(.3,.6,1.),.5+.5*sin(time*.8+p.x*3.));
+   float a=max(mask*.96,clamp(rim*.85,0.,1.));if(a<.01)discard;
+   gl_FragColor=vec4(col*mask+rc*rim*1.2,a);}`});
+const eyePlane=new THREE.Mesh(new THREE.PlaneGeometry(2.3,1.5),eyeMat);eyePlane.renderOrder=2;eye.add(eyePlane);
+
+// flowing strands: contour lines around the lids + fanning fibres
+{const NC=mobile?16:26,NF=mobile?70:130,SEG=mobile?48:72,pos=[],s=[],k=[],sd=[],ph=[],ty=[];
+ const push=(a,b,side,kk,p,tp)=>{for(const v of[a,b]){pos.push(0,0,0);s.push(v);k.push(kk);sd.push(side);ph.push(p);ty.push(tp)}};
+ for(const side of[1,-1])for(let i=0;i<NC;i++){const kk=(i+hash('k'+side+i)*.6)/NC,p=hash('c'+side+i);for(let j=0;j<SEG;j++)push(-1+2*j/SEG,-1+2*(j+1)/SEG,side,kk,p,0)}
+ for(let i=0;i<NF;i++){const side=hash('fs'+i)<.45?1:-1,s0=(hash('fx'+i)*2-1)*.97,p=hash('fp'+i),L=6;for(let j=0;j<L;j++)push(j/L,(j+1)/L,side,s0,p,1)}
+ const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
+ [['s',s],['k',k],['side',sd],['ph',ph],['ty',ty]].forEach(([n,a])=>g.setAttribute(n,new THREE.Float32BufferAttribute(a,1)));
+ const m=new THREE.LineSegments(g,new THREE.ShaderMaterial({uniforms:EU,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,
+  vertexShader:`attribute float s;attribute float k;attribute float side;attribute float ph;attribute float ty;uniform float time;uniform float blink;varying float va;varying vec3 vc;
+  float lid(float x,float sd){float sh=pow(max(1.-x*x,0.),.85);return sd*(sd>0.?.44:.32)*sh*(1.-blink);}
+  void main(){vec3 P;float spark;
+   if(ty<.5){float W=.95*(1.+k*1.5),x=s;float sh=pow(max(1.-x*x,0.),.85);
+     float y=side*((side>0.?.44:.32)*(1.-blink*(1.-k)*.95)+k*(side>0.?1.05:.85))*sh;
+     y+=(sin(x*5.+time*1.1+ph*6.28)*.035*(.25+k*2.)+sin(x*13.-time*1.9+ph*20.)*.01)*sh;
+     P=vec3(x*W,y,-k*.35*sh);float pp=fract(time*.22+ph);spark=exp(-pow((s*.5+.5-pp)*12.,2.));
+     va=(.05+.16*pow(1.-k,1.6))*pow(sh,.5)+spark*.55*(1.-k)*sh;vc=mix(vec3(.1,.85,.75),vec3(.2,.5,1.),k);}
+   else{float x=k,L=.35+ph*.9;vec2 o=vec2(x*.95,lid(x,side));vec2 n=normalize(vec2(x*.55,side));
+     float t=s*L;vec2 q=o+n*t;q.x+=sin(t*3.+time*1.3+ph*30.)*.06*t+side*.0;q.y+=side*t*t*.15;
+     P=vec3(q,-.15*t);float pp=fract(time*.45+ph*7.);spark=exp(-pow((s-pp)*7.,2.));
+     va=(.18*(1.-s)+spark*.6)*(.6+.4*sin(time*2.+ph*40.));vc=mix(vec3(.25,.95,.85),vec3(.35,.6,1.),ph);}
+   gl_Position=projectionMatrix*modelViewMatrix*vec4(P,1.);}`,
+  fragmentShader:`varying float va;varying vec3 vc;void main(){gl_FragColor=vec4(vc*va,1.);}`}));
+ m.renderOrder=3;m.frustumCulled=false;eye.add(m);}
+
+// sparkles along the lids (red + blue like the reference, tuned to the palette)
+{const N=mobile?380:720,s=new Float32Array(N),sd=new Float32Array(N),off=new Float32Array(N),ph=new Float32Array(N),col=new Float32Array(N*3);
+ const warm=new THREE.Color('#ff5a78'),cool=[new THREE.Color('#5eead4'),new THREE.Color('#60a5fa'),new THREE.Color('#a5f3fc'),new THREE.Color('#34d399')];
+ for(let i=0;i<N;i++){const side=Math.random()<.55?1:-1;sd[i]=side;s[i]=Math.random();off[i]=Math.pow(Math.random(),2.2)*(side>0?.32:.45);ph[i]=Math.random();
+   const w=side>0?(off[i]<.14&&Math.random()<.5):Math.random()<.18;const c=w?warm:cool[(Math.random()*4)|0];col.set([c.r,c.g,c.b],i*3)}
+ const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(new Float32Array(N*3),3));
+ [['s',s],['side',sd],['off',off],['ph',ph]].forEach(([n,a])=>g.setAttribute(n,new THREE.BufferAttribute(a,1)));g.setAttribute('col',new THREE.BufferAttribute(col,3));
+ const m=new THREE.Points(g,new THREE.ShaderMaterial({uniforms:EU,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,
+  vertexShader:`attribute float s;attribute float side;attribute float off;attribute float ph;attribute vec3 col;uniform float time;uniform float blink;uniform float pr;varying float a;varying vec3 vc;
+  void main(){float x=fract(s+time*.012*(ph-.5))*2.-1.;float sh=pow(max(1.-x*x,0.),.85);
+   float y=side*((side>0.?.44:.32)*sh*(1.-blink)+off*(.35+.65*sh)+.01);y+=sin(time*1.4+ph*50.)*.012;
+   vec4 mv=modelViewMatrix*vec4(x*(1.02+off*.6),y,.02,1.);gl_Position=projectionMatrix*mv;
+   a=(.25+.75*pow(.5+.5*sin(time*(2.+ph*4.)+ph*60.),3.))*smoothstep(1.,.75,abs(x));vc=col;gl_PointSize=pr*(1.+fract(ph*13.)*2.2)*34./-mv.z;}`,
+  fragmentShader:`varying float a;varying vec3 vc;void main(){float d=length(gl_PointCoord-.5)*2.;float g=exp(-d*d*4.);if(g<.02)discard;gl_FragColor=vec4(vc*g*a*1.3,1.);}`}));
+ m.renderOrder=3;m.frustumCulled=false;eye.add(m);}
+
+// gaze: follow one orbiting trade at a time
+const gaze={t:null,until:0,fresh:null,cur:new THREE.Vector2(),tgt:new THREE.Vector2(),blinkAt:-1,nextBlink:2.5,jit:new THREE.Vector2(),jitAt:0};
+const vv=new THREE.Vector3(),vc0=new THREE.Vector3();
+function chooseTarget(){const vis=list.filter(t=>t.vis&&!t.dead&&t!==gaze.t);if(!vis.length)return gaze.t&&!gaze.t.dead?gaze.t:null;
+  if(Math.random()<.55){const r=vis.slice().sort((a,b)=>String(b.p?.opened_at||'').localeCompare(String(a.p?.opened_at||''))).slice(0,6);return r[(Math.random()*r.length)|0]}
+  return vis[(Math.random()*vis.length)|0]}
+function updateEye(now,dt){
+  let t=null;
+  if(hover&&!hover.dead)t=hover;
+  else{if(gaze.fresh&&!gaze.fresh.dead){gaze.t=gaze.fresh;gaze.until=now+5;gaze.fresh=null;if(gaze.blinkAt<0)gaze.blinkAt=now}
+    if(!gaze.t||gaze.t.dead||(!gaze.t.vis&&now-gaze.t.born>2)||now>gaze.until){gaze.t=chooseTarget();gaze.until=now+2.6+Math.random()*2.6;if(Math.random()<.3&&gaze.blinkAt<0)gaze.blinkAt=now}
+    t=gaze.t}
+  if(now>gaze.jitAt){gaze.jit.set((Math.random()-.5)*.06,(Math.random()-.5)*.06);gaze.jitAt=now+.4+Math.random()*.9}
+  if(t&&t.x!==undefined){vv.set(t.x,t.y,t.z).applyMatrix4(camera.matrixWorldInverse);vc0.set(0,0,0).applyMatrix4(camera.matrixWorldInverse);vv.sub(vc0);
+    gaze.tgt.set(THREE.MathUtils.clamp(vv.x/4.2,-1,1),THREE.MathUtils.clamp(vv.y/2.6,-1,1)).add(gaze.jit);EU.tint.value.lerp(t.col,1-Math.exp(-dt*3))}
+  else gaze.tgt.set(Math.sin(now*.4)*.5,Math.sin(now*.27)*.25);
+  gaze.cur.lerp(gaze.tgt,1-Math.exp(-dt*7));EU.look.value.copy(gaze.cur);
+  if(gaze.blinkAt<0&&now>gaze.nextBlink)gaze.blinkAt=now;
+  let b=0;if(gaze.blinkAt>=0){const ph=(now-gaze.blinkAt)/.24;if(ph>=1){gaze.blinkAt=-1;gaze.nextBlink=now+3+Math.random()*5}else b=Math.sin(Math.PI*ph)}
+  EU.blink.value=Math.min(1,b*1.05);
+  EU.dil.value=1+.1*Math.sin(now*.7)+.08*Math.sin(now*2.3);
+  eye.quaternion.copy(camera.quaternion);eye.rotateY(gaze.cur.x*.14);eye.rotateX(-gaze.cur.y*.1)}
 
 /* ---------- hover / tap ---------- */
 const tip=$('#tip');let hover=null,mouse=null,downAt=null;
@@ -175,7 +270,7 @@ renderer.setAnimationLoop(()=>{const now=clock.getElapsedTime(),dt=Math.min(.05,
   core.rotation.y=now*.08;shell.rotation.y=-now*.05;shell.rotation.x=Math.sin(now*.1)*.2;
   const br=1+.06*Math.sin(now*1.6);halo1.scale.setScalar(5*br);heart.material.opacity=.18+.07*Math.sin(now*1.6);
   stars.rotation.y=now*.004;nebula.rotation.y=now*.006;
-  updateTrades(now,dt);
+  updateTrades(now,dt);updateEye(now,dt);
   if(mouse&&!downAt)hover=pick(mouse[0],mouse[1]);showTip();
   controls.update();composer.render()});
 poll();setInterval(poll,POLL);
