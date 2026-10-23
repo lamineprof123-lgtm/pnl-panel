@@ -7,22 +7,22 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-23T21:15:35+04:00",
+ "updated_at": "2026-10-23T21:16:35+04:00",
  "balance": 101504.23,
- "equity": 102116.98,
+ "equity": 102389.12,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": -33116.35,
- "combined_total_pnl": -31612.12,
+ "shadow_total_pnl": -31944.15,
+ "combined_total_pnl": -30439.92,
  "daily": [
   {
    "date": "2026-10-23",
    "pnl": 1504.23,
    "balance": 101504.23,
    "trades": 68,
-   "shadow_pnl": -33116.35,
-   "shadow_trades": 3574,
-   "combined_pnl": -31612.12,
-   "equity": 102116.98,
+   "shadow_pnl": -31944.15,
+   "shadow_trades": 3586,
+   "combined_pnl": -30439.92,
+   "equity": 102389.12,
    "open_positions": 5
   }
  ],
@@ -301,19 +301,19 @@
    "today_trades": 2,
    "mode": "SHADOW",
    "symbol": "USTEC",
-   "open": 0
+   "open": 1
   },
   "VP_SPX": {
-   "pnl": 400.0,
-   "trades": 1,
-   "wins": 1,
-   "sum_r": 1.0,
+   "pnl": 800.0,
+   "trades": 2,
+   "wins": 2,
+   "sum_r": 2.0,
    "max_dd": 0.0,
-   "today_pnl": 400.0,
-   "today_trades": 1,
+   "today_pnl": 800.0,
+   "today_trades": 2,
    "mode": "SHADOW",
    "symbol": "US500",
-   "open": 1
+   "open": 0
   },
   "DF_BTC": {
    "pnl": 0,
@@ -2404,16 +2404,16 @@
    "open": 0
   },
   "MIDREV_SPX": {
-   "pnl": 0,
-   "trades": 0,
-   "wins": 0,
-   "sum_r": 0,
+   "pnl": 800.0,
+   "trades": 1,
+   "wins": 1,
+   "sum_r": 2.0,
    "max_dd": 0.0,
-   "today_pnl": 0.0,
-   "today_trades": 0,
+   "today_pnl": 800.0,
+   "today_trades": 1,
    "mode": "SHADOW",
    "symbol": "US500",
-   "open": 1
+   "open": 0
   },
   "MIDREV_NDX": {
    "pnl": 0,
@@ -8092,16 +8092,16 @@
    "open": 1
   },
   "NT_HVPIN_LINK": {
-   "pnl": -23.93,
-   "trades": 5,
-   "wins": 0,
-   "sum_r": -0.059,
+   "pnl": -22.77,
+   "trades": 6,
+   "wins": 1,
+   "sum_r": -0.056,
    "max_dd": 23.93,
-   "today_pnl": -23.93,
-   "today_trades": 5,
+   "today_pnl": -22.77,
+   "today_trades": 6,
    "mode": "SHADOW",
    "symbol": "LINKUSD",
-   "open": 1
+   "open": 0
   },
   "NT_OBI_L2_SUI": {
    "pnl": 0,
@@ -8140,16 +8140,16 @@
    "open": 1
   },
   "NT_CMM_SUI": {
-   "pnl": -1733.46,
-   "trades": 94,
+   "pnl": -1752.0,
+   "trades": 96,
    "wins": 16,
-   "sum_r": -4.333,
-   "max_dd": 1749.1,
-   "today_pnl": -1733.46,
-   "today_trades": 94,
+   "sum_r": -4.379,
+   "max_dd": 1767.64,
+   "today_pnl": -1752.0,
+   "today_trades": 96,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
-   "open": 1
+   "open": 0
   },
   "NT_HVPIN_SUI": {
    "pnl": -34.04,
@@ -8200,16 +8200,16 @@
    "open": 1
   },
   "NT_CMM_DOGE": {
-   "pnl": -690.47,
-   "trades": 58,
+   "pnl": -697.61,
+   "trades": 59,
    "wins": 18,
-   "sum_r": -1.728,
+   "sum_r": -1.746,
    "max_dd": 764.57,
-   "today_pnl": -690.47,
-   "today_trades": 58,
+   "today_pnl": -697.61,
+   "today_trades": 59,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
-   "open": 1
+   "open": 0
   },
   "NT_HVPIN_DOGE": {
    "pnl": -6.21,
@@ -8236,13 +8236,13 @@
    "open": 0
   },
   "NT_OBI_TOB_BNB": {
-   "pnl": -839.64,
-   "trades": 549,
+   "pnl": -848.82,
+   "trades": 554,
    "wins": 101,
-   "sum_r": -2.088,
-   "max_dd": 839.64,
-   "today_pnl": -839.64,
-   "today_trades": 549,
+   "sum_r": -2.111,
+   "max_dd": 848.82,
+   "today_pnl": -848.82,
+   "today_trades": 554,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
    "open": 1
@@ -8440,13 +8440,13 @@
    "open": 1
   },
   "NT_CMM_XAG": {
-   "pnl": -427.37,
-   "trades": 47,
-   "wins": 17,
-   "sum_r": -1.063,
+   "pnl": -421.47,
+   "trades": 48,
+   "wins": 18,
+   "sum_r": -1.048,
    "max_dd": 780.29,
-   "today_pnl": -427.37,
-   "today_trades": 47,
+   "today_pnl": -421.47,
+   "today_trades": 48,
    "mode": "SHADOW",
    "symbol": "XAGUSD",
    "open": 1
