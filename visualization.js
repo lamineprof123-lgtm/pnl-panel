@@ -25,7 +25,7 @@ Object.assign(controls,{enableDamping:true,dampingFactor:.06,enablePan:false,aut
 
 const composer=new EffectComposer(renderer);
 composer.addPass(new RenderPass(scene,camera));
-const bloom=new UnrealBloomPass(new THREE.Vector2(256,256),.75,.5,.2);
+const bloom=new UnrealBloomPass(new THREE.Vector2(256,256),.75,.5,.3);
 composer.addPass(bloom);composer.addPass(new OutputPass());
 
 function resize(){const w=innerWidth,h=innerHeight;renderer.setSize(w,h,false);composer.setSize(w,h);
@@ -77,9 +77,9 @@ const orbMat=new THREE.ShaderMaterial({uniforms:U,transparent:true,depthWrite:fa
    vec3 c1=vec3(.024,.57,.70),c2=vec3(.063,.73,.506),c3=vec3(.145,.388,.92),acc=vec3(.37,.92,.83);
    vec3 col=mix(c3,c1,smoothstep(-.55,-.05,n));col=mix(col,c2,smoothstep(.0,.5,n));
    col=col*(.06+.34*smoothstep(-.6,.7,n))+mix(c2,acc,.5)*veins*.45+mix(c1,c2,.5+.5*sin(time*.3))*fr*.55;
-   col=pow(col,vec3(1.9))*2.2*mix(.22,1.,smoothstep(0.,.8,fr*2.2));gl_FragColor=vec4(col*pulse,1.);}`});
+   col=pow(col,vec3(1.9))*2.2*mix(.08,1.,smoothstep(0.,.8,fr*2.2));gl_FragColor=vec4(col*pulse,1.);}`});
 core.add(new THREE.Mesh(new THREE.SphereGeometry(1,96,96),orbMat));
-const heart=sprite(new THREE.Color('#bffcf0'),1.,.1);core.add(heart);
+const heart=sprite(new THREE.Color('#bffcf0'),1.,.04);core.add(heart);
 const halo1=sprite(new THREE.Color('#14b8a6'),5,.13);const halo2=sprite(new THREE.Color('#0891b2'),10,.08);const halo3=sprite(new THREE.Color('#2563eb'),18,.03);scene.add(halo1,halo2,halo3);
 
 // neural shell
@@ -144,7 +144,7 @@ function updateTrades(now,dt){let n=0,m=0;const k=1-Math.exp(-dt*2.5);
 
 
 /* ---------- AI eye (volumetric, inside the orb) ---------- */
-const eye=new THREE.Group();scene.add(eye);const RE=.5,RO=.93;
+const eye=new THREE.Group();scene.add(eye);const RE=.5,RO=.93,ORB_S=1.3;eye.scale.setScalar(ORB_S);core.scale.setScalar(ORB_S);
 const EU={time:U.time,pr:U.pr,blink:{value:0},dil:{value:1},gq:{value:new THREE.Matrix3()},sway:{value:new THREE.Vector3()},swv:{value:new THREE.Vector3()},ptr:{value:new THREE.Vector4(0,0,0,0)},tint:{value:new THREE.Color('#34d399')}};
 const LID=`float shp(float x){return pow(max(1.-x*x,0.),.8);}float lidU(float x){return .56*shp(x)*(1.+.12*x);}float lidL(float x){return .42*shp(x);}`;
 const shp=x=>Math.pow(Math.max(1-x*x,0),.8),lidU=x=>.56*shp(x)*(1+.12*x),lidL=x=>.42*shp(x),LW=.92;
@@ -198,7 +198,7 @@ const slerpV=(a,b,t,o)=>{const d=THREE.MathUtils.clamp(a.dot(b),-1,1),w=Math.aco
    B.set(u*(side>0?1.1:1.4),side,-(.2+rnd()*.7)).normalize();
    const T=(.55+rnd()*.45)*(1-.25*u*u),step=.011/Math.sqrt(D)/T,ph=rnd();
    for(let s=0;s<1;s+=step){const tt=s*T;slerpV(A,B,tt,P);P.multiplyScalar(RE+.012+(RO-RE)*Math.pow(Math.min(1,tt/.55),.8));
-    let c=pick(blue),b=.5*Math.pow(1-s,1.2)*(.4+.6*rnd());
+    let c=pick(blue),b=.2*Math.pow(1-s,1.2)*(.4+.6*rnd());
     const r=rnd();if(side>0&&tt>.05&&tt<.4&&r<.38*Math.exp(-Math.pow((tt-.18)/.11,2))+.03)c=pick(red),b*=2.4;
     else if(side<0&&tt<.45&&r<.07)c=pick(red),b*=2.2;else if(r>.985)c=[.9,.97,1],b*=1.6;
     add(P,c,b,tt,ph,0,.8+rnd()*.7)}}}
@@ -206,11 +206,11 @@ const slerpV=(a,b,t,o)=>{const d=THREE.MathUtils.clamp(a.dot(b),-1,1),w=Math.aco
  for(let k=0;k<NR;k++){const al=.78+k*(.75/NR),ph=rnd(),stp=.012/Math.sqrt(D)/Math.sin(al);
   for(let f=0;f<Math.PI*2;f+=stp){const cs=Math.cos(f),sd=Math.pow(Math.abs(cs),2.2);if(sd<.1)continue;
    const rr=RO*(1+.012*Math.sin(f*9+k));P.set(Math.sin(al)*cs*rr,Math.sin(al)*Math.sin(f)*.85*rr,Math.cos(al)*rr);
-   add(P,pick(blue),.32*sd*(.55*(1-k/NR)+.12)*(.4+.6*rnd()),al-.78,ph,1,.8+rnd()*.5)}}
+   add(P,pick(blue),.14*sd*(.55*(1-k/NR)+.12)*(.4+.6*rnd()),al-.78,ph,1,.8+rnd()*.5)}}
  const NS=Math.round(10*D);
  for(let i=0;i<NS;i++){const sd=i%3===0?-1:1,ph=rnd();A.set(sd*(.55+rnd()*.25),(rnd()-.4)*.3,.55).normalize();B.set(sd*(.3+rnd()*.6),(rnd()<.7?1:-1)*(.5+rnd()*.6),-(.3+rnd()*.9)).normalize();
   const c=rnd()<.5?[.5,.9,1]:[.35,.6,1],R2=1.0+rnd()*.14;
-  for(let s=0;s<1;s+=.005/Math.sqrt(D)){slerpV(A,B,s,P);P.multiplyScalar(RE+.05+(R2-RE-.05)*Math.min(1,s*2.5));add(P,c,.26*Math.pow(1-s,1.1)*(.6+.4*rnd()),s,ph,2,1+rnd()*.6)}}
+  for(let s=0;s<1;s+=.005/Math.sqrt(D)){slerpV(A,B,s,P);P.multiplyScalar(RE+.05+(R2-RE-.05)*Math.min(1,s*2.5));add(P,c,.16*Math.pow(1-s,1.1)*(.6+.4*rnd()),s,ph,2,1+rnd()*.6)}}
  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setAttribute('col',new THREE.Float32BufferAttribute(col,3));g.setAttribute('aux',new THREE.Float32BufferAttribute(aux,4));
  const m=new THREE.Points(g,new THREE.ShaderMaterial({uniforms:EU,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,
   vertexShader:`attribute vec3 col;attribute vec4 aux;uniform float time;uniform float pr;varying vec3 vc;
@@ -243,7 +243,7 @@ const slerpV=(a,b,t,o)=>{const d=THREE.MathUtils.clamp(a.dot(b),-1,1),w=Math.aco
   void main(){vec3 P=position+vec3(sin(time*.7+ph*40.),cos(time*.6+ph*30.),sin(time*.5+ph*20.))*.012;P=phys(P,fl,fl);
    vec4 mv=modelViewMatrix*vec4(P,1.);gl_Position=projectionMatrix*mv;
    a=.15+.85*pow(.5+.5*sin(time*(2.+ph*5.)+ph*60.),4.);vc=col;gl_PointSize=max(1.,pr*(.9+fract(ph*13.)*1.6)*30./-mv.z);}`,
-  fragmentShader:`varying float a;varying vec3 vc;void main(){float d=length(gl_PointCoord-.5)*2.;if(d>1.)discard;gl_FragColor=vec4(vc*a*(1.-d*d*.6)*.38,1.);}`}));
+  fragmentShader:`varying float a;varying vec3 vc;void main(){float d=length(gl_PointCoord-.5)*2.;if(d>1.)discard;gl_FragColor=vec4(vc*a*(1.-d*d*.6)*.2,1.);}`}));
  m.renderOrder=3;m.frustumCulled=false;eye.add(m);}
 
 // deep blue atmosphere
@@ -264,7 +264,7 @@ const glass=new THREE.Mesh(new THREE.SphereGeometry(1.005,64,64),new THREE.Shade
 glass.renderOrder=5;core.add(glass);
 
 // interaction: drag inertia + touch/cursor push
-const phy={az:null,po:0,w:new THREE.Vector2(),p:null,drag:false,rel:-9,now:0},rc=new THREE.Raycaster(),pl=new THREE.Plane(),ndc=new THREE.Vector2(),hitP=new THREE.Vector3(),orbS=new THREE.Sphere(new THREE.Vector3(),.85);
+const phy={az:null,po:0,w:new THREE.Vector2(),p:null,drag:false,rel:-9,now:0},rc=new THREE.Raycaster(),pl=new THREE.Plane(),ndc=new THREE.Vector2(),hitP=new THREE.Vector3(),orbS=new THREE.Sphere(new THREE.Vector3(),.85*ORB_S);
 controls.addEventListener('start',()=>{phy.drag=true});controls.addEventListener('end',()=>{phy.drag=false;phy.rel=phy.now});
 function poke(e,strength){ndc.set(e.clientX/innerWidth*2-1,-(e.clientY/innerHeight)*2+1);rc.setFromCamera(ndc,camera);
   let hit=rc.ray.intersectSphere(orbS,hitP);if(!hit){pl.setFromNormalAndCoplanarPoint(camera.getWorldDirection(hitP).negate(),new THREE.Vector3());hit=rc.ray.intersectPlane(pl,hitP)}
@@ -343,7 +343,7 @@ resize();frame();addEventListener('resize',()=>{resize();frame()});
 const clock=new THREE.Clock();let prev=0;
 renderer.setAnimationLoop(()=>{const now=clock.getElapsedTime(),dt=Math.min(.05,now-prev);prev=now;U.time.value=now;
   core.rotation.y=now*.08;shell.rotation.y=-now*.05;shell.rotation.x=Math.sin(now*.1)*.2;
-  const br=1+.06*Math.sin(now*1.6);halo1.scale.setScalar(5*br);heart.material.opacity=.18+.07*Math.sin(now*1.6);
+  const br=1+.06*Math.sin(now*1.6);halo1.scale.setScalar(6.5*br);heart.material.opacity=.06+.03*Math.sin(now*1.6);
   stars.rotation.y=now*.004;nebula.rotation.y=now*.006;
   updateTrades(now,dt);updateEye(now,dt);
   if(mouse&&!downAt)hover=pick(mouse[0],mouse[1]);showTip();
