@@ -7,12 +7,12 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-24T00:12:17+04:00",
+ "updated_at": "2026-10-24T00:12:55+04:00",
  "balance": 100830.64,
  "equity": 101048.85,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": -22434.59,
- "combined_total_pnl": -21603.95,
+ "shadow_total_pnl": -22428.66,
+ "combined_total_pnl": -21598.02,
  "daily": [
   {
    "date": "2026-10-23",
@@ -28,9 +28,9 @@
    "pnl": 0.0,
    "balance": 100830.64,
    "trades": 0,
-   "shadow_pnl": 338.62,
-   "shadow_trades": 120,
-   "combined_pnl": 338.62,
+   "shadow_pnl": 344.55,
+   "shadow_trades": 130,
+   "combined_pnl": 344.55,
    "equity": 101048.85,
    "open_positions": 5
   }
@@ -10500,7 +10500,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "US500",
-   "open": 0
+   "open": 0,
+   "display_name": "Flip BO ES"
   },
   "G24_FLIPBO_USTEC": {
    "pnl": 0,
@@ -10512,7 +10513,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "USTEC",
-   "open": 0
+   "open": 0,
+   "display_name": "Flip BO NQ"
   },
   "G24_FLIPBO_QQQ": {
    "pnl": 0,
@@ -10524,7 +10526,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "QQQ",
-   "open": 0
+   "open": 0,
+   "display_name": "Flip BO QQQ"
   },
   "G24_WALLFADE_US500": {
    "pnl": 0,
@@ -10536,7 +10539,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "US500",
-   "open": 0
+   "open": 0,
+   "display_name": "Wall Fade ES"
   },
   "G24_WALLFADE_USTEC": {
    "pnl": 0,
@@ -10548,7 +10552,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "USTEC",
-   "open": 0
+   "open": 0,
+   "display_name": "Wall Fade NQ"
   },
   "G24_WALLFADE_QQQ": {
    "pnl": 0,
@@ -10560,7 +10565,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "QQQ",
-   "open": 0
+   "open": 0,
+   "display_name": "Wall Fade QQQ"
   },
   "G24_BETAAMP_NVDA": {
    "pnl": 0,
@@ -10572,7 +10578,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "NVDA",
-   "open": 0
+   "open": 0,
+   "display_name": "Beta Amp NVDA"
   },
   "G24_BETAAMP_TSLA": {
    "pnl": 0,
@@ -10584,7 +10591,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "TSLA",
-   "open": 0
+   "open": 0,
+   "display_name": "Beta Amp TSLA"
   },
   "G24_BETAAMP_AMD": {
    "pnl": 0,
@@ -10596,7 +10604,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "AMD",
-   "open": 0
+   "open": 0,
+   "display_name": "Beta Amp AMD"
   },
   "G24_BETAAMP_META": {
    "pnl": 0,
@@ -10608,7 +10617,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "META",
-   "open": 0
+   "open": 0,
+   "display_name": "Beta Amp META"
   },
   "G24_EMAPB_US500": {
    "pnl": 0,
@@ -10620,7 +10630,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "US500",
-   "open": 0
+   "open": 0,
+   "display_name": "EMA PB ES"
   },
   "G24_EMAPB_USTEC": {
    "pnl": 0,
@@ -10632,7 +10643,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "USTEC",
-   "open": 0
+   "open": 0,
+   "display_name": "EMA PB NQ"
   },
   "G24_EMAPB_QQQ": {
    "pnl": 0,
@@ -10644,7 +10656,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "QQQ",
-   "open": 0
+   "open": 0,
+   "display_name": "EMA PB QQQ"
   },
   "G24_EMAPB_NVDA": {
    "pnl": 0,
@@ -10656,7 +10669,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "NVDA",
-   "open": 0
+   "open": 0,
+   "display_name": "EMA PB NVDA"
   },
   "G24_EMAPB_TSLA": {
    "pnl": 0,
@@ -10668,7 +10682,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "TSLA",
-   "open": 0
+   "open": 0,
+   "display_name": "EMA PB TSLA"
   },
   "G24_EMAPB_AMD": {
    "pnl": 0,
@@ -10680,7 +10695,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "AMD",
-   "open": 0
+   "open": 0,
+   "display_name": "EMA PB AMD"
   },
   "G24_EMAPB_META": {
    "pnl": 0,
@@ -10692,7 +10708,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "META",
-   "open": 0
+   "open": 0,
+   "display_name": "EMA PB META"
   },
   "NINJA_ASIA_US500": {
    "pnl": 0,
@@ -11019,13 +11036,13 @@
    "open": 1
   },
   "NT_OBI_TOB_BTC": {
-   "pnl": -22660.12,
-   "trades": 1154,
-   "wins": 312,
-   "sum_r": -56.643,
+   "pnl": -22654.25,
+   "trades": 1155,
+   "wins": 313,
+   "sum_r": -56.628,
    "max_dd": 28516.27,
-   "today_pnl": 856.43,
-   "today_trades": 26,
+   "today_pnl": 862.3,
+   "today_trades": 27,
    "mode": "SHADOW",
    "symbol": "BTCUSD",
    "open": 1
@@ -11139,13 +11156,13 @@
    "open": 0
   },
   "NT_OBI_TOB_SUI": {
-   "pnl": -305.73,
-   "trades": 1476,
-   "wins": 297,
-   "sum_r": -0.72,
-   "max_dd": 305.73,
-   "today_pnl": -6.5,
-   "today_trades": 36,
+   "pnl": -306.23,
+   "trades": 1484,
+   "wins": 300,
+   "sum_r": -0.721,
+   "max_dd": 306.38,
+   "today_pnl": -7.0,
+   "today_trades": 44,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
    "open": 1
@@ -11199,13 +11216,13 @@
    "open": 0
   },
   "NT_OBI_TOB_DOGE": {
-   "pnl": -540.21,
-   "trades": 1105,
-   "wins": 360,
-   "sum_r": -1.339,
+   "pnl": -539.65,
+   "trades": 1106,
+   "wins": 361,
+   "sum_r": -1.338,
    "max_dd": 980.22,
-   "today_pnl": 46.34,
-   "today_trades": 15,
+   "today_pnl": 46.9,
+   "today_trades": 16,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
    "open": 1
@@ -11557,11 +11574,76 @@
    "mode": "SHADOW",
    "symbol": "USDJPY",
    "open": 1
+  },
+  "G24_FLIPBO_SPY": {
+   "pnl": 0,
+   "trades": 0,
+   "wins": 0,
+   "sum_r": 0,
+   "max_dd": 0.0,
+   "today_pnl": 0.0,
+   "today_trades": 0,
+   "mode": "SHADOW",
+   "symbol": "SPY",
+   "open": 0,
+   "display_name": "Flip BO SPY"
+  },
+  "G24_WALLFADE_SPY": {
+   "pnl": 0,
+   "trades": 0,
+   "wins": 0,
+   "sum_r": 0,
+   "max_dd": 0.0,
+   "today_pnl": 0.0,
+   "today_trades": 0,
+   "mode": "SHADOW",
+   "symbol": "SPY",
+   "open": 0,
+   "display_name": "Wall Fade SPY"
+  },
+  "G24_EMAPB_SPY": {
+   "pnl": 0,
+   "trades": 0,
+   "wins": 0,
+   "sum_r": 0,
+   "max_dd": 0.0,
+   "today_pnl": 0.0,
+   "today_trades": 0,
+   "mode": "SHADOW",
+   "symbol": "SPY",
+   "open": 0,
+   "display_name": "EMA PB SPY"
+  },
+  "G24_BETAAMP_KO": {
+   "pnl": 0,
+   "trades": 0,
+   "wins": 0,
+   "sum_r": 0,
+   "max_dd": 0.0,
+   "today_pnl": 0.0,
+   "today_trades": 0,
+   "mode": "SHADOW",
+   "symbol": "KO",
+   "open": 0,
+   "display_name": "Beta Amp KO"
+  },
+  "G24_BETAAMP_XLU": {
+   "pnl": 0,
+   "trades": 0,
+   "wins": 0,
+   "sum_r": 0,
+   "max_dd": 0.0,
+   "today_pnl": 0.0,
+   "today_trades": 0,
+   "mode": "SHADOW",
+   "symbol": "XLU",
+   "open": 0,
+   "display_name": "Beta Amp XLU"
   }
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-24T00:12:17+04:00",
+  "updated_dubai": "2026-10-24T00:12:55+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
    "target_progress_pct": 8.3,
