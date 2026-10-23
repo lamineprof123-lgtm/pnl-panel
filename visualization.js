@@ -25,7 +25,7 @@ Object.assign(controls,{enableDamping:true,dampingFactor:.06,enablePan:false,aut
 
 const composer=new EffectComposer(renderer);
 composer.addPass(new RenderPass(scene,camera));
-const bloom=new UnrealBloomPass(new THREE.Vector2(256,256),.85,.6,.12);
+const bloom=new UnrealBloomPass(new THREE.Vector2(256,256),.8,.55,.16);
 composer.addPass(bloom);composer.addPass(new OutputPass());
 
 function resize(){const w=innerWidth,h=innerHeight;renderer.setSize(w,h,false);composer.setSize(w,h);
@@ -75,8 +75,8 @@ const orbMat=new THREE.ShaderMaterial({uniforms:U,transparent:true,depthWrite:fa
    float veins=1.-abs(snoise(p*2.6+vec3(t*.6,-t,t*.4)));veins=pow(veins,7.);
    float fr=pow(1.-max(dot(vN,vV),0.),2.2);float pulse=.85+.15*sin(time*1.6);
    vec3 c1=vec3(.024,.57,.70),c2=vec3(.063,.73,.506),c3=vec3(.145,.388,.92),acc=vec3(.37,.92,.83);
-   vec3 col=mix(c3,c1,smoothstep(-.6,.2,n));col=mix(col,c2,smoothstep(.1,.7,n));
-   col=col*(.10+.38*smoothstep(-.4,.8,n))+mix(acc,c2,.4)*veins*.5+mix(c1,acc,fr)*fr*.6;
+   vec3 col=mix(c3,c1,smoothstep(-.55,-.05,n));col=mix(col,c2,smoothstep(.0,.5,n));
+   col=col*(.06+.34*smoothstep(-.6,.7,n))+mix(c2,acc,.5)*veins*.45+mix(c1,c2,.5+.5*sin(time*.3))*fr*.55;
    gl_FragColor=vec4(col*pulse,1.);}`});
 core.add(new THREE.Mesh(new THREE.SphereGeometry(1,96,96),orbMat));
 const heart=sprite(new THREE.Color('#bffcf0'),1.,.22);core.add(heart);
