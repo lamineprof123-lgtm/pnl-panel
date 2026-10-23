@@ -1,6 +1,8 @@
 'use strict';
 const $=s=>document.querySelector(s),POLL=7000;
 const NAMES={'mt5-atlas':'MT5 Atlas'};
+const ASSETS=[[/XAU|GOLD/,'Gold'],[/XAG|SILVER/,'Silver'],[/NAS|NDX|US100|USTEC|NQ/,'Nasdaq'],[/SPX|SP500|US500|ES\b/,'S&P 500'],[/AUDUSD/,'AUD/USD'],[/BTC/,'Bitcoin'],[/ETH/,'Ethereum'],[/EURUSD/,'EUR/USD'],[/GBPUSD/,'GBP/USD'],[/USDJPY/,'USD/JPY'],[/WTI|USOIL|CL\b/,'Oil'],[/US30|DJI|DOW/,'Dow']];
+const asset=a=>{const u=String(a??'').toUpperCase();for(const[r,n]of ASSETS)if(r.test(u))return n;return a};
 let books={},sel=null,lastOk=0,seen=new Set(),first=true;
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const money=v=>v==null||!isFinite(v)?'—':(v<0?'\u2212':v>0?'+':'')+Math.abs(v).toLocaleString('en-US',{style:'currency',currency:'USD'});
@@ -14,7 +16,7 @@ function render(){
   if(!ps.length){$('#rows').innerHTML='<tr class="none"><td colspan="5">No positions yet</td></tr>';return}
   $('#rows').innerHTML=ps.map(p=>{const id=sel+':'+(p.id??p.opened_at+p.asset),isNew=!first&&!seen.has(id);seen.add(id);
     const open=p.status==='open',v=+p.pnl,rr=num(p.rr,2),lots=num(p.lots,2),side=p.side?`<span class="sd ${p.side==='sell'?'neg':'pos'}">${p.side==='sell'?'S':'B'}</span>`:'';
-    return `<tr class="${isNew?'new':''}"><td>${when(p.opened_at)}</td><td>${esc(p.strategy)}</td><td>${side}${esc(p.asset)}</td>
+    return `<tr class="${isNew?'new':''}"><td>${when(p.opened_at)}</td><td>${esc(p.strategy)}</td><td>${side}${esc(asset(p.asset))}</td>
     <td class="r mut">${rr!=null?rr+'R':'—'} · ${lots??'—'}</td>
     <td class="r ${v>0?'pos':v<0?'neg':''}">${open?'<i class="dot"></i>':''}${money(v)}</td></tr>`}).join('');
   first=false;
