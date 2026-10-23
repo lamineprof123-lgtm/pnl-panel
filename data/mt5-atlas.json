@@ -7,22 +7,22 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-23T21:21:35+04:00",
+ "updated_at": "2026-10-23T21:22:35+04:00",
  "balance": 101504.23,
- "equity": 102614.61,
+ "equity": 102643.85,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": -33155.08,
- "combined_total_pnl": -31650.85,
+ "shadow_total_pnl": -33396.23,
+ "combined_total_pnl": -31892.0,
  "daily": [
   {
    "date": "2026-10-23",
    "pnl": 1504.23,
    "balance": 101504.23,
    "trades": 68,
-   "shadow_pnl": -33155.08,
-   "shadow_trades": 3643,
-   "combined_pnl": -31650.85,
-   "equity": 102614.61,
+   "shadow_pnl": -33396.23,
+   "shadow_trades": 3653,
+   "combined_pnl": -31892.0,
+   "equity": 102643.85,
    "open_positions": 5
   }
  ],
@@ -385,7 +385,7 @@
    "today_trades": 10,
    "mode": "SHADOW",
    "symbol": "LINKUSD",
-   "open": 1
+   "open": 0
   },
   "SF_DOGE_SQZ": {
    "pnl": 0,
@@ -445,7 +445,7 @@
    "today_trades": 9,
    "mode": "SHADOW",
    "symbol": "LINKUSD",
-   "open": 0
+   "open": 1
   },
   "SF_XAG_V4": {
    "pnl": 0,
@@ -8056,13 +8056,13 @@
    "open": 0
   },
   "NT_OBI_TOB_LINK": {
-   "pnl": 27.22,
-   "trades": 95,
-   "wins": 59,
-   "sum_r": 0.063,
+   "pnl": 27.96,
+   "trades": 98,
+   "wins": 62,
+   "sum_r": 0.066,
    "max_dd": 6.61,
-   "today_pnl": 27.22,
-   "today_trades": 95,
+   "today_pnl": 27.96,
+   "today_trades": 98,
    "mode": "SHADOW",
    "symbol": "LINKUSD",
    "open": 1
@@ -8080,13 +8080,13 @@
    "open": 0
   },
   "NT_CMM_LINK": {
-   "pnl": -1623.16,
-   "trades": 73,
+   "pnl": -1644.28,
+   "trades": 74,
    "wins": 8,
-   "sum_r": -4.063,
-   "max_dd": 1623.16,
-   "today_pnl": -1623.16,
-   "today_trades": 73,
+   "sum_r": -4.116,
+   "max_dd": 1644.28,
+   "today_pnl": -1644.28,
+   "today_trades": 74,
    "mode": "SHADOW",
    "symbol": "LINKUSD",
    "open": 1
@@ -8116,13 +8116,13 @@
    "open": 0
   },
   "NT_OBI_TOB_SUI": {
-   "pnl": -198.3,
-   "trades": 801,
+   "pnl": -198.35,
+   "trades": 803,
    "wins": 142,
    "sum_r": -0.47,
-   "max_dd": 198.3,
-   "today_pnl": -198.3,
-   "today_trades": 801,
+   "max_dd": 198.35,
+   "today_pnl": -198.35,
+   "today_trades": 803,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
    "open": 1
@@ -8176,13 +8176,13 @@
    "open": 0
   },
   "NT_OBI_TOB_DOGE": {
-   "pnl": -933.37,
-   "trades": 799,
+   "pnl": -934.57,
+   "trades": 800,
    "wins": 149,
-   "sum_r": -2.327,
-   "max_dd": 933.37,
-   "today_pnl": -933.37,
-   "today_trades": 799,
+   "sum_r": -2.33,
+   "max_dd": 934.57,
+   "today_pnl": -934.57,
+   "today_trades": 800,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
    "open": 1
@@ -8236,13 +8236,13 @@
    "open": 0
   },
   "NT_OBI_TOB_BNB": {
-   "pnl": -869.72,
-   "trades": 565,
+   "pnl": -871.01,
+   "trades": 566,
    "wins": 101,
-   "sum_r": -2.162,
-   "max_dd": 869.72,
-   "today_pnl": -869.72,
-   "today_trades": 565,
+   "sum_r": -2.165,
+   "max_dd": 871.01,
+   "today_pnl": -871.01,
+   "today_trades": 566,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
    "open": 1
@@ -8368,13 +8368,13 @@
    "open": 0
   },
   "NT_GRID_XAG": {
-   "pnl": 16.43,
-   "trades": 10,
+   "pnl": -204.82,
+   "trades": 11,
    "wins": 4,
-   "sum_r": 0.041,
-   "max_dd": 63.53,
-   "today_pnl": 16.43,
-   "today_trades": 10,
+   "sum_r": -0.512,
+   "max_dd": 221.25,
+   "today_pnl": -204.82,
+   "today_trades": 11,
    "mode": "SHADOW",
    "symbol": "XAGUSD",
    "open": 1
@@ -8440,13 +8440,13 @@
    "open": 1
   },
   "NT_CMM_XAG": {
-   "pnl": -468.25,
-   "trades": 49,
-   "wins": 18,
-   "sum_r": -1.165,
+   "pnl": -465.23,
+   "trades": 50,
+   "wins": 19,
+   "sum_r": -1.157,
    "max_dd": 780.29,
-   "today_pnl": -468.25,
-   "today_trades": 49,
+   "today_pnl": -465.23,
+   "today_trades": 50,
    "mode": "SHADOW",
    "symbol": "XAGUSD",
    "open": 1

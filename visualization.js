@@ -145,7 +145,7 @@ function updateTrades(now,dt){let n=0,m=0;const k=1-Math.exp(-dt*2.5);
 
 /* ---------- AI eye ---------- */
 const eye=new THREE.Group();scene.add(eye);const EYE_S=.82,EYE_RC=1.1/EYE_S;eye.scale.setScalar(EYE_S);
-const EU={time:U.time,pr:U.pr,look:{value:new THREE.Vector2()},blink:{value:0},dil:{value:1},tint:{value:new THREE.Color('#34d399')}};
+const EU={time:U.time,pr:U.pr,look:{value:new THREE.Vector2()},blink:{value:0},dil:{value:1},sway:{value:new THREE.Vector2()},swv:{value:new THREE.Vector2()},ptr:{value:new THREE.Vector3(0,0,0)},tint:{value:new THREE.Color('#34d399')}};
 const LID=`float shp(float x){return pow(max(1.-x*x,0.),.8);}float lidU(float x){return .35*shp(x)*(1.+.12*x);}float lidL(float x){return .26*shp(x);}`;
 const shp=x=>Math.pow(Math.max(1-x*x,0),.8),lidU=x=>.35*shp(x)*(1+.12*x),lidL=x=>.26*shp(x),EW=.95;
 const eyeMat=new THREE.ShaderMaterial({uniforms:EU,transparent:true,depthWrite:true,
@@ -202,12 +202,17 @@ const eyePlane=new THREE.Mesh(new THREE.PlaneGeometry(2.3,1.5),eyeMat);eyePlane.
  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setAttribute('col',new THREE.Float32BufferAttribute(col,3));g.setAttribute('aux',new THREE.Float32BufferAttribute(aux,4));
  const m=new THREE.Points(g,new THREE.ShaderMaterial({uniforms:EU,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,
   vertexShader:`attribute vec3 col;attribute vec4 aux;uniform float time;uniform float pr;varying vec3 vc;
+uniform vec2 sway;uniform vec2 swv;uniform vec3 ptr;
+vec2 phys(vec2 p,float flex,float t){vec2 o=sway*flex+swv*flex*.04*sin(time*9.-t*7.);
+ vec2 d=p-ptr.xy;float r2=dot(d,d);float f=exp(-r2/.09)*ptr.z;float l=sqrt(r2)+1e-4;
+ o+=d/l*f*.16+d/l*sin(l*34.-time*11.)*f*.025;return p+o;}
+
   void main(){vec3 P=position;float t=aux.x,ph=aux.y,k=aux.z,b=1.;
    if(k<.5){P.x+=sin(t*4.5+position.x*2.2-time*1.1)*.045*t+sin(t*11.-time*2.+ph*6.28)*.008*t;
      float pk=pow(.5+.5*sin(t*7.-time*2.6+ph*6.283),14.);b=.7+2.*pk;}
    else if(k<1.5){P.y+=sin(position.x*6.-time*.9+t*3.)*.025;b=.7+.6*pow(.5+.5*sin(atan(position.y,position.x)*6.+time*1.2-t*8.),6.);}
    else{P.x+=sin(t*2.+time*.8+ph*9.)*.04*t;float pk=pow(.5+.5*sin(t*5.-time*3.2+ph*6.283),10.);b=.55+2.5*pk;}
-   vec4 mv=modelViewMatrix*vec4(P,1.);gl_Position=projectionMatrix*mv;vc=col*b;gl_PointSize=max(1.,pr*aux.w*30./-mv.z);}`,
+   P.xy=phys(P.xy,k<.5?t*t*1.6:k<1.5?(t+.3)*.8:t*.5,t);vec4 mv=modelViewMatrix*vec4(P,1.);gl_Position=projectionMatrix*mv;vc=col*b;gl_PointSize=max(1.,pr*aux.w*30./-mv.z);}`,
   fragmentShader:`varying vec3 vc;void main(){float d=length(gl_PointCoord-.5)*2.;gl_FragColor=vec4(vc*(1.-d*d*.7),1.);}`}));
  m.renderOrder=3;m.frustumCulled=false;eye.add(m);}
 
@@ -220,9 +225,13 @@ const eyePlane=new THREE.Mesh(new THREE.PlaneGeometry(2.3,1.5),eyeMat);eyePlane.
  [['s',s],['side',sd],['off',off],['ph',ph]].forEach(([n,a])=>g.setAttribute(n,new THREE.BufferAttribute(a,1)));g.setAttribute('col',new THREE.BufferAttribute(col,3));
  const m=new THREE.Points(g,new THREE.ShaderMaterial({uniforms:EU,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,
   vertexShader:LID+`attribute float s;attribute float side;attribute float off;attribute float ph;attribute vec3 col;uniform float time;uniform float blink;uniform float pr;varying float a;varying vec3 vc;
+uniform vec2 sway;uniform vec2 swv;uniform vec3 ptr;
+vec2 phys(vec2 p,float flex,float t){vec2 o=sway*flex+swv*flex*.04*sin(time*9.-t*7.);
+ vec2 d=p-ptr.xy;float r2=dot(d,d);float f=exp(-r2/.09)*ptr.z;float l=sqrt(r2)+1e-4;
+ o+=d/l*f*.16+d/l*sin(l*34.-time*11.)*f*.025;return p+o;}
   void main(){float u=fract(s+time*.01*(ph-.5))*2.4-1.2;float x=clamp(u,-1.,1.);float sh=shp(x);float ext=abs(u)>1.?(abs(u)-1.)*3.:0.;
    float y=side*((side>0.?lidU(x):lidL(x))*(1.-blink)+off*(.3+.7*sh)+.012)+sin(time*1.3+ph*50.)*.01;
-   vec4 mv=modelViewMatrix*vec4(u*(1.03+off*.5),y+(fract(ph*31.)-.5)*ext*.4,.02,1.);gl_Position=projectionMatrix*mv;
+   vec2 Q=phys(vec2(u*(1.03+off*.5),y+(fract(ph*31.)-.5)*ext*.4),.15+off*2.,off*3.);vec4 mv=modelViewMatrix*vec4(Q,.02,1.);gl_Position=projectionMatrix*mv;
    a=(.15+.85*pow(.5+.5*sin(time*(2.+ph*5.)+ph*60.),4.))*(1.-smoothstep(1.,1.2,abs(u)))*(1.-off*1.2);vc=col;gl_PointSize=max(1.,pr*(.9+fract(ph*13.)*1.6)*30./-mv.z);}`,
   fragmentShader:`varying float a;varying vec3 vc;void main(){float d=length(gl_PointCoord-.5)*2.;if(d>1.)discard;gl_FragColor=vec4(vc*a*(1.-d*d*.6)*.38,1.);}`}));
  m.renderOrder=3;m.frustumCulled=false;eye.add(m);}
@@ -246,6 +255,15 @@ const glass=new THREE.Mesh(new THREE.SphereGeometry(1.005,64,64),new THREE.Shade
    gl_FragColor=vec4(c*fr*1.1+vec3(.3,.9,.8)*veins*.12*(.25+fr)+vec3(.8,1.,.97)*spec*.35,1.);}`}));
 glass.side=THREE.FrontSide;glass.renderOrder=5;core.add(glass);
 
+// touch / cursor push on the strands
+const phy={az:null,po:0,w:new THREE.Vector2(),p:null},rc=new THREE.Raycaster(),pl=new THREE.Plane(),ndc=new THREE.Vector2(),hitP=new THREE.Vector3();
+function poke(e,strength){ndc.set(e.clientX/innerWidth*2-1,-(e.clientY/innerHeight)*2+1);rc.setFromCamera(ndc,camera);
+  pl.setFromNormalAndCoplanarPoint(camera.getWorldDirection(hitP).negate(),new THREE.Vector3());
+  if(rc.ray.intersectPlane(pl,hitP)){eye.worldToLocal(hitP);if(!phy.p)phy.p=new THREE.Vector2(hitP.x,hitP.y);else phy.p.set(hitP.x,hitP.y);
+    if(EU.ptr.value.z<.05)EU.ptr.value.set(hitP.x,hitP.y,EU.ptr.value.z);EU.ptr.value.z=Math.max(EU.ptr.value.z,strength)}}
+canvas.addEventListener('pointermove',e=>poke(e,e.pointerType==='mouse'&&!e.buttons?.6:1),{passive:true});
+canvas.addEventListener('pointerdown',e=>poke(e,1),{passive:true});
+
 // gaze: follow one orbiting trade at a time
 const gaze={t:null,until:0,fresh:null,cur:new THREE.Vector2(),tgt:new THREE.Vector2(),blinkAt:-1,nextBlink:2.5,jit:new THREE.Vector2(),jitAt:0};
 const vv=new THREE.Vector3(),vc0=new THREE.Vector3();
@@ -267,6 +285,16 @@ function updateEye(now,dt){
   let b=0;if(gaze.blinkAt>=0){const ph=(now-gaze.blinkAt)/.24;if(ph>=1){gaze.blinkAt=-1;gaze.nextBlink=now+3+Math.random()*5}else b=Math.sin(Math.PI*ph)}
   EU.blink.value=Math.min(1,b*1.05);
   EU.dil.value=1+.1*Math.sin(now*.7)+.08*Math.sin(now*2.3);
+  // spring physics: strands lag behind camera rotation and wobble back
+  const az=controls.getAzimuthalAngle(),po=controls.getPolarAngle();
+  if(phy.az!==null&&dt>0){let da=az-phy.az;if(da>Math.PI)da-=2*Math.PI;if(da<-Math.PI)da+=2*Math.PI;
+    phy.w.lerp(new THREE.Vector2(da/dt,(po-phy.po)/dt),.5)}
+  phy.az=az;phy.po=po;
+  const tx=THREE.MathUtils.clamp(phy.w.x*.09,-.45,.45),ty=THREE.MathUtils.clamp(-phy.w.y*.09,-.45,.45);
+  const sw=EU.sway.value,sv=EU.swv.value;
+  sv.x+=(-38*(sw.x-tx)-5*sv.x)*dt;sv.y+=(-38*(sw.y-ty)-5*sv.y)*dt;sw.addScaledVector(sv,dt);
+  EU.ptr.value.z*=Math.exp(-dt*1.6);
+  if(phy.p){EU.ptr.value.x+=(phy.p.x-EU.ptr.value.x)*Math.min(1,dt*14);EU.ptr.value.y+=(phy.p.y-EU.ptr.value.y)*Math.min(1,dt*14)}
   eye.quaternion.copy(camera.quaternion);eye.rotateY(gaze.cur.x*.05);eye.rotateX(-gaze.cur.y*.04);atmo.quaternion.copy(camera.quaternion)}
 
 /* ---------- hover / tap ---------- */
