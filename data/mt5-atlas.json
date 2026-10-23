@@ -7,12 +7,12 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-24T00:06:13+04:00",
+ "updated_at": "2026-10-24T00:07:17+04:00",
  "balance": 100830.64,
- "equity": 101060.02,
+ "equity": 101022.38,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": -22725.75,
- "combined_total_pnl": -21895.11,
+ "shadow_total_pnl": -22740.22,
+ "combined_total_pnl": -21909.58,
  "daily": [
   {
    "date": "2026-10-23",
@@ -28,10 +28,10 @@
    "pnl": 0.0,
    "balance": 100830.64,
    "trades": 0,
-   "shadow_pnl": 47.46,
-   "shadow_trades": 86,
-   "combined_pnl": 47.46,
-   "equity": 101060.02,
+   "shadow_pnl": 32.99,
+   "shadow_trades": 88,
+   "combined_pnl": 32.99,
+   "equity": 101022.38,
    "open_positions": 5
   }
  ],
@@ -7978,7 +7978,7 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "LINKUSD",
-   "open": 0
+   "open": 1
   },
   "SF50_SUI": {
    "pnl": 0,
@@ -8050,7 +8050,7 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "LINKUSD",
-   "open": 0
+   "open": 1
   },
   "SF50V2_SUI": {
    "pnl": 0,
@@ -10006,7 +10006,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "US500",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY ES"
   },
   "NINJA_US500_RUN": {
    "pnl": 0,
@@ -10018,7 +10019,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "US500",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY ES Run"
   },
   "NINJA_USTEC": {
    "pnl": 0,
@@ -10030,7 +10032,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "USTEC",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY NQ"
   },
   "NINJA_USTEC_RUN": {
    "pnl": 0,
@@ -10042,7 +10045,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "USTEC",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY NQ Run"
   },
   "NINJA_QQQ": {
    "pnl": 0,
@@ -10054,7 +10058,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "QQQ",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY QQQ"
   },
   "NINJA_QQQ_RUN": {
    "pnl": 0,
@@ -10066,7 +10071,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "QQQ",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY QQQ Run"
   },
   "NINJA_AAPL": {
    "pnl": 0,
@@ -10078,7 +10084,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "AAPL",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY AAPL"
   },
   "NINJA_AAPL_RUN": {
    "pnl": 0,
@@ -10090,7 +10097,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "AAPL",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY AAPL Run"
   },
   "NINJA_AMD": {
    "pnl": 0,
@@ -10102,7 +10110,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "AMD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY AMD"
   },
   "NINJA_AMD_RUN": {
    "pnl": 0,
@@ -10114,7 +10123,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "AMD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY AMD Run"
   },
   "NINJA_AMZN": {
    "pnl": 0,
@@ -10126,7 +10136,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "AMZN",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY AMZN"
   },
   "NINJA_AMZN_RUN": {
    "pnl": 0,
@@ -10138,7 +10149,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "AMZN",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY AMZN Run"
   },
   "NINJA_COIN": {
    "pnl": 0,
@@ -10150,7 +10162,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "COIN",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY COIN"
   },
   "NINJA_COIN_RUN": {
    "pnl": 0,
@@ -10162,7 +10175,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "COIN",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY COIN Run"
   },
   "NINJA_HOOD": {
    "pnl": 0,
@@ -10174,7 +10188,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "HOOD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY HOOD"
   },
   "NINJA_HOOD_RUN": {
    "pnl": 0,
@@ -10186,7 +10201,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "HOOD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY HOOD Run"
   },
   "NINJA_INTC": {
    "pnl": 0,
@@ -10198,7 +10214,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "INTC",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY INTC"
   },
   "NINJA_INTC_RUN": {
    "pnl": 0,
@@ -10210,7 +10227,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "INTC",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY INTC Run"
   },
   "NINJA_META": {
    "pnl": 0,
@@ -10222,7 +10240,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "META",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY META"
   },
   "NINJA_META_RUN": {
    "pnl": 0,
@@ -10234,7 +10253,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "META",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY META Run"
   },
   "NINJA_MSFT": {
    "pnl": 0,
@@ -10246,7 +10266,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "MSFT",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY MSFT"
   },
   "NINJA_MSFT_RUN": {
    "pnl": 0,
@@ -10258,7 +10279,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "MSFT",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY MSFT Run"
   },
   "NINJA_NFLX": {
    "pnl": 0,
@@ -10270,7 +10292,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "NFLX",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY NFLX"
   },
   "NINJA_NFLX_RUN": {
    "pnl": 0,
@@ -10282,7 +10305,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "NFLX",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY NFLX Run"
   },
   "NINJA_NVDA": {
    "pnl": 0,
@@ -10294,7 +10318,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "NVDA",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY NVDA"
   },
   "NINJA_NVDA_RUN": {
    "pnl": 0,
@@ -10306,7 +10331,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "NVDA",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY NVDA Run"
   },
   "NINJA_TSLA": {
    "pnl": 0,
@@ -10318,7 +10344,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "TSLA",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY TSLA"
   },
   "NINJA_TSLA_RUN": {
    "pnl": 0,
@@ -10330,7 +10357,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "TSLA",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY TSLA Run"
   },
   "NINJA_SPCX": {
    "pnl": 0,
@@ -10342,7 +10370,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "SPCX",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY SPCX"
   },
   "NINJA_SPCX_RUN": {
    "pnl": 0,
@@ -10354,7 +10383,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "SPCX",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY SPCX Run"
   },
   "NINJA_XAUUSD": {
    "pnl": 0,
@@ -10366,7 +10396,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAUUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY Gold"
   },
   "NINJA_XAUUSD_RUN": {
    "pnl": 0,
@@ -10378,7 +10409,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAUUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY Gold Run"
   },
   "NINJA_XAGUSD": {
    "pnl": 0,
@@ -10390,7 +10422,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAGUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY Silver"
   },
   "NINJA_XAGUSD_RUN": {
    "pnl": 0,
@@ -10402,7 +10435,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAGUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY Silver Run"
   },
   "NINJA_BTC": {
    "pnl": 0,
@@ -10414,7 +10448,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "BTCUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY BTC"
   },
   "NINJA_BTC_RUN": {
    "pnl": 0,
@@ -10426,7 +10461,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "BTCUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY BTC Run"
   },
   "NINJA_ETH": {
    "pnl": 0,
@@ -10438,7 +10474,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "ETHUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY ETH"
   },
   "NINJA_ETH_RUN": {
    "pnl": 0,
@@ -10450,7 +10487,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "ETHUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja NY ETH Run"
   },
   "NINJA_ASIA_US500": {
    "pnl": 0,
@@ -10462,7 +10500,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "US500",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja Asia ES"
   },
   "NINJA_ASIA_US500_RUN": {
    "pnl": 0,
@@ -10474,7 +10513,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "US500",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja Asia ES Run"
   },
   "NINJA_ASIA_USTEC": {
    "pnl": 0,
@@ -10486,7 +10526,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "USTEC",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja Asia NQ"
   },
   "NINJA_ASIA_USTEC_RUN": {
    "pnl": 0,
@@ -10498,7 +10539,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "USTEC",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja Asia NQ Run"
   },
   "NINJA_ASIA_XAUUSD": {
    "pnl": 0,
@@ -10510,7 +10552,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAUUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja Asia Gold"
   },
   "NINJA_ASIA_XAUUSD_RUN": {
    "pnl": 0,
@@ -10522,7 +10565,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAUUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja Asia Gold Run"
   },
   "NINJA_ASIA_XAGUSD": {
    "pnl": 0,
@@ -10534,7 +10578,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAGUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja Asia Silver"
   },
   "NINJA_ASIA_XAGUSD_RUN": {
    "pnl": 0,
@@ -10546,7 +10591,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAGUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja Asia Silver Run"
   },
   "NINJA_ASIA_BTC": {
    "pnl": 0,
@@ -10558,7 +10604,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "BTCUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja Asia BTC"
   },
   "NINJA_ASIA_BTC_RUN": {
    "pnl": 0,
@@ -10570,7 +10617,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "BTCUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja Asia BTC Run"
   },
   "NINJA_ASIA_ETH": {
    "pnl": 0,
@@ -10582,7 +10630,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "ETHUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja Asia ETH"
   },
   "NINJA_ASIA_ETH_RUN": {
    "pnl": 0,
@@ -10594,7 +10643,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "ETHUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja Asia ETH Run"
   },
   "NINJA_LDN_US500": {
    "pnl": 0,
@@ -10606,7 +10656,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "US500",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja LDN ES"
   },
   "NINJA_LDN_US500_RUN": {
    "pnl": 0,
@@ -10618,7 +10669,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "US500",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja LDN ES Run"
   },
   "NINJA_LDN_USTEC": {
    "pnl": 0,
@@ -10630,7 +10682,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "USTEC",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja LDN NQ"
   },
   "NINJA_LDN_USTEC_RUN": {
    "pnl": 0,
@@ -10642,7 +10695,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "USTEC",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja LDN NQ Run"
   },
   "NINJA_LDN_XAUUSD": {
    "pnl": 0,
@@ -10654,7 +10708,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAUUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja LDN Gold"
   },
   "NINJA_LDN_XAUUSD_RUN": {
    "pnl": 0,
@@ -10666,7 +10721,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAUUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja LDN Gold Run"
   },
   "NINJA_LDN_XAGUSD": {
    "pnl": 0,
@@ -10678,7 +10734,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAGUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja LDN Silver"
   },
   "NINJA_LDN_XAGUSD_RUN": {
    "pnl": 0,
@@ -10690,7 +10747,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAGUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja LDN Silver Run"
   },
   "NINJA_LDN_BTC": {
    "pnl": 0,
@@ -10702,7 +10760,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "BTCUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja LDN BTC"
   },
   "NINJA_LDN_BTC_RUN": {
    "pnl": 0,
@@ -10714,7 +10773,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "BTCUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja LDN BTC Run"
   },
   "NINJA_LDN_ETH": {
    "pnl": 0,
@@ -10726,7 +10786,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "ETHUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja LDN ETH"
   },
   "NINJA_LDN_ETH_RUN": {
    "pnl": 0,
@@ -10738,7 +10799,8 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "ETHUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Ninja LDN ETH Run"
   },
   "NT_OBI_L2_BTC": {
    "pnl": -5.82,
@@ -10969,16 +11031,16 @@
    "open": 1
   },
   "NT_HVPIN_DOGE": {
-   "pnl": -6.43,
-   "trades": 10,
+   "pnl": -8.14,
+   "trades": 11,
    "wins": 4,
-   "sum_r": -0.016,
+   "sum_r": -0.02,
    "max_dd": 14.77,
-   "today_pnl": 0.0,
-   "today_trades": 0,
+   "today_pnl": -1.71,
+   "today_trades": 1,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
-   "open": 1
+   "open": 0
   },
   "NT_OBI_L2_BNB": {
    "pnl": 0,
@@ -11017,13 +11079,13 @@
    "open": 1
   },
   "NT_CMM_BNB": {
-   "pnl": -1552.26,
-   "trades": 82,
+   "pnl": -1565.02,
+   "trades": 83,
    "wins": 2,
-   "sum_r": -3.879,
-   "max_dd": 1552.26,
-   "today_pnl": -38.66,
-   "today_trades": 2,
+   "sum_r": -3.911,
+   "max_dd": 1565.02,
+   "today_pnl": -51.42,
+   "today_trades": 3,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
    "open": 1
@@ -11295,13 +11357,13 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-24T00:06:13+04:00",
+  "updated_dubai": "2026-10-24T00:07:17+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
    "target_progress_pct": 8.3,
    "daily_loss_used_usd": 1039.15,
    "daily_loss_limit_usd": 5000,
-   "daily_headroom_usd": 6060.02,
+   "daily_headroom_usd": 6022.38,
    "max_loss_used_usd": 1039.15,
    "max_loss_limit_usd": 10000,
    "trading_days": "1/4",
@@ -11311,7 +11373,7 @@
    "status": "IN_PROGRESS",
    "target_progress_pct": 13.8,
    "mll": 97000.0,
-   "mll_headroom_equity_usd": 4060.02,
+   "mll_headroom_equity_usd": 4022.38,
    "daily_loss_used_usd": 1039.15,
    "daily_loss_limit_usd": 1800,
    "dll_soft_breaches": 0,
