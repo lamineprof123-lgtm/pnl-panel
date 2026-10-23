@@ -7,23 +7,23 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-23T14:31:50+04:00",
- "balance": 101463.01,
- "equity": 101908.99,
+ "updated_at": "2026-10-23T14:32:50+04:00",
+ "balance": 101583.01,
+ "equity": 101417.62,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": -5200.0,
- "combined_total_pnl": -3736.99,
+ "shadow_total_pnl": -5600.0,
+ "combined_total_pnl": -4016.99,
  "daily": [
   {
    "date": "2026-10-23",
-   "pnl": 1463.01,
-   "balance": 101463.01,
-   "trades": 13,
-   "shadow_pnl": -5200.0,
-   "shadow_trades": 13,
-   "combined_pnl": -3736.99,
-   "equity": 101908.99,
-   "open_positions": 4
+   "pnl": 1583.01,
+   "balance": 101583.01,
+   "trades": 14,
+   "shadow_pnl": -5600.0,
+   "shadow_trades": 14,
+   "combined_pnl": -4016.99,
+   "equity": 101417.62,
+   "open_positions": 3
   }
  ],
  "strategies": {
@@ -328,16 +328,16 @@
    "open": 0
   },
   "SF_SUI_BB": {
-   "pnl": -2000.0,
-   "trades": 5,
+   "pnl": -2400.0,
+   "trades": 6,
    "wins": 0,
-   "sum_r": -5.0,
-   "max_dd": 2000.0,
-   "today_pnl": -2000.0,
-   "today_trades": 5,
+   "sum_r": -6.0,
+   "max_dd": 2400.0,
+   "today_pnl": -2400.0,
+   "today_trades": 6,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
-   "open": 0
+   "open": 1
   },
   "SF_AMD_BRK": {
    "pnl": 0,
@@ -508,16 +508,16 @@
    "open": 0
   },
   "SF_VOL_XAU_X": {
-   "pnl": 807.0,
-   "trades": 1,
-   "wins": 1,
-   "sum_r": 2.03,
+   "pnl": 927.0,
+   "trades": 2,
+   "wins": 2,
+   "sum_r": 2.332,
    "max_dd": 0.0,
-   "today_pnl": 807.0,
-   "today_trades": 1,
+   "today_pnl": 927.0,
+   "today_trades": 2,
    "mode": "LIVE",
    "symbol": "XAUUSD",
-   "open": 1
+   "open": 0
   },
   "VP_EUR_X": {
    "pnl": 0,
