@@ -1,6 +1,6 @@
 'use strict';
 const $=s=>document.querySelector(s),POLL=7000;
-const NAMES={'mt5-atlas':'MT5 Atlas'};
+const NAMES={'mt5-atlas':'ATLAS-MT5-GK-1'};
 const ASSETS=[[/XAU|GOLD/,'Gold'],[/XAG|SILVER/,'Silver'],[/NAS|NDX|US100|USTEC|NQ/,'Nasdaq'],[/SPX|SP500|US500|ES\b/,'S&P 500'],[/AUDUSD/,'AUD/USD'],[/BTC/,'Bitcoin'],[/ETH/,'Ethereum'],[/EURUSD/,'EUR/USD'],[/GBPUSD/,'GBP/USD'],[/USDJPY/,'USD/JPY'],[/WTI|USOIL|CL\b/,'Oil'],[/US30|DJI|DOW/,'Dow']];
 const asset=a=>{const u=String(a??'').toUpperCase();for(const[r,n]of ASSETS)if(r.test(u))return n;return a};
 let books={},sel=null,lastOk=0,seen=new Set(),first=true;
