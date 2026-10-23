@@ -1,18 +1,57 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PnL Panel · LIVE</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#05060f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Cpath d=%22M1 15 6 8l3 3 6-9%22 stroke=%22%2300f0ff%22 stroke-width=%222%22 fill=%22none%22/%3E%3C/svg%3E">
+<title>PnL Terminal · LIVE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-<link rel="stylesheet" href="style.css"></head><body>
-<div class="bg"></div>
-<header><h1>PnL <span>Panel</span></h1>
-<div class="live"><i class="dot"></i>LIVE <span id="ago">connecting…</span></div>
-<div class="tabs" id="tabs"><button data-p="daily" class="on">Daily</button><button data-p="monthly">Monthly</button><button data-p="yearly">Yearly</button></div></header>
-<section class="overview">
-<div class="kpi"><label>Total PnL</label><b id="tot" class="num">0</b></div>
-<div class="kpi"><label>Today</label><b id="today" class="num">0</b></div>
-<div class="kpi"><label>Projects</label><b id="np">0</b></div>
-<div class="kpi"><label>Trades</label><b id="ntr">0</b></div>
+<link rel="stylesheet" href="style.css?v=2">
+</head><body>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div class="grid-floor" aria-hidden="true"></div>
+<div class="scan" aria-hidden="true"></div>
+
+<header class="top reveal" style="--d:0">
+  <div class="brand"><span class="logo">◢◤</span><div><h1>PNL<span>//</span>TERMINAL</h1><small>multi-bot performance feed</small></div></div>
+  <div class="live" id="live"><i class="dot"></i><b>LIVE</b><span id="ago">syncing…</span></div>
+</header>
+
+<div class="ticker reveal" style="--d:1"><div class="track" id="ticker"></div></div>
+
+<section class="hero glass reveal" style="--d:2">
+  <div class="hero-l">
+    <label>TOTAL P&amp;L <em>all projects</em></label>
+    <div class="odo" id="heroPnl"></div>
+    <div class="hero-sub">
+      <span class="roi" id="heroRoi">0.00%</span>
+      <span class="sep">|</span><span>capital <b id="heroCap">—</b></span>
+      <span class="sep">|</span><span>equity <b id="heroEq">—</b></span>
+    </div>
+    <div class="await" id="heroAwait">◌ Awaiting first settled trade</div>
+  </div>
+  <div class="hero-r">
+    <div class="stat"><label id="perLbl">TODAY</label><b id="perPnl" class="mono">$0.00</b></div>
+    <div class="stat"><label>PROJECTS</label><b id="nProj" class="mono">0</b><small id="modeMix"></small></div>
+    <div class="stat"><label>TRADES</label><b id="nTr" class="mono">0</b></div>
+    <div class="stat"><label>WIN DAYS</label><b id="winD" class="mono">—</b></div>
+  </div>
 </section>
-<section class="card wide"><h2>Cumulative PnL — all projects</h2><div class="ch"><canvas id="all"></canvas></div></section>
+
+<div class="controls reveal" style="--d:3">
+  <div class="seg" id="seg" role="tablist">
+    <i class="slider"></i>
+    <button data-p="daily" class="on">Daily</button><button data-p="monthly">Monthly</button><button data-p="yearly">Yearly</button>
+  </div>
+</div>
+
+<section class="glass chartbox reveal" style="--d:4">
+  <div class="cb-head"><h2>Cumulative P&amp;L</h2><span class="hint" id="chartHint"></span></div>
+  <div class="ch"><canvas id="all"></canvas><div class="empty" id="allEmpty"><span>Awaiting first settled trade</span></div></div>
+</section>
+
 <main id="cards"></main>
-<footer>Data from bot-written JSON files. Paper results are simulated. Polls every 7s.</footer>
-<script src="app.js"></script></body></html>
+
+<footer>Data written by each bot · paper results are simulated · polls every 7s, no reloads</footer>
+<script src="app.js?v=2"></script>
+</body></html>
