@@ -77,7 +77,7 @@ const orbMat=new THREE.ShaderMaterial({uniforms:U,transparent:true,depthWrite:fa
    vec3 c1=vec3(.024,.57,.70),c2=vec3(.063,.73,.506),c3=vec3(.145,.388,.92),acc=vec3(.37,.92,.83);
    vec3 col=mix(c3,c1,smoothstep(-.55,-.05,n));col=mix(col,c2,smoothstep(.0,.5,n));
    col=col*(.06+.34*smoothstep(-.6,.7,n))+mix(c2,acc,.5)*veins*.45+mix(c1,c2,.5+.5*sin(time*.3))*fr*.55;
-   gl_FragColor=vec4(col*pulse,1.);}`});
+   col=pow(col,vec3(1.9))*2.2;gl_FragColor=vec4(col*pulse,1.);}`});
 core.add(new THREE.Mesh(new THREE.SphereGeometry(1,96,96),orbMat));
 const heart=sprite(new THREE.Color('#bffcf0'),1.,.22);core.add(heart);
 const halo1=sprite(new THREE.Color('#14b8a6'),5,.13);const halo2=sprite(new THREE.Color('#0891b2'),10,.08);const halo3=sprite(new THREE.Color('#2563eb'),18,.03);scene.add(halo1,halo2,halo3);
