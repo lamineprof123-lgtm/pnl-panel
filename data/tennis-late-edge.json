@@ -3,45 +3,15 @@
  "bot": "Stake (Tennis Late Edge)",
  "mode": "paper",
  "currency": "USD",
- "start_date": "2026-10-18",
- "start_balance": 1000.0,
- "updated_at": "2026-10-23T07:37:44+04:00",
+ "start_date": "2026-10-23",
+ "start_balance": 946.98,
+ "updated_at": "2026-10-23T07:44:32+04:00",
  "daily": [
   {
-   "date": "2026-10-18",
-   "pnl": -47.92,
-   "balance": 952.08,
-   "trades": 16
-  },
-  {
-   "date": "2026-10-19",
-   "pnl": -113.42,
-   "balance": 838.66,
-   "trades": 23
-  },
-  {
-   "date": "2026-10-20",
-   "pnl": 60.09,
-   "balance": 898.75,
-   "trades": 7
-  },
-  {
-   "date": "2026-10-21",
-   "pnl": 23.07,
-   "balance": 921.82,
-   "trades": 46
-  },
-  {
-   "date": "2026-10-22",
-   "pnl": -24.58,
-   "balance": 897.24,
-   "trades": 51
-  },
-  {
    "date": "2026-10-23",
-   "pnl": 49.74,
+   "pnl": 0.0,
    "balance": 946.98,
-   "trades": 6
+   "trades": 0
   }
  ]
 }
