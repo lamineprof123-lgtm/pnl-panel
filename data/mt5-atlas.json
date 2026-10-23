@@ -7,22 +7,22 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-23T23:24:04+04:00",
- "balance": 101067.56,
- "equity": 101098.38,
+ "updated_at": "2026-10-23T23:25:04+04:00",
+ "balance": 101061.68,
+ "equity": 101263.96,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": -28609.75,
- "combined_total_pnl": -27542.19,
+ "shadow_total_pnl": -28061.42,
+ "combined_total_pnl": -26999.74,
  "daily": [
   {
    "date": "2026-10-23",
-   "pnl": 1067.56,
-   "balance": 101067.56,
-   "trades": 84,
-   "shadow_pnl": -28609.75,
-   "shadow_trades": 5102,
-   "combined_pnl": -27542.19,
-   "equity": 101098.38,
+   "pnl": 1061.68,
+   "balance": 101061.68,
+   "trades": 85,
+   "shadow_pnl": -28061.42,
+   "shadow_trades": 5117,
+   "combined_pnl": -26999.74,
+   "equity": 101263.96,
    "open_positions": 5
   }
  ],
@@ -409,7 +409,7 @@
    "today_trades": 26,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
-   "open": 0
+   "open": 1
   },
   "SF_LINK_VWAP_V2": {
    "pnl": 0,
@@ -2416,16 +2416,16 @@
    "open": 0
   },
   "MIDREV_NDX": {
-   "pnl": 0,
-   "trades": 0,
-   "wins": 0,
-   "sum_r": 0,
+   "pnl": 520.51,
+   "trades": 1,
+   "wins": 1,
+   "sum_r": 1.301,
    "max_dd": 0.0,
-   "today_pnl": 0.0,
-   "today_trades": 0,
+   "today_pnl": 520.51,
+   "today_trades": 1,
    "mode": "SHADOW",
    "symbol": "USTEC",
-   "open": 1
+   "open": 0
   },
   "OPENX_AMD": {
    "pnl": 0,
@@ -4936,16 +4936,16 @@
    "open": 0
   },
   "NT_EMAX_EUR": {
-   "pnl": -349.36,
-   "trades": 3,
+   "pnl": -355.24,
+   "trades": 4,
    "wins": 0,
-   "sum_r": -0.842,
-   "max_dd": 349.36,
-   "today_pnl": -349.36,
-   "today_trades": 3,
+   "sum_r": -0.856,
+   "max_dd": 355.24,
+   "today_pnl": -355.24,
+   "today_trades": 4,
    "mode": "LIVE",
    "symbol": "EURUSD",
-   "open": 1
+   "open": 0
   },
   "NT_EMAX_GBP": {
    "pnl": 123.25,
@@ -5161,7 +5161,7 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "EURUSD",
-   "open": 0
+   "open": 1
   },
   "NT_HURST_GBP": {
    "pnl": -399.33,
@@ -9784,13 +9784,13 @@
    "open": 0
   },
   "NT_OBI_TOB_BTC": {
-   "pnl": -25356.03,
-   "trades": 1055,
-   "wins": 213,
-   "sum_r": -63.386,
+   "pnl": -25205.14,
+   "trades": 1061,
+   "wins": 219,
+   "sum_r": -63.01,
    "max_dd": 28516.27,
-   "today_pnl": -25356.03,
-   "today_trades": 1055,
+   "today_pnl": -25205.14,
+   "today_trades": 1061,
    "mode": "SHADOW",
    "symbol": "BTCUSD",
    "open": 1
@@ -9808,13 +9808,13 @@
    "open": 0
   },
   "NT_CMM_BTC": {
-   "pnl": -1928.73,
-   "trades": 109,
+   "pnl": -1961.41,
+   "trades": 110,
    "wins": 2,
-   "sum_r": -4.822,
-   "max_dd": 1928.73,
-   "today_pnl": -1928.73,
-   "today_trades": 109,
+   "sum_r": -4.904,
+   "max_dd": 1961.41,
+   "today_pnl": -1961.41,
+   "today_trades": 110,
    "mode": "SHADOW",
    "symbol": "BTCUSD",
    "open": 1
@@ -9964,13 +9964,13 @@
    "open": 0
   },
   "NT_OBI_TOB_DOGE": {
-   "pnl": -756.7,
-   "trades": 1024,
-   "wins": 280,
-   "sum_r": -1.883,
+   "pnl": -744.18,
+   "trades": 1029,
+   "wins": 285,
+   "sum_r": -1.851,
    "max_dd": 980.22,
-   "today_pnl": -756.7,
-   "today_trades": 1024,
+   "today_pnl": -744.18,
+   "today_trades": 1029,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
    "open": 1
@@ -10048,13 +10048,13 @@
    "open": 1
   },
   "NT_CMM_BNB": {
-   "pnl": -1320.49,
-   "trades": 73,
+   "pnl": -1423.4,
+   "trades": 75,
    "wins": 2,
-   "sum_r": -3.3,
-   "max_dd": 1320.49,
-   "today_pnl": -1320.49,
-   "today_trades": 73,
+   "sum_r": -3.557,
+   "max_dd": 1423.4,
+   "today_pnl": -1423.4,
+   "today_trades": 75,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
    "open": 1
@@ -10326,13 +10326,13 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-23T23:24:04+04:00",
+  "updated_dubai": "2026-10-23T23:25:04+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
-   "target_progress_pct": 10.7,
+   "target_progress_pct": 10.6,
    "daily_loss_used_usd": 1039.15,
    "daily_loss_limit_usd": 5000,
-   "daily_headroom_usd": 6098.38,
+   "daily_headroom_usd": 6263.96,
    "max_loss_used_usd": 1039.15,
    "max_loss_limit_usd": 10000,
    "trading_days": "1/4",
@@ -10340,9 +10340,9 @@
   },
   "lucid_100k_eval": {
    "status": "IN_PROGRESS",
-   "target_progress_pct": 17.8,
+   "target_progress_pct": 17.7,
    "mll": 97000.0,
-   "mll_headroom_equity_usd": 4098.38,
+   "mll_headroom_equity_usd": 4263.96,
    "daily_loss_used_usd": 1039.15,
    "daily_loss_limit_usd": 1800,
    "dll_soft_breaches": 0,
