@@ -21,11 +21,11 @@ renderer.setClearColor(0x000000,1);
 const scene=new THREE.Scene();
 const camera=new THREE.PerspectiveCamera(50,1,.1,400);
 const controls=new OrbitControls(camera,canvas);
-Object.assign(controls,{enableDamping:true,dampingFactor:.06,enablePan:false,autoRotate:true,autoRotateSpeed:.35,minDistance:4,maxDistance:30,rotateSpeed:.6,zoomSpeed:.8});
+Object.assign(controls,{enableDamping:true,dampingFactor:.06,enablePan:false,autoRotate:true,autoRotateSpeed:.35,minDistance:4,maxDistance:45,rotateSpeed:.6,zoomSpeed:.8});
 
 const composer=new EffectComposer(renderer);
 composer.addPass(new RenderPass(scene,camera));
-const bloom=new UnrealBloomPass(new THREE.Vector2(256,256),1.05,.75,.0);
+const bloom=new UnrealBloomPass(new THREE.Vector2(256,256),.85,.6,.12);
 composer.addPass(bloom);composer.addPass(new OutputPass());
 
 function resize(){const w=innerWidth,h=innerHeight;renderer.setSize(w,h,false);composer.setSize(w,h);
@@ -54,7 +54,7 @@ const stars=new THREE.Group();scene.add(stars);
 
 /* ---------- nebula ---------- */
 const nebula=new THREE.Group();scene.add(nebula);
-[['#10b981',70,.10,[-45,18,-70]],['#0891b2',85,.11,[50,-10,-80]],['#2563eb',60,.07,[10,35,-90]],['#14b8a6',75,.08,[-20,-35,-75]],['#0891b2',55,.05,[60,30,40]],['#10b981',60,.05,[-60,-20,50]]]
+[['#10b981',70,.05,[-45,18,-70]],['#0891b2',85,.055,[50,-10,-80]],['#2563eb',60,.035,[10,35,-90]],['#14b8a6',75,.025,[-20,-35,-75]],['#0891b2',55,.02,[60,30,40]],['#10b981',60,.02,[-60,-20,50]]]
   .forEach(([c,s,o,p])=>nebula.add(sprite(new THREE.Color(c),s,o,new THREE.Vector3(...p))));
 
 /* ---------- AI core ---------- */
@@ -76,11 +76,11 @@ const orbMat=new THREE.ShaderMaterial({uniforms:U,transparent:true,depthWrite:fa
    float fr=pow(1.-max(dot(vN,vV),0.),2.2);float pulse=.85+.15*sin(time*1.6);
    vec3 c1=vec3(.024,.57,.70),c2=vec3(.063,.73,.506),c3=vec3(.145,.388,.92),acc=vec3(.37,.92,.83);
    vec3 col=mix(c3,c1,smoothstep(-.6,.2,n));col=mix(col,c2,smoothstep(.1,.7,n));
-   col=col*(.35+.5*smoothstep(-.3,.8,n))+acc*veins*1.4+acc*fr*1.1;
+   col=col*(.10+.38*smoothstep(-.4,.8,n))+mix(acc,c2,.4)*veins*.5+mix(c1,acc,fr)*fr*.6;
    gl_FragColor=vec4(col*pulse,1.);}`});
 core.add(new THREE.Mesh(new THREE.SphereGeometry(1,96,96),orbMat));
-const heart=sprite(new THREE.Color('#d9fff6'),1.6,.9);core.add(heart);
-const halo1=sprite(new THREE.Color('#14b8a6'),6.5,.38);const halo2=sprite(new THREE.Color('#0891b2'),13,.18);const halo3=sprite(new THREE.Color('#10b981'),22,.07);scene.add(halo1,halo2,halo3);
+const heart=sprite(new THREE.Color('#bffcf0'),1.,.22);core.add(heart);
+const halo1=sprite(new THREE.Color('#14b8a6'),5,.13);const halo2=sprite(new THREE.Color('#0891b2'),10,.08);const halo3=sprite(new THREE.Color('#2563eb'),18,.03);scene.add(halo1,halo2,halo3);
 
 // neural shell
 const shell=new THREE.Group();core.add(shell);
@@ -99,7 +99,7 @@ const shell=new THREE.Group();core.add(shell);
 /* ---------- trades ---------- */
 const dotMat=new THREE.ShaderMaterial({uniforms:U,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,
   vertexShader:`attribute float sz;attribute float al;attribute vec3 col;varying float a;varying vec3 vc;uniform float pr;
-  void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_Position=projectionMatrix*mv;a=al;vc=col;gl_PointSize=sz*pr*60./-mv.z;}`,
+  void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_Position=projectionMatrix*mv;a=al;vc=col;gl_PointSize=sz*pr*110./-mv.z;}`,
   fragmentShader:`varying float a;varying vec3 vc;void main(){float d=length(gl_PointCoord-.5)*2.;if(d>1.)discard;
    float core=smoothstep(.2,.0,d);float glow=exp(-d*d*7.)*.75+exp(-d*d*2.2)*.18;
    gl_FragColor=vec4((vc*glow+mix(vc,vec3(1.),.55)*core)*a,1.);}`});
@@ -138,7 +138,7 @@ function updateTrades(now,dt){let n=0,m=0;const k=1-Math.exp(-dt*2.5);
     posAt(t,ph,R,tmp);t.x=tmp.x;t.y=tmp.y;t.z=tmp.z;t.vis=al>.05;
     dots.P.setXYZ(n,tmp.x,tmp.y,tmp.z);dots.S.setX(n,sz*(t===hover?1.8:1));dots.A.setX(n,Math.min(1.4,al*(t===hover?1.4:1)));dots.Co.setXYZ(n,t.col.r,t.col.g,t.col.b);n++;
     for(let i=1;i<=TRAIL;i++){const f=1-i/(TRAIL+1);posAt(t,ph-i*.022*Math.sign(t.w),R,tmp);
-      trails.P.setXYZ(m,tmp.x,tmp.y,tmp.z);trails.S.setX(m,sz*(.25+.45*f));trails.A.setX(m,al*f*f*.45);trails.Co.setXYZ(m,t.col.r,t.col.g,t.col.b);m++}}
+      trails.P.setXYZ(m,tmp.x,tmp.y,tmp.z);trails.S.setX(m,sz*(.25+.45*f));trails.A.setX(m,al*f*f*.3);trails.Co.setXYZ(m,t.col.r,t.col.g,t.col.b);m++}}
   if(list.length!==trades.size)list=[...trades.values()];
   for(const b of[[dots,n],[trails,m]]){const[o,c]=b;o.g.setDrawRange(0,c);[o.P,o.S,o.A,o.Co].forEach(x=>{x.needsUpdate=true})}}
 
@@ -168,12 +168,12 @@ setInterval(()=>{const s=lastOk?Math.round((Date.now()-lastOk)/1e3):null;$('#ago
 
 /* ---------- loop ---------- */
 const portrait=()=>innerWidth/innerHeight<.8;
-function frame(){camera.position.set(0,3.2,portrait()?21:14.5);controls.target.set(0,portrait()?-.3:-.2,0);controls.update()}
-resize();frame();addEventListener('resize',()=>{resize()});
+function frame(){const a=innerWidth/innerHeight;camera.fov=a<1?62:48;camera.updateProjectionMatrix();const d=a<1?Math.min(30,6.4/(Math.tan(camera.fov*Math.PI/360)*a)):15;camera.position.set(0,d*(a<1?.38:.24),d);controls.target.set(0,0,0);controls.update()}
+resize();frame();addEventListener('resize',()=>{resize();frame()});
 const clock=new THREE.Clock();let prev=0;
 renderer.setAnimationLoop(()=>{const now=clock.getElapsedTime(),dt=Math.min(.05,now-prev);prev=now;U.time.value=now;
   core.rotation.y=now*.08;shell.rotation.y=-now*.05;shell.rotation.x=Math.sin(now*.1)*.2;
-  const br=1+.06*Math.sin(now*1.6);halo1.scale.setScalar(6.5*br);heart.material.opacity=.75+.2*Math.sin(now*1.6);
+  const br=1+.06*Math.sin(now*1.6);halo1.scale.setScalar(5*br);heart.material.opacity=.18+.07*Math.sin(now*1.6);
   stars.rotation.y=now*.004;nebula.rotation.y=now*.006;
   updateTrades(now,dt);
   if(mouse&&!downAt)hover=pick(mouse[0],mouse[1]);showTip();
