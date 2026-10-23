@@ -7,23 +7,23 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-23T23:36:13+04:00",
- "balance": 100973.48,
- "equity": 101239.94,
+ "updated_at": "2026-10-23T23:37:13+04:00",
+ "balance": 100928.6,
+ "equity": 101320.08,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": -25179.62,
- "combined_total_pnl": -24206.14,
+ "shadow_total_pnl": -25137.99,
+ "combined_total_pnl": -24209.39,
  "daily": [
   {
    "date": "2026-10-23",
-   "pnl": 973.48,
-   "balance": 100973.48,
-   "trades": 86,
-   "shadow_pnl": -25179.62,
-   "shadow_trades": 5268,
-   "combined_pnl": -24206.14,
-   "equity": 101239.94,
-   "open_positions": 5
+   "pnl": 928.6,
+   "balance": 100928.6,
+   "trades": 87,
+   "shadow_pnl": -25137.99,
+   "shadow_trades": 5284,
+   "combined_pnl": -24209.39,
+   "equity": 101320.08,
+   "open_positions": 4
   }
  ],
  "strategies": {
@@ -4960,16 +4960,16 @@
    "open": 0
   },
   "NT_EMAX_AUD": {
-   "pnl": 77.52,
-   "trades": 1,
+   "pnl": 32.64,
+   "trades": 2,
    "wins": 1,
-   "sum_r": 0.194,
-   "max_dd": 0.0,
-   "today_pnl": 77.52,
-   "today_trades": 1,
+   "sum_r": 0.082,
+   "max_dd": 44.88,
+   "today_pnl": 32.64,
+   "today_trades": 2,
    "mode": "LIVE",
    "symbol": "AUDUSD",
-   "open": 1
+   "open": 0
   },
   "NT_EMAX_JPY": {
    "pnl": -503.63,
@@ -9784,13 +9784,13 @@
    "open": 1
   },
   "NT_OBI_TOB_BTC": {
-   "pnl": -24873.55,
-   "trades": 1073,
-   "wins": 231,
-   "sum_r": -62.181,
+   "pnl": -24814.69,
+   "trades": 1076,
+   "wins": 234,
+   "sum_r": -62.033,
    "max_dd": 28516.27,
-   "today_pnl": -24873.55,
-   "today_trades": 1073,
+   "today_pnl": -24814.69,
+   "today_trades": 1076,
    "mode": "SHADOW",
    "symbol": "BTCUSD",
    "open": 1
@@ -9904,13 +9904,13 @@
    "open": 0
   },
   "NT_OBI_TOB_SUI": {
-   "pnl": -284.93,
-   "trades": 1391,
+   "pnl": -285.81,
+   "trades": 1393,
    "wins": 294,
-   "sum_r": -0.67,
+   "sum_r": -0.672,
    "max_dd": 289.72,
-   "today_pnl": -284.93,
-   "today_trades": 1391,
+   "today_pnl": -285.81,
+   "today_trades": 1393,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
    "open": 1
@@ -9964,13 +9964,13 @@
    "open": 0
   },
   "NT_OBI_TOB_DOGE": {
-   "pnl": -706.85,
-   "trades": 1044,
-   "wins": 300,
-   "sum_r": -1.757,
+   "pnl": -706.17,
+   "trades": 1046,
+   "wins": 302,
+   "sum_r": -1.755,
    "max_dd": 980.22,
-   "today_pnl": -706.85,
-   "today_trades": 1044,
+   "today_pnl": -706.17,
+   "today_trades": 1046,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
    "open": 1
@@ -10024,13 +10024,13 @@
    "open": 0
   },
   "NT_OBI_TOB_BNB": {
-   "pnl": -1321.56,
-   "trades": 808,
+   "pnl": -1330.0,
+   "trades": 816,
    "wins": 101,
-   "sum_r": -3.29,
-   "max_dd": 1321.56,
-   "today_pnl": -1321.56,
-   "today_trades": 808,
+   "sum_r": -3.311,
+   "max_dd": 1330.0,
+   "today_pnl": -1330.0,
+   "today_trades": 816,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
    "open": 1
@@ -10048,13 +10048,13 @@
    "open": 1
   },
   "NT_CMM_BNB": {
-   "pnl": -1501.02,
-   "trades": 78,
+   "pnl": -1509.61,
+   "trades": 79,
    "wins": 2,
-   "sum_r": -3.751,
-   "max_dd": 1501.02,
-   "today_pnl": -1501.02,
-   "today_trades": 78,
+   "sum_r": -3.772,
+   "max_dd": 1509.61,
+   "today_pnl": -1509.61,
+   "today_trades": 79,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
    "open": 1
@@ -10326,13 +10326,13 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-23T23:36:13+04:00",
+  "updated_dubai": "2026-10-23T23:37:13+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
-   "target_progress_pct": 9.7,
+   "target_progress_pct": 9.3,
    "daily_loss_used_usd": 1039.15,
    "daily_loss_limit_usd": 5000,
-   "daily_headroom_usd": 6239.94,
+   "daily_headroom_usd": 6320.08,
    "max_loss_used_usd": 1039.15,
    "max_loss_limit_usd": 10000,
    "trading_days": "1/4",
@@ -10340,9 +10340,9 @@
   },
   "lucid_100k_eval": {
    "status": "IN_PROGRESS",
-   "target_progress_pct": 16.2,
+   "target_progress_pct": 15.5,
    "mll": 97000.0,
-   "mll_headroom_equity_usd": 4239.94,
+   "mll_headroom_equity_usd": 4320.08,
    "daily_loss_used_usd": 1039.15,
    "daily_loss_limit_usd": 1800,
    "dll_soft_breaches": 0,
