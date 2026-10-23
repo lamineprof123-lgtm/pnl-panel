@@ -7,12 +7,12 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-24T03:30:22+04:00",
+ "updated_at": "2026-10-24T03:31:22+04:00",
  "balance": 101374.05,
  "equity": 102119.64,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": -18714.87,
- "combined_total_pnl": -17340.82,
+ "shadow_total_pnl": -18784.67,
+ "combined_total_pnl": -17410.62,
  "daily": [
   {
    "date": "2026-10-23",
@@ -28,9 +28,9 @@
    "pnl": 543.41,
    "balance": 101374.05,
    "trades": 4,
-   "shadow_pnl": 4058.34,
-   "shadow_trades": 2622,
-   "combined_pnl": 4601.75,
+   "shadow_pnl": 3988.54,
+   "shadow_trades": 2645,
+   "combined_pnl": 4531.95,
    "equity": 102119.64,
    "open_positions": 4
   }
@@ -16767,13 +16767,13 @@
    "open": 0
   },
   "NT_CMM_BTC": {
-   "pnl": -2803.42,
-   "trades": 144,
+   "pnl": -2828.4,
+   "trades": 145,
    "wins": 2,
-   "sum_r": -7.012,
-   "max_dd": 2803.42,
-   "today_pnl": -809.37,
-   "today_trades": 33,
+   "sum_r": -7.074,
+   "max_dd": 2828.4,
+   "today_pnl": -834.35,
+   "today_trades": 34,
    "mode": "SHADOW",
    "symbol": "BTCUSD",
    "open": 1
@@ -16803,13 +16803,13 @@
    "open": 0
   },
   "NT_OBI_TOB_LINK": {
-   "pnl": -483.44,
-   "trades": 556,
+   "pnl": -497.5,
+   "trades": 561,
    "wins": 81,
-   "sum_r": -1.179,
-   "max_dd": 514.27,
-   "today_pnl": -415.17,
-   "today_trades": 244,
+   "sum_r": -1.214,
+   "max_dd": 528.33,
+   "today_pnl": -429.23,
+   "today_trades": 249,
    "mode": "SHADOW",
    "symbol": "LINKUSD",
    "open": 1
@@ -16827,16 +16827,16 @@
    "open": 1
   },
   "NT_CMM_LINK": {
-   "pnl": -3369.85,
-   "trades": 175,
-   "wins": 27,
-   "sum_r": -8.43,
-   "max_dd": 3369.85,
-   "today_pnl": -1516.62,
-   "today_trades": 81,
+   "pnl": -3363.8,
+   "trades": 177,
+   "wins": 28,
+   "sum_r": -8.415,
+   "max_dd": 3372.93,
+   "today_pnl": -1510.57,
+   "today_trades": 83,
    "mode": "SHADOW",
    "symbol": "LINKUSD",
-   "open": 1
+   "open": 0
   },
   "NT_HVPIN_LINK": {
    "pnl": -28.09,
@@ -16863,13 +16863,13 @@
    "open": 0
   },
   "NT_OBI_TOB_SUI": {
-   "pnl": -538.7,
-   "trades": 2069,
-   "wins": 530,
-   "sum_r": -1.301,
+   "pnl": -537.7,
+   "trades": 2073,
+   "wins": 534,
+   "sum_r": -1.299,
    "max_dd": 576.37,
-   "today_pnl": -239.47,
-   "today_trades": 629,
+   "today_pnl": -238.47,
+   "today_trades": 633,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
    "open": 1
@@ -16923,13 +16923,13 @@
    "open": 0
   },
   "NT_OBI_TOB_DOGE": {
-   "pnl": 485.39,
-   "trades": 1486,
-   "wins": 731,
-   "sum_r": 1.224,
+   "pnl": 509.72,
+   "trades": 1490,
+   "wins": 735,
+   "sum_r": 1.284,
    "max_dd": 980.22,
-   "today_pnl": 1071.94,
-   "today_trades": 396,
+   "today_pnl": 1096.27,
+   "today_trades": 400,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
    "open": 1
@@ -16983,13 +16983,13 @@
    "open": 0
   },
   "NT_OBI_TOB_BNB": {
-   "pnl": -2272.84,
-   "trades": 1263,
-   "wins": 118,
-   "sum_r": -5.662,
+   "pnl": -2269.72,
+   "trades": 1268,
+   "wins": 121,
+   "sum_r": -5.654,
    "max_dd": 2275.41,
-   "today_pnl": -863.4,
-   "today_trades": 412,
+   "today_pnl": -860.28,
+   "today_trades": 417,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
    "open": 1
@@ -17007,13 +17007,13 @@
    "open": 1
   },
   "NT_CMM_BNB": {
-   "pnl": -2226.63,
-   "trades": 117,
+   "pnl": -2291.89,
+   "trades": 119,
    "wins": 3,
-   "sum_r": -5.565,
-   "max_dd": 2226.63,
-   "today_pnl": -713.03,
-   "today_trades": 37,
+   "sum_r": -5.728,
+   "max_dd": 2291.89,
+   "today_pnl": -778.29,
+   "today_trades": 39,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
    "open": 1
@@ -17363,7 +17363,7 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-24T03:30:22+04:00",
+  "updated_dubai": "2026-10-24T03:31:22+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
    "target_progress_pct": 13.7,
