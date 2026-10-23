@@ -7,12 +7,12 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-24T01:10:30+04:00",
+ "updated_at": "2026-10-24T01:11:30+04:00",
  "balance": 101374.05,
  "equity": 102119.64,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": -21822.0,
- "combined_total_pnl": -20447.95,
+ "shadow_total_pnl": -21836.73,
+ "combined_total_pnl": -20462.68,
  "daily": [
   {
    "date": "2026-10-23",
@@ -28,9 +28,9 @@
    "pnl": 543.41,
    "balance": 101374.05,
    "trades": 3,
-   "shadow_pnl": 951.21,
-   "shadow_trades": 751,
-   "combined_pnl": 1494.62,
+   "shadow_pnl": 936.48,
+   "shadow_trades": 757,
+   "combined_pnl": 1479.89,
    "equity": 102119.64,
    "open_positions": 4
   }
@@ -346,7 +346,7 @@
    "today_trades": 0,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
-   "open": 0
+   "open": 1
   },
   "SF_AMD_BRK": {
    "pnl": 4.52,
@@ -13374,13 +13374,13 @@
    "open": 0
   },
   "NT_CMM_BTC": {
-   "pnl": -2108.24,
-   "trades": 118,
+   "pnl": -2124.56,
+   "trades": 119,
    "wins": 2,
-   "sum_r": -5.272,
-   "max_dd": 2108.24,
-   "today_pnl": -114.19,
-   "today_trades": 7,
+   "sum_r": -5.313,
+   "max_dd": 2124.56,
+   "today_pnl": -130.51,
+   "today_trades": 8,
    "mode": "SHADOW",
    "symbol": "BTCUSD",
    "open": 1
@@ -13455,7 +13455,7 @@
    "today_trades": 3,
    "mode": "SHADOW",
    "symbol": "LINKUSD",
-   "open": 0
+   "open": 1
   },
   "NT_OBI_L2_SUI": {
    "pnl": 0,
@@ -13470,13 +13470,13 @@
    "open": 0
   },
   "NT_OBI_TOB_SUI": {
-   "pnl": -268.24,
-   "trades": 1671,
-   "wins": 445,
-   "sum_r": -0.631,
+   "pnl": -266.65,
+   "trades": 1676,
+   "wins": 450,
+   "sum_r": -0.627,
    "max_dd": 311.31,
-   "today_pnl": 30.99,
-   "today_trades": 231,
+   "today_pnl": 32.58,
+   "today_trades": 236,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
    "open": 1
@@ -13957,7 +13957,7 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-24T01:10:30+04:00",
+  "updated_dubai": "2026-10-24T01:11:30+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
    "target_progress_pct": 13.7,
