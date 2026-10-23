@@ -97,7 +97,7 @@ function render(){
 async function poll(){
   try{const b='?t='+Date.now(),idx=await(await fetch('data/index.json'+b,{cache:'no-store'})).json(),next={};
     await Promise.all((idx.files||[]).map(async f=>{try{next[f.replace(/\.json$/,'')]=norm(await(await fetch('data/'+f+b,{cache:'no-store'})).json())}catch(e){}}));
-    projects=next;order=Object.keys(next).sort((a,b)=>(next[a].mode==='live'?0:1)-(next[b].mode==='live'?0:1)||a.localeCompare(b));
+    projects=next;const rk=s=>s==='mt5-atlas'?0:next[s].mode==='live'?1:2;order=Object.keys(next).sort((a,b)=>rk(a)-rk(b)||a.localeCompare(b));
     lastOk=Date.now();render()}catch(e){console.warn('poll failed',e)}
 }
 $('#seg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;period=b.dataset.p;const bs=[...document.querySelectorAll('#seg button')],i=bs.indexOf(b);
