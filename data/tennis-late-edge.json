@@ -6,18 +6,18 @@
  "start_date": "2026-10-23",
  "start_balance": 1000.0,
  "fresh_start_at": "2026-10-23T07:50:50+04:00",
- "updated_at": "2026-10-24T01:14:13+04:00",
+ "updated_at": "2026-10-24T01:16:25+04:00",
  "daily": [
   {
    "date": "2026-10-23",
-   "pnl": 23.21,
-   "balance": 1023.21,
-   "trades": 5
+   "pnl": -78.57,
+   "balance": 921.43,
+   "trades": 6
   },
   {
    "date": "2026-10-24",
    "pnl": 0.0,
-   "balance": 1023.21,
+   "balance": 921.43,
    "trades": 0
   }
  ]
