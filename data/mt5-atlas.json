@@ -7,12 +7,12 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-24T04:04:22+04:00",
+ "updated_at": "2026-10-24T04:05:22+04:00",
  "balance": 101374.05,
  "equity": 102119.64,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": -17569.49,
- "combined_total_pnl": -16195.44,
+ "shadow_total_pnl": -17564.16,
+ "combined_total_pnl": -16190.11,
  "daily": [
   {
    "date": "2026-10-23",
@@ -28,9 +28,9 @@
    "pnl": 543.41,
    "balance": 101374.05,
    "trades": 4,
-   "shadow_pnl": 5203.72,
-   "shadow_trades": 3179,
-   "combined_pnl": 5747.13,
+   "shadow_pnl": 5209.05,
+   "shadow_trades": 3182,
+   "combined_pnl": 5752.46,
    "equity": 102119.64,
    "open_positions": 4
   }
@@ -16923,13 +16923,13 @@
    "open": 0
   },
   "NT_OBI_TOB_DOGE": {
-   "pnl": 774.11,
-   "trades": 1621,
-   "wins": 865,
-   "sum_r": 1.944,
+   "pnl": 774.76,
+   "trades": 1622,
+   "wins": 866,
+   "sum_r": 1.946,
    "max_dd": 980.22,
-   "today_pnl": 1360.66,
-   "today_trades": 531,
+   "today_pnl": 1361.31,
+   "today_trades": 532,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
    "open": 1
@@ -16983,13 +16983,13 @@
    "open": 0
   },
   "NT_OBI_TOB_BNB": {
-   "pnl": -2190.23,
-   "trades": 1337,
-   "wins": 166,
-   "sum_r": -5.454,
+   "pnl": -2185.55,
+   "trades": 1339,
+   "wins": 168,
+   "sum_r": -5.442,
    "max_dd": 2281.81,
-   "today_pnl": -780.79,
-   "today_trades": 486,
+   "today_pnl": -776.11,
+   "today_trades": 488,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
    "open": 1
@@ -17363,7 +17363,7 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-24T04:04:23+04:00",
+  "updated_dubai": "2026-10-24T04:05:22+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
    "target_progress_pct": 13.7,
