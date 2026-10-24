@@ -7,12 +7,12 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-24T06:32:47+04:00",
+ "updated_at": "2026-10-24T06:33:47+04:00",
  "balance": 101374.05,
  "equity": 102119.64,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": 3432.37,
- "combined_total_pnl": 4806.42,
+ "shadow_total_pnl": 3428.64,
+ "combined_total_pnl": 4802.69,
  "daily": [
   {
    "date": "2026-10-23",
@@ -28,9 +28,9 @@
    "pnl": 543.41,
    "balance": 101374.05,
    "trades": 4,
-   "shadow_pnl": 26205.58,
-   "shadow_trades": 5174,
-   "combined_pnl": 26748.99,
+   "shadow_pnl": 26201.85,
+   "shadow_trades": 5181,
+   "combined_pnl": 26745.26,
    "equity": 102119.64,
    "open_positions": 4
   }
@@ -406,7 +406,7 @@
    "today_trades": 4,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
-   "open": 1
+   "open": 0
   },
   "SF_BNB_VOL": {
    "pnl": 7153.5,
@@ -18454,13 +18454,13 @@
    "open": 0
   },
   "NT_OBI_TOB_LINK": {
-   "pnl": -1084.55,
-   "trades": 850,
+   "pnl": -1084.64,
+   "trades": 851,
    "wins": 81,
    "sum_r": -2.673,
-   "max_dd": 1115.38,
-   "today_pnl": -1016.28,
-   "today_trades": 538,
+   "max_dd": 1115.47,
+   "today_pnl": -1016.37,
+   "today_trades": 539,
    "mode": "SHADOW",
    "symbol": "LINKUSD",
    "open": 1
@@ -18514,13 +18514,13 @@
    "open": 0
   },
   "NT_OBI_TOB_SUI": {
-   "pnl": -585.48,
-   "trades": 2747,
+   "pnl": -585.62,
+   "trades": 2752,
    "wins": 839,
    "sum_r": -1.426,
-   "max_dd": 585.48,
-   "today_pnl": -286.25,
-   "today_trades": 1307,
+   "max_dd": 585.62,
+   "today_pnl": -286.39,
+   "today_trades": 1312,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
    "open": 1
@@ -18574,13 +18574,13 @@
    "open": 0
   },
   "NT_OBI_TOB_DOGE": {
-   "pnl": 1186.4,
-   "trades": 2160,
+   "pnl": 1182.9,
+   "trades": 2161,
    "wins": 1222,
-   "sum_r": 2.975,
+   "sum_r": 2.966,
    "max_dd": 980.22,
-   "today_pnl": 1772.95,
-   "today_trades": 1070,
+   "today_pnl": 1769.45,
+   "today_trades": 1071,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
    "open": 1
@@ -18607,7 +18607,7 @@
    "today_trades": 58,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
-   "open": 1
+   "open": 0
   },
   "NT_HVPIN_DOGE": {
    "pnl": -19.35,
@@ -19014,7 +19014,7 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-24T06:32:48+04:00",
+  "updated_dubai": "2026-10-24T06:33:48+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
    "target_progress_pct": 13.7,
