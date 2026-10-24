@@ -1,7 +1,7 @@
 {
  "project": "ATLAS-MT5-GK-1",
  "bot": "MT5",
- "updated_at": "2026-10-24T08:48:29+04:00",
+ "updated_at": "2026-10-24T08:49:29+04:00",
  "positions": [
   {
    "id": "SH-NT_CMM_SUI-1792817163",
@@ -12,8 +12,8 @@
    "asset": "SUIUSD",
    "side": "buy",
    "lots": 8201.4,
-   "rr": 0.0,
-   "pnl": 0.0,
+   "rr": -0.01,
+   "pnl": -5.74,
    "mode": "shadow"
   },
   {
@@ -25,8 +25,8 @@
    "asset": "BNBUSD",
    "side": "sell",
    "lots": 0.0,
-   "rr": -0.3,
-   "pnl": -118.91,
+   "rr": 0.03,
+   "pnl": 10.81,
    "mode": "shadow"
   },
   {
@@ -38,8 +38,8 @@
    "asset": "LINKUSD",
    "side": "sell",
    "lots": 67.85,
-   "rr": -0.0,
-   "pnl": -0.27,
+   "rr": 0.0,
+   "pnl": 0.27,
    "mode": "shadow"
   },
   {
@@ -51,8 +51,8 @@
    "asset": "SUIUSD",
    "side": "sell",
    "lots": 820.1,
-   "rr": -0.0,
-   "pnl": -0.08,
+   "rr": 0.0,
+   "pnl": 0.5,
    "mode": "shadow"
   },
   {
@@ -89,9 +89,9 @@
    "strategy": "NT_OBI_TOB_SUI",
    "asset": "SUIUSD",
    "side": "sell",
-   "lots": 18418.3,
-   "rr": -0.01,
-   "pnl": -2.61,
+   "lots": 18615.0,
+   "rr": 0.03,
+   "pnl": 10.57,
    "mode": "shadow"
   },
   {
@@ -104,7 +104,7 @@
    "side": "buy",
    "lots": 101957.0,
    "rr": 0.02,
-   "pnl": 9.18,
+   "pnl": 7.14,
    "mode": "shadow"
   },
   {
@@ -130,7 +130,7 @@
    "side": "sell",
    "lots": 10.96,
    "rr": 0.03,
-   "pnl": 11.62,
+   "pnl": 12.93,
    "mode": "shadow"
   },
   {
@@ -142,8 +142,8 @@
    "asset": "LINKUSD",
    "side": "sell",
    "lots": 2035.59,
-   "rr": -0.02,
-   "pnl": -8.14,
+   "rr": 0.02,
+   "pnl": 8.14,
    "mode": "shadow"
   },
   {
@@ -155,8 +155,8 @@
    "asset": "SUIUSD",
    "side": "sell",
    "lots": 8201.4,
-   "rr": -0.19,
-   "pnl": -74.63,
+   "rr": -0.17,
+   "pnl": -68.89,
    "mode": "shadow"
   },
   {
@@ -168,8 +168,8 @@
    "asset": "LINKUSD",
    "side": "buy",
    "lots": 4071.18,
-   "rr": 1.67,
-   "pnl": 666.99,
+   "rr": 1.59,
+   "pnl": 634.43,
    "mode": "shadow"
   },
   {
@@ -181,8 +181,8 @@
    "asset": "BNBUSD",
    "side": "buy",
    "lots": 442.63,
-   "rr": -0.12,
-   "pnl": -48.1,
+   "rr": -0.25,
+   "pnl": -101.22,
    "mode": "shadow"
   },
   {
@@ -286,7 +286,7 @@
    "side": "sell",
    "lots": 97425.0,
    "rr": -0.01,
-   "pnl": -5.12,
+   "pnl": -3.17,
    "mode": "shadow"
   },
   {
@@ -312,7 +312,7 @@
    "side": "sell",
    "lots": 2.0,
    "rr": -0.0,
-   "pnl": -1.43,
+   "pnl": -1.45,
    "mode": "shadow"
   },
   {
@@ -323,7 +323,7 @@
    "strategy": "NT_OBI_TOB_BTC",
    "asset": "BTCUSD",
    "side": "sell",
-   "lots": 226.69,
+   "lots": 227.67,
    "rr": 7.09,
    "pnl": 2836.85,
    "mode": "shadow"
@@ -337,8 +337,8 @@
    "asset": "BTCUSD",
    "side": "sell",
    "lots": 2.0,
-   "rr": -0.15,
-   "pnl": -58.43,
+   "rr": -0.16,
+   "pnl": -62.93,
    "mode": "shadow"
   },
   {
@@ -350,8 +350,8 @@
    "asset": "ETHUSD",
    "side": "buy",
    "lots": 16.43,
-   "rr": 0.28,
-   "pnl": 110.47,
+   "rr": 0.26,
+   "pnl": 103.36,
    "mode": "shadow"
   },
   {
@@ -363,8 +363,8 @@
    "asset": "ETHUSD",
    "side": "buy",
    "lots": 18.9,
-   "rr": 0.12,
-   "pnl": 48.06,
+   "rr": 0.1,
+   "pnl": 39.88,
    "mode": "shadow"
   },
   {
@@ -375,9 +375,9 @@
    "strategy": "NT_OBI_TOB_LINK",
    "asset": "LINKUSD",
    "side": "buy",
-   "lots": 4778.8,
-   "rr": 0.04,
-   "pnl": 14.1,
+   "lots": 4776.38,
+   "rr": -0.06,
+   "pnl": -23.97,
    "mode": "shadow"
   },
   {
@@ -389,8 +389,8 @@
    "asset": "DOGEUSD",
    "side": "buy",
    "lots": 203914.0,
-   "rr": -0.1,
-   "pnl": -40.78,
+   "rr": -0.11,
+   "pnl": -44.86,
    "mode": "shadow"
   },
   {
@@ -402,8 +402,21 @@
    "asset": "BNBUSD",
    "side": "buy",
    "lots": 43.84,
-   "rr": 0.17,
-   "pnl": 67.62,
+   "rr": 0.16,
+   "pnl": 62.36,
+   "mode": "shadow"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_LINK-1792786288-2",
+   "opened_at": "2026-10-24T00:11:28+04:00",
+   "closed_at": "2026-10-24T08:48:41+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_LINK",
+   "asset": "LINKUSD",
+   "side": "buy",
+   "lots": 2.42,
+   "rr": -0.0,
+   "pnl": -0.21,
    "mode": "shadow"
   },
   {
