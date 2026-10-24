@@ -5,12 +5,12 @@
  "currency": "USD",
  "start_date": "2026-10-24",
  "start_balance": 1000,
- "updated_at": "2026-10-24T09:27:28+04:00",
+ "updated_at": "2026-10-24T09:28:29+04:00",
  "daily": [
   {
    "date": "2026-10-24",
-   "pnl": -16.81,
-   "balance": 983.19,
+   "pnl": -41.02,
+   "balance": 958.98,
    "trades": 3
   }
  ]
