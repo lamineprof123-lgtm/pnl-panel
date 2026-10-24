@@ -7,12 +7,12 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-24T06:21:47+04:00",
+ "updated_at": "2026-10-24T06:22:47+04:00",
  "balance": 101374.05,
  "equity": 102119.64,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": 2041.35,
- "combined_total_pnl": 3415.4,
+ "shadow_total_pnl": 2014.6,
+ "combined_total_pnl": 3388.65,
  "daily": [
   {
    "date": "2026-10-23",
@@ -28,9 +28,9 @@
    "pnl": 543.41,
    "balance": 101374.05,
    "trades": 4,
-   "shadow_pnl": 24814.56,
-   "shadow_trades": 4989,
-   "combined_pnl": 25357.97,
+   "shadow_pnl": 24787.81,
+   "shadow_trades": 5002,
+   "combined_pnl": 25331.22,
    "equity": 102119.64,
    "open_positions": 4
   }
@@ -18514,13 +18514,13 @@
    "open": 0
   },
   "NT_OBI_TOB_SUI": {
-   "pnl": -573.71,
-   "trades": 2711,
+   "pnl": -574.68,
+   "trades": 2716,
    "wins": 839,
-   "sum_r": -1.4,
+   "sum_r": -1.401,
    "max_dd": 584.32,
-   "today_pnl": -274.48,
-   "today_trades": 1271,
+   "today_pnl": -275.45,
+   "today_trades": 1276,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
    "open": 1
@@ -18574,13 +18574,13 @@
    "open": 0
   },
   "NT_OBI_TOB_DOGE": {
-   "pnl": 1522.11,
-   "trades": 2081,
+   "pnl": 1504.71,
+   "trades": 2084,
    "wins": 1222,
-   "sum_r": 3.812,
+   "sum_r": 3.769,
    "max_dd": 980.22,
-   "today_pnl": 2108.66,
-   "today_trades": 991,
+   "today_pnl": 2091.26,
+   "today_trades": 994,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
    "open": 1
@@ -18634,13 +18634,13 @@
    "open": 0
   },
   "NT_OBI_TOB_BNB": {
-   "pnl": -2423.54,
-   "trades": 1528,
+   "pnl": -2431.92,
+   "trades": 1533,
    "wins": 208,
-   "sum_r": -6.039,
-   "max_dd": 2423.54,
-   "today_pnl": -1014.1,
-   "today_trades": 677,
+   "sum_r": -6.06,
+   "max_dd": 2431.92,
+   "today_pnl": -1022.48,
+   "today_trades": 682,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
    "open": 1
@@ -19014,7 +19014,7 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-24T06:21:48+04:00",
+  "updated_dubai": "2026-10-24T06:22:47+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
    "target_progress_pct": 13.7,
