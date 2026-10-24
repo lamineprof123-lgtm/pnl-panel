@@ -7,12 +7,12 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-24T08:56:28+04:00",
+ "updated_at": "2026-10-24T08:57:28+04:00",
  "balance": 101374.05,
  "equity": 102119.64,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": 897.79,
- "combined_total_pnl": 2271.84,
+ "shadow_total_pnl": 892.27,
+ "combined_total_pnl": 2266.32,
  "daily": [
   {
    "date": "2026-10-23",
@@ -28,9 +28,9 @@
    "pnl": 543.41,
    "balance": 101374.05,
    "trades": 4,
-   "shadow_pnl": 23671.0,
-   "shadow_trades": 6748,
-   "combined_pnl": 24214.41,
+   "shadow_pnl": 23665.48,
+   "shadow_trades": 6755,
+   "combined_pnl": 24208.89,
    "equity": 102119.64,
    "open_positions": 4
   }
@@ -18574,13 +18574,13 @@
    "open": 0
   },
   "NT_OBI_TOB_DOGE": {
-   "pnl": 605.66,
-   "trades": 2593,
+   "pnl": 602.19,
+   "trades": 2599,
    "wins": 1255,
-   "sum_r": 1.542,
-   "max_dd": 1175.46,
-   "today_pnl": 1192.21,
-   "today_trades": 1503,
+   "sum_r": 1.534,
+   "max_dd": 1178.93,
+   "today_pnl": 1188.74,
+   "today_trades": 1509,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
    "open": 1
@@ -18634,13 +18634,13 @@
    "open": 0
   },
   "NT_OBI_TOB_BNB": {
-   "pnl": -2187.1,
-   "trades": 1774,
+   "pnl": -2189.15,
+   "trades": 1775,
    "wins": 358,
-   "sum_r": -5.444,
+   "sum_r": -5.449,
    "max_dd": 2480.77,
-   "today_pnl": -777.66,
-   "today_trades": 923,
+   "today_pnl": -779.71,
+   "today_trades": 924,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
    "open": 1
@@ -18679,7 +18679,7 @@
    "today_trades": 16,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
-   "open": 0
+   "open": 1
   },
   "NQ1AM_QQQ_PM": {
    "pnl": 0,
@@ -19014,7 +19014,7 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-24T08:56:29+04:00",
+  "updated_dubai": "2026-10-24T08:57:29+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
    "target_progress_pct": 13.7,
