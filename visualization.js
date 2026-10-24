@@ -11,7 +11,7 @@ const assetName=a=>{const u=String(a??'').toUpperCase();for(const[r,n]of ASSETS)
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const money=v=>!isFinite(v)?'—':(v<0?'\u2212':v>0?'+':'')+Math.abs(v).toLocaleString('en-US',{style:'currency',currency:'USD'});
 const hash=s=>{let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return(h>>>0)/4294967296};
-const C={pos:new THREE.Color('#34d399'),neg:new THREE.Color('#fb7185'),zero:new THREE.Color('#c9d3dd')};
+const C={pos:new THREE.Color('#34d399'),neg:new THREE.Color('#ff8a1f'),zero:new THREE.Color('#c9d3dd')};
 
 /* ---------- renderer / scene ---------- */
 const canvas=$('#space'),mobile=matchMedia('(max-width:700px)').matches;
@@ -140,7 +140,14 @@ function orbitFor(strategy){if(ring[strategy])return ring[strategy];const h1=has
 function ease(t,now){let a=Math.min(1,Math.max(0,(now-t.born)/1.8));return 1-Math.pow(1-a,3)}
 function posOf(t,now,out){const a=ease(t,now),R=t.R*(1+(1-a)*2.2),ph=t.ph+now*t.w-(1-a)*1.2;return out.copy(t.u).multiplyScalar(Math.cos(ph)*R).addScaledVector(t.v,Math.sin(ph)*R)}
 function visOf(t){const now=U.time.value;return !t.dead&&ease(t,now)>.05}
-function sync(positions){const now=clock.getElapsedTime(),ids=new Set();let fresh=null;grow(positions.length+free.length+16);
+// dot cap: 888 closed trades; green/orange share = today's (Dubai) won/lost %, falls back to all-time if no closes today
+const DOTS=888,dDay=t=>t?new Date(t).toLocaleDateString('en-CA',{timeZone:'Asia/Dubai'}):'';let dotStats=null;
+function pickDots(all){const closed=all.filter(p=>p.status!=='open'),td=dDay(Date.now());let pool=closed.filter(p=>dDay(p.closed_at)===td),src='today';if(!pool.length){pool=closed;src='all-time'}
+  const ct=p=>Date.parse(p.closed_at||p.opened_at||0)||0,by=f=>pool.filter(f).sort((a,b)=>ct(b)-ct(a)),W=by(p=>(+p.pnl||0)>0),L=by(p=>(+p.pnl||0)<0),Z=by(p=>!(+p.pnl||0));
+  const n=Math.min(DOTS,pool.length),nW=Math.round(n*W.length/(pool.length||1)),nL=Math.min(n-nW,Math.round(n*L.length/(pool.length||1))),nZ=n-nW-nL;
+  dotStats={src,n,won:W.length,lost:L.length,closed:pool.length,wonPct:pool.length?W.length/pool.length*100:0,lostPct:pool.length?L.length/pool.length*100:0,dotsWon:nW,dotsLost:nL,dotsZero:nZ};window.__dots=dotStats;
+  return [...W.slice(0,nW),...L.slice(0,nL),...Z.slice(0,nZ)]}
+function sync(all){let positions=pickDots(all);const now=clock.getElapsedTime(),ids=new Set();let fresh=null;grow(positions.length+free.length+16);
   for(const p of positions){const id=p.__k;ids.add(id);let t=trades.get(id);const v=+p.pnl||0,open=p.status==='open',size=(p.mode==='shadow'?.75:1)*(.85+Math.min(1.1,Math.log10(1+Math.abs(v))*.42));
     if(!t){const o=orbitFor(p.strategy||'?'),h=hash(id),h2=hash(id+'~');
       const R=o.R+(h-.5)*.55,tilt=(h2-.5)*.18,u=o.u.clone(),vv=o.v.clone().applyAxisAngle(u,tilt);
@@ -149,7 +156,7 @@ function sync(positions){const now=clock.getElapsedTime(),ids=new Set();let fres
     t.p=p;if(t.pnl!==v||t.open!==open||t.size!==size||t.dead){t.pnl=v;t.open=open;t.size=size;t.dead=0;t.col.copy(v>0?C.pos:v<0?C.neg:C.zero);write(t)}}
   trades.forEach(t=>{if(!ids.has(t.id)&&!t.dead){t.dead=now;write(t)}});
   DU.dens.value=Math.min(1,Math.sqrt(1500/Math.max(1,positions.length)));first=false;list=[...trades.values()];recent=list.filter(t=>!t.dead).sort((a,b)=>(b.p.opened_at||0)-(a.p.opened_at||0)).slice(0,8);flush();if(fresh)gaze.fresh=fresh;
-  let tot=0,op=0,won=0,lost=0;for(const p of positions){const v=+p.pnl||0;if(p.status==='open'){op+=v;continue}tot+=v;if(v>0)won++;else if(v<0)lost++}
+  positions=all;let tot=0,op=0,won=0,lost=0;for(const p of positions){const v=+p.pnl||0;if(p.status==='open'){op+=v;continue}tot+=v;if(v>0)won++;else if(v<0)lost++}
   const $m=x=>(x<0?'\u2212':x>0?'+':'')+Math.abs(x).toLocaleString('en-US',{style:'currency',currency:'USD'});
   const r=$('#readout');r.innerHTML=positions.length?`${positions.length.toLocaleString('en-US')} trades · <span class="pos">${won.toLocaleString('en-US')} won</span> · <span class="neg">${lost.toLocaleString('en-US')} lost</span> · <span class="${tot>0?'pos':tot<0?'neg':''}">${$m(tot)}</span>${op?` · open <span class="${op>0?'pos':'neg'}">${$m(op)}</span>`:''}`:'Waiting for trades';r.classList.add('on')}
 let first=true,glowT=null;
