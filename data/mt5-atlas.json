@@ -7,12 +7,12 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-24T07:20:36+04:00",
+ "updated_at": "2026-10-24T07:21:36+04:00",
  "balance": 101374.05,
  "equity": 102119.64,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": 4636.79,
- "combined_total_pnl": 6010.84,
+ "shadow_total_pnl": 4840.39,
+ "combined_total_pnl": 6214.44,
  "daily": [
   {
    "date": "2026-10-23",
@@ -28,9 +28,9 @@
    "pnl": 543.41,
    "balance": 101374.05,
    "trades": 4,
-   "shadow_pnl": 27410.0,
-   "shadow_trades": 5754,
-   "combined_pnl": 27953.41,
+   "shadow_pnl": 27613.6,
+   "shadow_trades": 5760,
+   "combined_pnl": 28157.01,
    "equity": 102119.64,
    "open_positions": 4
   }
@@ -18394,13 +18394,13 @@
    "open": 1
   },
   "NT_OBI_TOB_BTC": {
-   "pnl": 23829.17,
-   "trades": 2217,
-   "wins": 1172,
-   "sum_r": 59.597,
+   "pnl": 24032.75,
+   "trades": 2222,
+   "wins": 1177,
+   "sum_r": 60.106,
    "max_dd": 28516.27,
-   "today_pnl": 47345.72,
-   "today_trades": 1089,
+   "today_pnl": 47549.3,
+   "today_trades": 1094,
    "mode": "SHADOW",
    "symbol": "BTCUSD",
    "open": 1
@@ -18514,13 +18514,13 @@
    "open": 0
   },
   "NT_OBI_TOB_SUI": {
-   "pnl": -588.64,
-   "trades": 2844,
-   "wins": 874,
+   "pnl": -588.62,
+   "trades": 2845,
+   "wins": 875,
    "sum_r": -1.435,
    "max_dd": 591.11,
-   "today_pnl": -289.41,
-   "today_trades": 1404,
+   "today_pnl": -289.39,
+   "today_trades": 1405,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
    "open": 1
@@ -19014,7 +19014,7 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-24T07:20:36+04:00",
+  "updated_dubai": "2026-10-24T07:21:36+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
    "target_progress_pct": 13.7,
