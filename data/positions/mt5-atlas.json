@@ -1,7 +1,7 @@
 {
  "project": "ATLAS-MT5-GK-1",
  "bot": "MT5",
- "updated_at": "2026-10-24T07:28:03+04:00",
+ "updated_at": "2026-10-24T07:29:03+04:00",
  "positions": [
   {
    "id": "SH-NT_HVPIN_SUI-1792811828",
@@ -13,7 +13,7 @@
    "side": "buy",
    "lots": 820.1,
    "rr": 0.0,
-   "pnl": 0.57,
+   "pnl": 0.82,
    "mode": "shadow"
   },
   {
@@ -39,7 +39,7 @@
    "side": "buy",
    "lots": 10195.0,
    "rr": -0.0,
-   "pnl": -1.63,
+   "pnl": -1.73,
    "mode": "shadow"
   },
   {
@@ -52,7 +52,7 @@
    "side": "sell",
    "lots": 2035.59,
    "rr": -0.05,
-   "pnl": -20.36,
+   "pnl": -18.32,
    "mode": "shadow"
   },
   {
@@ -65,7 +65,7 @@
    "side": "buy",
    "lots": 101957.0,
    "rr": -0.01,
-   "pnl": -3.06,
+   "pnl": -4.08,
    "mode": "shadow"
   },
   {
@@ -103,8 +103,8 @@
    "asset": "SUIUSD",
    "side": "sell",
    "lots": 24604.2,
-   "rr": 0.06,
-   "pnl": 24.6,
+   "rr": 0.04,
+   "pnl": 17.22,
    "mode": "shadow"
   },
   {
@@ -117,7 +117,7 @@
    "side": "sell",
    "lots": 8201.4,
    "rr": -0.25,
-   "pnl": -98.42,
+   "pnl": -100.88,
    "mode": "shadow"
   },
   {
@@ -129,8 +129,8 @@
    "asset": "LINKUSD",
    "side": "buy",
    "lots": 4071.18,
-   "rr": 1.81,
-   "pnl": 723.99,
+   "rr": 1.8,
+   "pnl": 719.92,
    "mode": "shadow"
   },
   {
@@ -193,9 +193,9 @@
    "strategy": "NT_OBI_TOB_SUI",
    "asset": "SUIUSD",
    "side": "buy",
-   "lots": 9904.7,
+   "lots": 9723.5,
    "rr": 0.01,
-   "pnl": 3.12,
+   "pnl": 5.72,
    "mode": "shadow"
   },
   {
@@ -259,8 +259,8 @@
    "asset": "DOGEUSD",
    "side": "sell",
    "lots": 824223.0,
-   "rr": -0.04,
-   "pnl": -17.07,
+   "rr": -0.02,
+   "pnl": -8.83,
    "mode": "shadow"
   },
   {
@@ -286,7 +286,7 @@
    "side": "sell",
    "lots": 2.0,
    "rr": -0.0,
-   "pnl": -1.48,
+   "pnl": -1.25,
    "mode": "shadow"
   },
   {
@@ -325,7 +325,7 @@
    "side": "buy",
    "lots": 16.43,
    "rr": 0.36,
-   "pnl": 144.35,
+   "pnl": 145.35,
    "mode": "shadow"
   },
   {
@@ -338,7 +338,7 @@
    "side": "buy",
    "lots": 18.9,
    "rr": 0.22,
-   "pnl": 88.44,
+   "pnl": 87.85,
    "mode": "shadow"
   },
   {
@@ -350,8 +350,8 @@
    "asset": "LINKUSD",
    "side": "buy",
    "lots": 5258.32,
-   "rr": 0.14,
-   "pnl": 56.47,
+   "rr": 0.13,
+   "pnl": 51.21,
    "mode": "shadow"
   },
   {
@@ -363,8 +363,8 @@
    "asset": "DOGEUSD",
    "side": "buy",
    "lots": 203914.0,
-   "rr": -0.1,
-   "pnl": -40.78,
+   "rr": -0.11,
+   "pnl": -42.82,
    "mode": "shadow"
   },
   {
@@ -378,6 +378,71 @@
    "lots": 43.84,
    "rr": 0.17,
    "pnl": 69.81,
+   "mode": "shadow"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_SUI-1792810307-2",
+   "opened_at": "2026-10-24T06:51:47+04:00",
+   "closed_at": "2026-10-24T07:28:38+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_SUI",
+   "asset": "SUIUSD",
+   "side": "buy",
+   "lots": 125.0,
+   "rr": 0.0,
+   "pnl": 0.05,
+   "mode": "shadow"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_SUI-1792810258-2",
+   "opened_at": "2026-10-24T06:50:58+04:00",
+   "closed_at": "2026-10-24T07:28:27+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_SUI",
+   "asset": "SUIUSD",
+   "side": "buy",
+   "lots": 9.6,
+   "rr": -0.0,
+   "pnl": -0.01,
+   "mode": "shadow"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_SUI-1792810307",
+   "opened_at": "2026-10-24T06:51:47+04:00",
+   "closed_at": "2026-10-24T07:28:27+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_SUI",
+   "asset": "SUIUSD",
+   "side": "buy",
+   "lots": 11.7,
+   "rr": 0.0,
+   "pnl": 0.0,
+   "mode": "shadow"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_SUI-1792810195-4",
+   "opened_at": "2026-10-24T06:49:55+04:00",
+   "closed_at": "2026-10-24T07:28:07+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_SUI",
+   "asset": "SUIUSD",
+   "side": "buy",
+   "lots": 7.4,
+   "rr": -0.0,
+   "pnl": -0.01,
+   "mode": "shadow"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_SUI-1792810258",
+   "opened_at": "2026-10-24T06:50:58+04:00",
+   "closed_at": "2026-10-24T07:28:07+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_SUI",
+   "asset": "SUIUSD",
+   "side": "buy",
+   "lots": 16.6,
+   "rr": -0.0,
+   "pnl": -0.01,
    "mode": "shadow"
   },
   {
