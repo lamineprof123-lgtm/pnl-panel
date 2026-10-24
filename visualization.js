@@ -149,8 +149,9 @@ function sync(positions){const now=clock.getElapsedTime(),ids=new Set();let fres
     t.p=p;if(t.pnl!==v||t.open!==open||t.size!==size||t.dead){t.pnl=v;t.open=open;t.size=size;t.dead=0;t.col.copy(v>0?C.pos:v<0?C.neg:C.zero);write(t)}}
   trades.forEach(t=>{if(!ids.has(t.id)&&!t.dead){t.dead=now;write(t)}});
   DU.dens.value=Math.min(1,Math.sqrt(1500/Math.max(1,positions.length)));first=false;list=[...trades.values()];recent=list.filter(t=>!t.dead).sort((a,b)=>(b.p.opened_at||0)-(a.p.opened_at||0)).slice(0,8);flush();if(fresh)gaze.fresh=fresh;
-  let tot=0,won=0,lost=0;for(const p of positions){const v=+p.pnl||0;tot+=v;if(v>0)won++;else if(v<0)lost++}
-  const r=$('#readout');r.innerHTML=positions.length?`${positions.length.toLocaleString('en-US')} trades · <span class="pos">${won.toLocaleString('en-US')} won</span> · <span class="neg">${lost.toLocaleString('en-US')} lost</span> · <span class="${tot>0?'pos':tot<0?'neg':''}">${(tot<0?'\u2212':tot>0?'+':'')+Math.abs(tot).toLocaleString('en-US',{style:'currency',currency:'USD'})}</span>`:'Waiting for trades';r.classList.add('on')}
+  let tot=0,op=0,won=0,lost=0;for(const p of positions){const v=+p.pnl||0;if(p.status==='open'){op+=v;continue}tot+=v;if(v>0)won++;else if(v<0)lost++}
+  const $m=x=>(x<0?'\u2212':x>0?'+':'')+Math.abs(x).toLocaleString('en-US',{style:'currency',currency:'USD'});
+  const r=$('#readout');r.innerHTML=positions.length?`${positions.length.toLocaleString('en-US')} trades · <span class="pos">${won.toLocaleString('en-US')} won</span> · <span class="neg">${lost.toLocaleString('en-US')} lost</span> · <span class="${tot>0?'pos':tot<0?'neg':''}">${$m(tot)}</span>${op?` · open <span class="${op>0?'pos':'neg'}">${$m(op)}</span>`:''}`:'Waiting for trades';r.classList.add('on')}
 let first=true,glowT=null;
 const tmp=new THREE.Vector3();
 function updateTrades(now,dt){

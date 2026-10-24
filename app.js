@@ -1,8 +1,8 @@
 'use strict';
 const POLL=38000;
 const $=s=>document.querySelector(s);
-let raw={},period='daily',projects={},order=[],charts={},lastOk=0,prev={};
-const today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+let OPN={},raw={},period='daily',projects={},order=[],charts={},lastOk=0,prev={};
+const today=()=>new Date().toLocaleDateString('en-CA',{timeZone:'Asia/Dubai'});
 const keyLen={daily:10,monthly:7,yearly:4};
 const money=(v,c='USD',signed=true)=>{if(v==null||!isFinite(v))return'—';const a=Math.abs(v).toLocaleString('en-US',{style:'currency',currency:c||'USD'});return(v<0?'\u2212':signed&&v>0?'+':'')+a};
 const pct=v=>v==null||!isFinite(v)?'—':(v>0?'+':'')+v.toFixed(2)+'%';
@@ -18,7 +18,7 @@ const perName=()=>({daily:'Today',monthly:'This month',yearly:'This year'}[perio
 /* data */
 function norm(p){
   const m={};(Array.isArray(p.daily)?p.daily:[]).forEach(r=>{if(!r||!r.date)return;const d=String(r.date).slice(0,10);
-    m[d]={date:d,pnl:+r.pnl||0,balance:r.balance==null||!isFinite(+r.balance)?null:+r.balance,trades:+r.trades||0}});
+    m[d]={date:d,pnl:+(r.combined_pnl??r.pnl)||0,balance:r.balance==null||!isFinite(+r.balance)?null:+r.balance,trades:(+r.trades||0)+(+r.shadow_trades||0)}});
   const rows=Object.values(m).sort((a,b)=>a.date<b.date?-1:1);
   const sb=p.start_balance==null||!isFinite(+p.start_balance)?null:+p.start_balance;
   const tot=rows.reduce((a,r)=>a+r.pnl,0),trades=rows.reduce((a,r)=>a+r.trades,0);
@@ -80,7 +80,7 @@ function renderCard(slug,p,i){
   const pe=el.querySelector('.c-pnl');tween(pe,p.tot,v=>money(v,c),slug+'tot');setCls(pe,p.tot);
   const re=el.querySelector('.c-roi');re.textContent=pct(p.roi);re.classList.remove('pos','neg');if(p.roi)re.classList.add(cls(p.roi));
   tween(el.querySelector('.eq'),p.equity??0,v=>money(v,c,false),slug+'eq');
-  el.querySelector('.stk').textContent=p.inv?' · At stake '+money(p.inv,c,false):'';
+  el.querySelector('.stk').textContent=(p.inv?' · At stake '+money(p.inv,c,false):'')+(OPN[slug]?' · Open '+money(OPN[slug],c):'');
   const g=agg(p.rows,period);let cum=0;const labels=['Start',...g.map(r=>r.key)],data=[0,...g.map(r=>+(cum+=r.pnl).toFixed(2))];
   const flat=p.trades===0&&data.every(v=>v===0);
   el.querySelector('.empty').classList.toggle('show',flat);
@@ -96,7 +96,7 @@ function render(){
   $('#perLbl').textContent=perName();const pe=$('#perPnl');tween(pe,per,v=>money(v),'per'+period);pe.classList.remove('pos','neg');if(per)pe.classList.add(cls(per));
 }
 async function poll(){
-  try{const b='?t='+Date.now(),idx=await(await fetch('data/index.json'+b,{cache:'no-store'})).json(),next={};
+  try{fetch('data/positions/index.json?t='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(j=>{OPN=j.op||{}}).catch(()=>{});const b='?t='+Date.now(),idx=await(await fetch('data/index.json'+b,{cache:'no-store'})).json(),next={};
     let same=Object.keys(raw).length===(idx.files||[]).length;
     await Promise.all((idx.files||[]).map(async f=>{try{const k=f.replace(/\.json$/,''),tx=await(await fetch('data/'+f+b,{cache:'no-store'})).text();
       if(raw[k]===tx&&projects[k]){next[k]=projects[k];return}same=false;raw[k]=tx;next[k]=norm(JSON.parse(tx))}catch(e){}}));

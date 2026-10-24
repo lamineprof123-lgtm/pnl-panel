@@ -20,13 +20,13 @@ function render(){
   opts('#fAsset','All assets',assetsByBook[sel],F.asset);
   ['#fSort','#fStatus','#fMode'].forEach((q,i)=>$(q).value=F[['sort','status','mode'][i]]);
   const g={};for(const c of cells){if((F.asset&&asset(AN[c[1]])!==F.asset)||(F.status&&c[3]!==F.status)||(F.mode&&c[2]!==F.mode))continue;
-    const k=SN[c[0]],s=g[k]=g[k]||{name:k,days:new Set(),assets:new Set(),n:0,closed:0,wins:0,pnl:0,open:0,shadow:0};
-    for(const d of c[8])s.days.add(d);s.assets.add(asset(AN[c[1]]));s.n+=c[4];s.pnl+=c[7];s.closed+=c[5];s.wins+=c[6];
+    const k=SN[c[0]],s=g[k]=g[k]||{name:k,days:new Set(),assets:new Set(),n:0,closed:0,wins:0,pnl:0,open:0,shadow:0,op:0};
+    for(const d of c[8])s.days.add(d);s.assets.add(asset(AN[c[1]]));s.n+=c[4];if(c[3]==='open')s.op+=c[7];else s.pnl+=c[7];s.closed+=c[5];s.wins+=c[6];
     if(c[2]==='shadow')s.shadow+=c[4];if(c[3]==='open')s.open+=c[4]}
   const rows=Object.values(g).map(s=>({...s,pnl:Math.round(s.pnl*1e6)/1e6,win:s.closed?s.wins/s.closed*100:null}));
   const by={hi:(a,b)=>b.pnl-a.pnl,lo:(a,b)=>a.pnl-b.pnl,days:(a,b)=>b.days.size-a.days.size||b.pnl-a.pnl,n:(a,b)=>b.n-a.n||b.pnl-a.pnl,win:(a,b)=>(b.win??-1)-(a.win??-1)||b.pnl-a.pnl}[F.sort];rows.sort(by);
-  const tot=rows.reduce((a,r)=>a+r.pnl,0),best=rows.length?Math.max(...rows.map(r=>r.pnl)):0,worst=rows.length?Math.min(...rows.map(r=>r.pnl)):0;
-  $('#sum').innerHTML=`${rows.length} strategies · <b class="${tot>0?'pos':tot<0?'neg':''}">${money(tot)}</b>`;
+  const op=rows.reduce((a,r)=>a+r.op,0),tot=rows.reduce((a,r)=>a+r.pnl,0),best=rows.length?Math.max(...rows.map(r=>r.pnl)):0,worst=rows.length?Math.min(...rows.map(r=>r.pnl)):0;
+  $('#sum').innerHTML=`${rows.length} strategies · Realized <b class="${tot>0?'pos':tot<0?'neg':''}">${money(tot)}</b>${op?` · Open <span class="${op>0?'pos':'neg'}">${money(op)}</span>`:''}`;
   if(!rows.length){$('#rows').innerHTML=`<tr class="none"><td colspan="5">${cells.length?'No matches':'No strategies yet'}</td></tr>`;return}
   $('#rows').innerHTML=rows.map((r,i)=>{const v=r.pnl,ch=prev[r.name]!=null&&prev[r.name]!==v;prev[r.name]=v;
     const tag=r.pnl===best&&best>0?'<span class="tag top">Best</span>':r.pnl===worst&&worst<0?'<span class="tag bot">Worst</span>':'';

@@ -39,8 +39,8 @@ function render(){
   ['#fSort','#fStatus','#fMode'].forEach((q,i)=>$(q).value=F[['sort','status','mode'][i]]);
   const by={new:ob,old:(a,b)=>(a.opened_at||0)-(b.opened_at||0),hi:(a,b)=>(+b.pnl||0)-(+a.pnl||0),lo:(a,b)=>(+a.pnl||0)-(+b.pnl||0)}[F.sort]||((a,b)=>0);
   ps=all.filter(p=>(!F.asset||asset(p.asset)===F.asset)&&(!F.strat||p.strategy===F.strat)&&(!F.status||p.status===F.status)&&(!F.mode||(p.mode||'live')===F.mode)).sort(by);
-  let tot=0;for(const p of ps)tot+=+p.pnl||0;
-  $('#sum').innerHTML=`${ps.length.toLocaleString('en-US')} positions · <b class="${tot>0?'pos':tot<0?'neg':''}">${money(tot)}</b>`;
+  let tot=0,op=0;for(const p of ps){if(p.status==='open')op+=+p.pnl||0;else tot+=+p.pnl||0}
+  $('#sum').innerHTML=`${ps.length.toLocaleString('en-US')} positions · Realized <b class="${tot>0?'pos':tot<0?'neg':''}">${money(tot)}</b>${op?` · Open <span class="${op>0?'pos':'neg'}">${money(op)}</span>`:''}`;
   drawRows();
 }
 PNL.watch(b=>{books=b;render()});PNL.liveBadge();
