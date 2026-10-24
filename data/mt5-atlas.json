@@ -7,12 +7,12 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-24T07:00:36+04:00",
+ "updated_at": "2026-10-24T07:01:36+04:00",
  "balance": 101374.05,
  "equity": 102119.64,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": 4587.44,
- "combined_total_pnl": 5961.49,
+ "shadow_total_pnl": 4573.21,
+ "combined_total_pnl": 5947.26,
  "daily": [
   {
    "date": "2026-10-23",
@@ -28,9 +28,9 @@
    "pnl": 543.41,
    "balance": 101374.05,
    "trades": 4,
-   "shadow_pnl": 27360.65,
-   "shadow_trades": 5493,
-   "combined_pnl": 27904.06,
+   "shadow_pnl": 27346.42,
+   "shadow_trades": 5512,
+   "combined_pnl": 27889.83,
    "equity": 102119.64,
    "open_positions": 4
   }
@@ -18574,13 +18574,13 @@
    "open": 0
   },
   "NT_OBI_TOB_DOGE": {
-   "pnl": 940.35,
-   "trades": 2268,
+   "pnl": 916.47,
+   "trades": 2282,
    "wins": 1222,
-   "sum_r": 2.37,
+   "sum_r": 2.311,
    "max_dd": 980.22,
-   "today_pnl": 1526.9,
-   "today_trades": 1178,
+   "today_pnl": 1503.02,
+   "today_trades": 1192,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
    "open": 1
@@ -18634,13 +18634,13 @@
    "open": 0
   },
   "NT_OBI_TOB_BNB": {
-   "pnl": -2455.32,
-   "trades": 1608,
-   "wins": 229,
-   "sum_r": -6.119,
+   "pnl": -2445.67,
+   "trades": 1613,
+   "wins": 234,
+   "sum_r": -6.095,
    "max_dd": 2480.77,
-   "today_pnl": -1045.88,
-   "today_trades": 757,
+   "today_pnl": -1036.23,
+   "today_trades": 762,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
    "open": 1
@@ -19014,7 +19014,7 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-24T07:00:36+04:00",
+  "updated_dubai": "2026-10-24T07:01:36+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
    "target_progress_pct": 13.7,
