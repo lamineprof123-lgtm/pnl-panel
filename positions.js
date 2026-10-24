@@ -11,9 +11,10 @@ const num=(v,d)=>v==null||v===''||!isFinite(+v)?null:(+v).toFixed(d).replace(/\.
 function when(s){if(!s)return'—';const d=new Date(s);if(isNaN(d))return esc(s);
   return d.toLocaleDateString('en-GB',{day:'2-digit',month:'short',timeZone:'Asia/Dubai'})+' <span class="t">'+d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',timeZone:'Asia/Dubai'})+'</span>'}
 function opts(q,lbl,vals,cur){const el=$(q),k=vals.join('|');if(el._k!==k){el.innerHTML=`<option value="">${lbl}</option>`+vals.map(v=>`<option>${esc(v)}</option>`).join('');el._k=k}el.value=vals.includes(cur)?cur:''}
+function fh(x){x=Math.max(0,Math.round(x));const f=v=>String(Math.round(v*10)/10);if(x<60)return x+'s';if(x<3600){const m=Math.round(x/6)/10;return m>=60?'1h':f(x/60)+'m'}return f(x/3600)+'h'}
 function held(p){const o=p.opened_at;if(!isFinite(o))return'';const c=p.closed_at;
-  if(p.status!=='open'&&isFinite(c))return`<div class="held">${Math.max(0,Math.round((c-o)/1e3)).toLocaleString('en-US')}s</div>`;
-  return`<div class="held" data-o="${o}">${Math.max(0,Math.round((Date.now()-o)/1e3)).toLocaleString('en-US')}s</div>`}
+  if(p.status!=='open'&&isFinite(c))return`<div class="held">${fh((c-o)/1e3)}</div>`;
+  return`<div class="held" data-o="${o}">${fh((Date.now()-o)/1e3)}</div>`}
 // All positions are loaded; filters, sort and totals use all of them. Only the visible slice of rows is in the DOM
 // (PAGE rows, more appended as you scroll / tap "Show more").
 const PAGE=150;let ps=[],shown=PAGE,facetKey='';
@@ -48,4 +49,4 @@ $('#more').addEventListener('click',appendRows);
 new IntersectionObserver(e=>{if(e[0].isIntersecting&&!$('#more').hidden)appendRows()},{rootMargin:'600px'}).observe($('#more'));
 $('#tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(b){sel=b.dataset.s;render()}});
 document.querySelectorAll('.ctl select').forEach(el=>el.addEventListener('change',()=>{F[el.dataset.k]=el.value;localStorage.setItem('posF',JSON.stringify(F));seen=new Set();first=true;shown=PAGE;render()}));
-setInterval(()=>document.querySelectorAll('.held[data-o]').forEach(e=>e.textContent=Math.max(0,Math.round((Date.now()-+e.dataset.o)/1e3)).toLocaleString('en-US')+'s'),1000);
+setInterval(()=>document.querySelectorAll('.held[data-o]').forEach(e=>e.textContent=fh((Date.now()-+e.dataset.o)/1e3)),1000);
