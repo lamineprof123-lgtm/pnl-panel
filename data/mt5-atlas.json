@@ -7,7 +7,7 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-24T09:10:28+04:00",
+ "updated_at": "2026-10-24T09:11:13+04:00",
  "balance": 101374.05,
  "equity": 102119.64,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
@@ -18391,7 +18391,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAGUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Chop BB Fade Silver"
   },
   "CHOP_EURUSD": {
    "pnl": 0,
@@ -18403,7 +18404,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "EURUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Chop BB Fade EU"
   },
   "CHOP_GBPUSD": {
    "pnl": 0,
@@ -18415,7 +18417,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "GBPUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Chop BB Fade GU"
   },
   "CHOP_AUDUSD": {
    "pnl": 0,
@@ -18427,7 +18430,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "AUDUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Chop BB Fade AU"
   },
   "CHOP_USDJPY": {
    "pnl": 0,
@@ -18439,7 +18443,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "USDJPY",
-   "open": 0
+   "open": 0,
+   "display_name": "Chop BB Fade UJ"
   },
   "CHOP_XAGUSD_GEX": {
    "pnl": 0,
@@ -18451,7 +18456,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAGUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Chop BB Fade Silver GEX"
   },
   "FISH_XAGUSD": {
    "pnl": 0,
@@ -18463,7 +18469,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAGUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Fisher Rev Silver"
   },
   "FISH_EURUSD": {
    "pnl": 0,
@@ -18475,7 +18482,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "EURUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Fisher Rev EU"
   },
   "FISH_GBPUSD": {
    "pnl": 0,
@@ -18487,7 +18495,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "GBPUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Fisher Rev GU"
   },
   "FISH_USDJPY": {
    "pnl": 0,
@@ -18499,7 +18508,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "USDJPY",
-   "open": 0
+   "open": 0,
+   "display_name": "Fisher Rev UJ"
   },
   "FISH_AMD": {
    "pnl": 0,
@@ -18511,7 +18521,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "AMD",
-   "open": 0
+   "open": 0,
+   "display_name": "Fisher Rev AMD"
   },
   "FISH_TSLA": {
    "pnl": 0,
@@ -18523,7 +18534,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "TSLA",
-   "open": 0
+   "open": 0,
+   "display_name": "Fisher Rev TSLA"
   },
   "FISH_NVDA": {
    "pnl": 0,
@@ -18535,7 +18547,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "NVDA",
-   "open": 0
+   "open": 0,
+   "display_name": "Fisher Rev NVDA"
   },
   "FISH_META": {
    "pnl": 0,
@@ -18547,7 +18560,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "META",
-   "open": 0
+   "open": 0,
+   "display_name": "Fisher Rev META"
   },
   "FISH_COIN": {
    "pnl": 0,
@@ -18559,7 +18573,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "COIN",
-   "open": 0
+   "open": 0,
+   "display_name": "Fisher Rev COIN"
   },
   "FISH_XAGUSD_GEX": {
    "pnl": 0,
@@ -18571,7 +18586,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAGUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Fisher Rev Silver GEX"
   },
   "FISH_AMD_GEX": {
    "pnl": 0,
@@ -18583,7 +18599,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "AMD",
-   "open": 0
+   "open": 0,
+   "display_name": "Fisher Rev AMD GEX"
   },
   "FISH_TSLA_GEX": {
    "pnl": 0,
@@ -18595,7 +18612,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "TSLA",
-   "open": 0
+   "open": 0,
+   "display_name": "Fisher Rev TSLA GEX"
   },
   "FISH_NVDA_GEX": {
    "pnl": 0,
@@ -18607,7 +18625,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "NVDA",
-   "open": 0
+   "open": 0,
+   "display_name": "Fisher Rev NVDA GEX"
   },
   "FISH_META_GEX": {
    "pnl": 0,
@@ -18619,7 +18638,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "META",
-   "open": 0
+   "open": 0,
+   "display_name": "Fisher Rev META GEX"
   },
   "FISH_COIN_GEX": {
    "pnl": 0,
@@ -18631,7 +18651,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "COIN",
-   "open": 0
+   "open": 0,
+   "display_name": "Fisher Rev COIN GEX"
   },
   "ER_XAGUSD": {
    "pnl": 0,
@@ -18643,7 +18664,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAGUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "ER Break Silver"
   },
   "ER_EURUSD": {
    "pnl": 0,
@@ -18655,7 +18677,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "EURUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "ER Break EU"
   },
   "ER_GBPUSD": {
    "pnl": 0,
@@ -18667,7 +18690,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "GBPUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "ER Break GU"
   },
   "ER_USDJPY": {
    "pnl": 0,
@@ -18679,7 +18703,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "USDJPY",
-   "open": 0
+   "open": 0,
+   "display_name": "ER Break UJ"
   },
   "ER_NVDA": {
    "pnl": 0,
@@ -18691,7 +18716,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "NVDA",
-   "open": 0
+   "open": 0,
+   "display_name": "ER Break NVDA"
   },
   "ER_TSLA": {
    "pnl": 0,
@@ -18703,7 +18729,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "TSLA",
-   "open": 0
+   "open": 0,
+   "display_name": "ER Break TSLA"
   },
   "ER_AMD": {
    "pnl": 0,
@@ -18715,7 +18742,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "AMD",
-   "open": 0
+   "open": 0,
+   "display_name": "ER Break AMD"
   },
   "ER_COIN": {
    "pnl": 0,
@@ -18727,7 +18755,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "COIN",
-   "open": 0
+   "open": 0,
+   "display_name": "ER Break COIN"
   },
   "ER_HOOD": {
    "pnl": 0,
@@ -18739,7 +18768,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "HOOD",
-   "open": 0
+   "open": 0,
+   "display_name": "ER Break HOOD"
   },
   "ER_XAGUSD_GEX": {
    "pnl": 0,
@@ -18751,7 +18781,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAGUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "ER Break Silver GEX"
   },
   "ER_NVDA_GEX": {
    "pnl": 0,
@@ -18763,7 +18794,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "NVDA",
-   "open": 0
+   "open": 0,
+   "display_name": "ER Break NVDA GEX"
   },
   "ER_TSLA_GEX": {
    "pnl": 0,
@@ -18775,7 +18807,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "TSLA",
-   "open": 0
+   "open": 0,
+   "display_name": "ER Break TSLA GEX"
   },
   "ER_AMD_GEX": {
    "pnl": 0,
@@ -18787,7 +18820,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "AMD",
-   "open": 0
+   "open": 0,
+   "display_name": "ER Break AMD GEX"
   },
   "ER_COIN_GEX": {
    "pnl": 0,
@@ -18799,7 +18833,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "COIN",
-   "open": 0
+   "open": 0,
+   "display_name": "ER Break COIN GEX"
   },
   "ER_HOOD_GEX": {
    "pnl": 0,
@@ -18811,7 +18846,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "HOOD",
-   "open": 0
+   "open": 0,
+   "display_name": "ER Break HOOD GEX"
   },
   "WVF_XAGUSD": {
    "pnl": 0,
@@ -18823,7 +18859,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAGUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix Silver"
   },
   "WVF_AUDUSD": {
    "pnl": 0,
@@ -18835,7 +18872,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "AUDUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix AU"
   },
   "WVF_EURUSD": {
    "pnl": 0,
@@ -18847,7 +18885,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "EURUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix EU"
   },
   "WVF_AMD": {
    "pnl": 0,
@@ -18859,7 +18898,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "AMD",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix AMD"
   },
   "WVF_TSLA": {
    "pnl": 0,
@@ -18871,7 +18911,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "TSLA",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix TSLA"
   },
   "WVF_NVDA": {
    "pnl": 0,
@@ -18883,7 +18924,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "NVDA",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix NVDA"
   },
   "WVF_AAPL": {
    "pnl": 0,
@@ -18895,7 +18937,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "AAPL",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix AAPL"
   },
   "WVF_META": {
    "pnl": 0,
@@ -18907,7 +18950,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "META",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix META"
   },
   "WVF_AMZN": {
    "pnl": 0,
@@ -18919,7 +18963,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "AMZN",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix AMZN"
   },
   "WVF_MSFT": {
    "pnl": 0,
@@ -18931,7 +18976,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "MSFT",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix MSFT"
   },
   "WVF_NFLX": {
    "pnl": 0,
@@ -18943,7 +18989,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "NFLX",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix NFLX"
   },
   "WVF_COIN": {
    "pnl": 0,
@@ -18955,7 +19002,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "COIN",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix COIN"
   },
   "WVF_HOOD": {
    "pnl": 0,
@@ -18967,7 +19015,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "HOOD",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix HOOD"
   },
   "WVF_XAGUSD_GEX": {
    "pnl": 0,
@@ -18979,7 +19028,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAGUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix Silver GEX"
   },
   "WVF_AMD_GEX": {
    "pnl": 0,
@@ -18991,7 +19041,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "AMD",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix AMD GEX"
   },
   "WVF_TSLA_GEX": {
    "pnl": 0,
@@ -19003,7 +19054,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "TSLA",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix TSLA GEX"
   },
   "WVF_NVDA_GEX": {
    "pnl": 0,
@@ -19015,7 +19067,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "NVDA",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix NVDA GEX"
   },
   "WVF_AAPL_GEX": {
    "pnl": 0,
@@ -19027,7 +19080,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "AAPL",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix AAPL GEX"
   },
   "WVF_META_GEX": {
    "pnl": 0,
@@ -19039,7 +19093,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "META",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix META GEX"
   },
   "WVF_AMZN_GEX": {
    "pnl": 0,
@@ -19051,7 +19106,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "AMZN",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix AMZN GEX"
   },
   "WVF_MSFT_GEX": {
    "pnl": 0,
@@ -19063,7 +19119,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "MSFT",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix MSFT GEX"
   },
   "WVF_NFLX_GEX": {
    "pnl": 0,
@@ -19075,7 +19132,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "NFLX",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix NFLX GEX"
   },
   "WVF_COIN_GEX": {
    "pnl": 0,
@@ -19087,7 +19145,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "COIN",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix COIN GEX"
   },
   "WVF_HOOD_GEX": {
    "pnl": 0,
@@ -19099,7 +19158,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "HOOD",
-   "open": 0
+   "open": 0,
+   "display_name": "VIX Fix HOOD GEX"
   },
   "KELT_XAGUSD": {
    "pnl": 0,
@@ -19111,7 +19171,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAGUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Keltner BO Silver"
   },
   "KELT_GBPUSD": {
    "pnl": 0,
@@ -19123,7 +19184,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "GBPUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Keltner BO GU"
   },
   "KELT_EURUSD": {
    "pnl": 0,
@@ -19135,7 +19197,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "EURUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Keltner BO EU"
   },
   "KELT_USDJPY": {
    "pnl": 0,
@@ -19147,7 +19210,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "USDJPY",
-   "open": 0
+   "open": 0,
+   "display_name": "Keltner BO UJ"
   },
   "KELT_NVDA": {
    "pnl": 0,
@@ -19159,7 +19223,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "NVDA",
-   "open": 0
+   "open": 0,
+   "display_name": "Keltner BO NVDA"
   },
   "KELT_TSLA": {
    "pnl": 0,
@@ -19171,7 +19236,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "TSLA",
-   "open": 0
+   "open": 0,
+   "display_name": "Keltner BO TSLA"
   },
   "KELT_META": {
    "pnl": 0,
@@ -19183,7 +19249,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "META",
-   "open": 0
+   "open": 0,
+   "display_name": "Keltner BO META"
   },
   "KELT_AMZN": {
    "pnl": 0,
@@ -19195,7 +19262,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "AMZN",
-   "open": 0
+   "open": 0,
+   "display_name": "Keltner BO AMZN"
   },
   "KELT_XAGUSD_GEX": {
    "pnl": 0,
@@ -19207,7 +19275,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "XAGUSD",
-   "open": 0
+   "open": 0,
+   "display_name": "Keltner BO Silver GEX"
   },
   "KELT_NVDA_GEX": {
    "pnl": 0,
@@ -19219,7 +19288,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "NVDA",
-   "open": 0
+   "open": 0,
+   "display_name": "Keltner BO NVDA GEX"
   },
   "KELT_TSLA_GEX": {
    "pnl": 0,
@@ -19231,7 +19301,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "TSLA",
-   "open": 0
+   "open": 0,
+   "display_name": "Keltner BO TSLA GEX"
   },
   "KELT_META_GEX": {
    "pnl": 0,
@@ -19243,7 +19314,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "META",
-   "open": 0
+   "open": 0,
+   "display_name": "Keltner BO META GEX"
   },
   "KELT_AMZN_GEX": {
    "pnl": 0,
@@ -19255,7 +19327,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "AMZN",
-   "open": 0
+   "open": 0,
+   "display_name": "Keltner BO AMZN GEX"
   },
   "RSL_AMD": {
    "pnl": 0,
@@ -19267,7 +19340,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "AMD",
-   "open": 0
+   "open": 0,
+   "display_name": "RS Leader AMD"
   },
   "RSL_TSLA": {
    "pnl": 0,
@@ -19279,7 +19353,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "TSLA",
-   "open": 0
+   "open": 0,
+   "display_name": "RS Leader TSLA"
   },
   "RSL_AAPL": {
    "pnl": 0,
@@ -19291,7 +19366,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "AAPL",
-   "open": 0
+   "open": 0,
+   "display_name": "RS Leader AAPL"
   },
   "RSL_NVDA": {
    "pnl": 0,
@@ -19303,7 +19379,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "NVDA",
-   "open": 0
+   "open": 0,
+   "display_name": "RS Leader NVDA"
   },
   "RSL_HOOD": {
    "pnl": 0,
@@ -19315,7 +19392,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "HOOD",
-   "open": 0
+   "open": 0,
+   "display_name": "RS Leader HOOD"
   },
   "RSL_META": {
    "pnl": 0,
@@ -19327,7 +19405,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "META",
-   "open": 0
+   "open": 0,
+   "display_name": "RS Leader META"
   },
   "RSL_NFLX": {
    "pnl": 0,
@@ -19339,7 +19418,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "NFLX",
-   "open": 0
+   "open": 0,
+   "display_name": "RS Leader NFLX"
   },
   "RSL_INTC": {
    "pnl": 0,
@@ -19351,7 +19431,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "INTC",
-   "open": 0
+   "open": 0,
+   "display_name": "RS Leader INTC"
   },
   "RSL_COIN": {
    "pnl": 0,
@@ -19363,7 +19444,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "COIN",
-   "open": 0
+   "open": 0,
+   "display_name": "RS Leader COIN"
   },
   "RSL_AMZN": {
    "pnl": 0,
@@ -19375,7 +19457,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "AMZN",
-   "open": 0
+   "open": 0,
+   "display_name": "RS Leader AMZN"
   },
   "RSL_SPCX": {
    "pnl": 0,
@@ -19387,7 +19470,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "SPCX",
-   "open": 0
+   "open": 0,
+   "display_name": "RS Leader SPCX"
   },
   "RSL_MSFT": {
    "pnl": 0,
@@ -19399,7 +19483,8 @@
    "today_trades": 0,
    "mode": "LIVE",
    "symbol": "MSFT",
-   "open": 0
+   "open": 0,
+   "display_name": "RS Leader MSFT"
   },
   "NT_OBI_L2_BTC": {
    "pnl": -5.82,
@@ -20034,7 +20119,7 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-24T09:10:29+04:00",
+  "updated_dubai": "2026-10-24T09:11:13+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
    "target_progress_pct": 13.7,
