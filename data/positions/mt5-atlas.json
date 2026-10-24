@@ -1,7 +1,7 @@
 {
  "project": "ATLAS-MT5-GK-1",
  "bot": "MT5",
- "updated_at": "2026-10-24T08:19:04+04:00",
+ "updated_at": "2026-10-24T08:20:04+04:00",
  "positions": [
   {
    "id": "SH-NT_HVPIN_BNB-1792815433",
@@ -13,7 +13,7 @@
    "side": "buy",
    "lots": 1.09,
    "rr": -0.0,
-   "pnl": -0.08,
+   "pnl": -0.01,
    "mode": "shadow"
   },
   {
@@ -37,9 +37,9 @@
    "strategy": "NT_OBI_TOB_SUI",
    "asset": "SUIUSD",
    "side": "sell",
-   "lots": 4492.9,
-   "rr": 0.0,
-   "pnl": 0.98,
+   "lots": 4566.5,
+   "rr": -0.0,
+   "pnl": -1.27,
    "mode": "shadow"
   },
   {
@@ -51,8 +51,8 @@
    "asset": "SUIUSD",
    "side": "sell",
    "lots": 8201.4,
-   "rr": 0.02,
-   "pnl": 9.02,
+   "rr": 0.01,
+   "pnl": 4.92,
    "mode": "shadow"
   },
   {
@@ -64,8 +64,8 @@
    "asset": "DOGEUSD",
    "side": "buy",
    "lots": 101957.0,
-   "rr": -0.03,
-   "pnl": -10.2,
+   "rr": -0.02,
+   "pnl": -7.14,
    "mode": "shadow"
   },
   {
@@ -78,7 +78,7 @@
    "side": "sell",
    "lots": 67.85,
    "rr": 0.01,
-   "pnl": 2.99,
+   "pnl": 2.58,
    "mode": "shadow"
   },
   {
@@ -103,8 +103,8 @@
    "asset": "BNBUSD",
    "side": "sell",
    "lots": 10.96,
-   "rr": 0.05,
-   "pnl": 18.52,
+   "rr": 0.04,
+   "pnl": 17.86,
    "mode": "shadow"
   },
   {
@@ -129,8 +129,8 @@
    "asset": "SUIUSD",
    "side": "buy",
    "lots": 820.1,
-   "rr": -0.0,
-   "pnl": -0.08,
+   "rr": 0.0,
+   "pnl": 0.33,
    "mode": "shadow"
   },
   {
@@ -142,8 +142,8 @@
    "asset": "LINKUSD",
    "side": "sell",
    "lots": 1357.06,
-   "rr": 0.13,
-   "pnl": 50.21,
+   "rr": 0.11,
+   "pnl": 42.07,
    "mode": "shadow"
   },
   {
@@ -155,8 +155,8 @@
    "asset": "SUIUSD",
    "side": "sell",
    "lots": 8201.4,
-   "rr": -0.16,
-   "pnl": -65.61,
+   "rr": -0.17,
+   "pnl": -69.71,
    "mode": "shadow"
   },
   {
@@ -168,8 +168,8 @@
    "asset": "LINKUSD",
    "side": "buy",
    "lots": 4071.18,
-   "rr": 1.38,
-   "pnl": 553.0,
+   "rr": 1.44,
+   "pnl": 577.43,
    "mode": "shadow"
   },
   {
@@ -181,8 +181,8 @@
    "asset": "BNBUSD",
    "side": "buy",
    "lots": 425.87,
-   "rr": -0.81,
-   "pnl": -324.53,
+   "rr": -0.75,
+   "pnl": -298.97,
    "mode": "shadow"
   },
   {
@@ -284,9 +284,9 @@
    "strategy": "NT_OBI_TOB_DOGE",
    "asset": "DOGEUSD",
    "side": "sell",
-   "lots": 300157.0,
-   "rr": 0.09,
-   "pnl": 37.37,
+   "lots": 289122.0,
+   "rr": 0.08,
+   "pnl": 30.46,
    "mode": "shadow"
   },
   {
@@ -312,7 +312,7 @@
    "side": "sell",
    "lots": 2.0,
    "rr": -0.0,
-   "pnl": -1.53,
+   "pnl": -1.55,
    "mode": "shadow"
   },
   {
@@ -323,9 +323,9 @@
    "strategy": "NT_OBI_TOB_BTC",
    "asset": "BTCUSD",
    "side": "sell",
-   "lots": 223.42,
+   "lots": 224.39,
    "rr": 7.74,
-   "pnl": 3095.76,
+   "pnl": 3095.75,
    "mode": "shadow"
   },
   {
@@ -350,8 +350,8 @@
    "asset": "ETHUSD",
    "side": "buy",
    "lots": 16.43,
-   "rr": 0.15,
-   "pnl": 60.77,
+   "rr": 0.16,
+   "pnl": 63.82,
    "mode": "shadow"
   },
   {
@@ -363,8 +363,8 @@
    "asset": "ETHUSD",
    "side": "buy",
    "lots": 18.9,
-   "rr": -0.02,
-   "pnl": -9.88,
+   "rr": -0.01,
+   "pnl": -5.46,
    "mode": "shadow"
   },
   {
@@ -375,9 +375,9 @@
    "strategy": "NT_OBI_TOB_LINK",
    "asset": "LINKUSD",
    "side": "buy",
-   "lots": 4913.11,
-   "rr": -0.33,
-   "pnl": -132.32,
+   "lots": 4908.24,
+   "rr": -0.25,
+   "pnl": -101.89,
    "mode": "shadow"
   },
   {
@@ -389,8 +389,8 @@
    "asset": "DOGEUSD",
    "side": "buy",
    "lots": 203914.0,
-   "rr": -0.16,
-   "pnl": -63.21,
+   "rr": -0.14,
+   "pnl": -57.1,
    "mode": "shadow"
   },
   {
@@ -402,8 +402,21 @@
    "asset": "BNBUSD",
    "side": "buy",
    "lots": 43.84,
-   "rr": 0.1,
-   "pnl": 40.0,
+   "rr": 0.11,
+   "pnl": 42.63,
+   "mode": "shadow"
+  },
+  {
+   "id": "SH-NT_OBI_TOB_DOGE-1792813843-2",
+   "opened_at": "2026-10-24T07:50:43+04:00",
+   "closed_at": "2026-10-24T08:19:38+04:00",
+   "status": "closed",
+   "strategy": "NT_OBI_TOB_DOGE",
+   "asset": "DOGEUSD",
+   "side": "sell",
+   "lots": 11035.0,
+   "rr": -0.01,
+   "pnl": -3.83,
    "mode": "shadow"
   },
   {
