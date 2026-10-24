@@ -7,12 +7,12 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-24T07:44:03+04:00",
+ "updated_at": "2026-10-24T07:45:02+04:00",
  "balance": 101374.05,
  "equity": 102119.64,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": 5234.2,
- "combined_total_pnl": 6608.25,
+ "shadow_total_pnl": 5231.22,
+ "combined_total_pnl": 6605.27,
  "daily": [
   {
    "date": "2026-10-23",
@@ -28,9 +28,9 @@
    "pnl": 543.41,
    "balance": 101374.05,
    "trades": 4,
-   "shadow_pnl": 28007.41,
-   "shadow_trades": 5998,
-   "combined_pnl": 28550.82,
+   "shadow_pnl": 28004.43,
+   "shadow_trades": 6008,
+   "combined_pnl": 28547.84,
    "equity": 102119.64,
    "open_positions": 4
   }
@@ -18454,13 +18454,13 @@
    "open": 0
   },
   "NT_OBI_TOB_LINK": {
-   "pnl": -1118.69,
-   "trades": 897,
+   "pnl": -1118.93,
+   "trades": 899,
    "wins": 81,
    "sum_r": -2.758,
-   "max_dd": 1149.52,
-   "today_pnl": -1050.42,
-   "today_trades": 585,
+   "max_dd": 1149.76,
+   "today_pnl": -1050.66,
+   "today_trades": 587,
    "mode": "SHADOW",
    "symbol": "LINKUSD",
    "open": 1
@@ -18514,13 +18514,13 @@
    "open": 0
   },
   "NT_OBI_TOB_SUI": {
-   "pnl": -597.58,
-   "trades": 2917,
+   "pnl": -600.32,
+   "trades": 2925,
    "wins": 886,
-   "sum_r": -1.456,
-   "max_dd": 597.58,
-   "today_pnl": -298.35,
-   "today_trades": 1477,
+   "sum_r": -1.462,
+   "max_dd": 600.32,
+   "today_pnl": -301.09,
+   "today_trades": 1485,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
    "open": 1
@@ -19014,7 +19014,7 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-24T07:44:03+04:00",
+  "updated_dubai": "2026-10-24T07:45:03+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
    "target_progress_pct": 13.7,
