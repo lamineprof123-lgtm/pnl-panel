@@ -5,7 +5,7 @@ import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
 import {UnrealBloomPass} from 'three/addons/postprocessing/UnrealBloomPass.js';
 import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
 
-const $=s=>document.querySelector(s),POLL=7000,MAX=1500,TRAIL=10;
+const $=s=>document.querySelector(s);
 const ASSETS=[[/XAU|GOLD/,'Gold'],[/XAG|SILVER/,'Silver'],[/NAS|NDX|US100|USTEC|NQ/,'Nasdaq'],[/SPX|SP500|US500|ES\b/,'S&P 500'],[/AUDUSD/,'AUD/USD'],[/BTC/,'Bitcoin'],[/ETH/,'Ethereum'],[/BNB/,'BNB'],[/LINK/,'Chainlink'],[/SOL/,'Solana'],[/XRP/,'XRP'],[/SUI/,'Sui'],[/EURUSD/,'EUR/USD'],[/GBPUSD/,'GBP/USD'],[/USDJPY/,'USD/JPY'],[/WTI|USOIL|CL\b/,'Oil'],[/US30|DJI|DOW/,'Dow']];
 const assetName=a=>{const u=String(a??'').toUpperCase();for(const[r,n]of ASSETS)if(r.test(u))return n;return a||'—'};
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -96,51 +96,70 @@ const shell=new THREE.Group();core.add(shell);
   vertexShader:`attribute float ph;varying float a;uniform float time;uniform float pr;void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_Position=projectionMatrix*mv;a=.45+.55*pow(.5+.5*sin(time*1.7+ph*40.),4.);gl_PointSize=pr*a*26./-mv.z;}`,
   fragmentShader:`varying float a;void main(){float d=length(gl_PointCoord-.5)*2.;float g=exp(-d*d*6.);gl_FragColor=vec4(vec3(.45,.95,.85)*g*a,1.);}`})));}
 
-/* ---------- trades ---------- */
-const dotMat=new THREE.ShaderMaterial({uniforms:U,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,
-  vertexShader:`attribute float sz;attribute float al;attribute vec3 col;varying float a;varying vec3 vc;uniform float pr;
-  void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_Position=projectionMatrix*mv;a=al;vc=col;gl_PointSize=sz*pr*110./-mv.z;}`,
+/* ---------- trades: EVERY trade is a dot. Orbits are evaluated on the GPU from static per-trade attributes,
+   so the CPU never touches the buffers per frame; a poll only patches changed / new slots. ---------- */
+const TRAIL=mobile?4:10;
+const DU={time:U.time,pr:U.pr,hov:{value:-1},glw:{value:-1},glv:{value:0},TR:{value:TRAIL},dens:{value:1}};
+const dotMat=new THREE.ShaderMaterial({uniforms:DU,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,
+  vertexShader:`attribute vec3 ou;attribute vec3 ov;attribute vec4 orb;attribute vec4 meta;attribute vec3 col;attribute float slot;
+  uniform float time;uniform float pr;uniform float hov;uniform float glw;uniform float glv;uniform float TR;uniform float dens;varying float a;varying vec3 vc;
+  void main(){float b=clamp((time-orb.w)/1.8,0.,1.);b=1.-pow(1.-b,3.);float fade=meta.y>0.?clamp(1.-(time-meta.y)/1.5,0.,1.):1.;
+   float pu=sin(time*4.+orb.y*3.),op=step(.5,meta.w);float al=b*fade*mix(1.,.75+.35*pu,op);float sz=meta.x*(.4+.6*b)*(1.+op*.15*pu);
+   float R=orb.x*(1.+(1.-b)*2.2),ph=orb.y+time*orb.z-(1.-b)*1.2,i=meta.z;
+   if(i>.5){float f=1.-i/(TR+1.);ph-=i*.022*sign(orb.z);sz*=.25+.45*f;al*=f*f*.3*dens*dens;sz*=mix(.7,1.,dens);}
+   else{float hv=step(abs(slot-hov),.5),gl=step(abs(slot-glw),.5)*glv;sz*=(1.+.8*hv)*(1.+.9*gl);al=min(1.6,al*mix(dens,1.,max(hv,gl))*(1.+.4*hv)*(1.+.6*gl));sz*=mix(.8,1.,dens);}
+   vec3 p=(ou*cos(ph)+ov*sin(ph))*R;vec4 mv=modelViewMatrix*vec4(p,1.);gl_Position=projectionMatrix*mv;a=al;vc=col;
+   gl_PointSize=al<.002?0.:sz*pr*110./-mv.z;}`,
   fragmentShader:`varying float a;varying vec3 vc;void main(){float d=length(gl_PointCoord-.5)*2.;if(d>1.)discard;
    float core=smoothstep(.2,.0,d);float glow=exp(-d*d*7.)*.75+exp(-d*d*2.2)*.18;
    gl_FragColor=vec4((vc*glow+mix(vc,vec3(1.),.55)*core)*a,1.);}`});
-function pointsBuf(n){const g=new THREE.BufferGeometry();
-  const P=new THREE.BufferAttribute(new Float32Array(n*3),3),S=new THREE.BufferAttribute(new Float32Array(n),1),A=new THREE.BufferAttribute(new Float32Array(n),1),Co=new THREE.BufferAttribute(new Float32Array(n*3),3);
-  [P,S,A,Co].forEach(b=>b.setUsage(THREE.DynamicDrawUsage));g.setAttribute('position',P);g.setAttribute('sz',S);g.setAttribute('al',A);g.setAttribute('col',Co);g.setDrawRange(0,0);
-  const o=new THREE.Points(g,dotMat);o.frustumCulled=false;o.renderOrder=4;scene.add(o);return{g,P,S,A,Co}}
-const dots=pointsBuf(MAX),trails=pointsBuf(MAX*TRAIL);
-const trades=new Map();let list=[];
+const ATTR=[['ou',3],['ov',3],['orb',4],['meta',4],['col',3],['slot',1]];
+function makeBuf(cap,k){const g=new THREE.BufferGeometry(),A={};
+  g.setAttribute('position',new THREE.BufferAttribute(new Float32Array(cap*k*3),3));
+  for(const[n,w]of ATTR){A[n]=new THREE.BufferAttribute(new Float32Array(cap*k*w),w);g.setAttribute(n,A[n])}
+  const o=new THREE.Points(g,dotMat);o.frustumCulled=false;o.renderOrder=4;scene.add(o);return{g,A,o,k,lo:Infinity,hi:-1}}
+let cap=0,dots=null,trails=null;const free=[];let nSlots=0;
+function grow(n){if(n<=cap)return;let c=Math.max(4096,cap);while(c<n)c*=2;
+  const nd=makeBuf(c,1),nt=makeBuf(c,TRAIL);
+  if(dots){for(const[b,o]of[[nd,dots],[nt,trails]]){for(const[nm]of ATTR)b.A[nm].array.set(o.A[nm].array);scene.remove(o.o);o.g.dispose()}}
+  dots=nd;trails=nt;cap=c;dots.lo=trails.lo=0;dots.hi=trails.hi=c*TRAIL}
+function put(B,idx,t,i){const A=B.A;A.ou.setXYZ(idx,t.u.x,t.u.y,t.u.z);A.ov.setXYZ(idx,t.v.x,t.v.y,t.v.z);A.orb.setXYZW(idx,t.R,t.ph,t.w,t.born);
+  A.meta.setXYZW(idx,t.size,t.dead,i,t.open?1:0);A.col.setXYZ(idx,t.col.r,t.col.g,t.col.b);A.slot.setX(idx,t.slot);B.lo=Math.min(B.lo,idx);B.hi=Math.max(B.hi,idx)}
+function write(t){put(dots,t.slot,t,0);for(let i=1;i<=TRAIL;i++)put(trails,t.slot*TRAIL+i-1,t,i)}
+function flush(){for(const B of[dots,trails]){if(!B||B.hi<0)continue;const n=B.g.attributes.ou.count;
+  for(const[nm,w]of ATTR){const at=B.A[nm];at.clearUpdateRanges?.();at.addUpdateRange?.(B.lo*w,(Math.min(B.hi,n-1)-B.lo+1)*w);at.needsUpdate=true}
+  B.g.setDrawRange(0,nSlots*B.k);B.lo=Infinity;B.hi=-1}}
+const trades=new Map();let list=[],recent=[];
 const ring={};
 function orbitFor(strategy){if(ring[strategy])return ring[strategy];const h1=hash(strategy),h2=hash(strategy+'#'),h3=hash(strategy+'@');
   const R=2.5+h1*4.2,inc=(h2-.5)*1.25,node=h3*Math.PI*2;
   const n=new THREE.Vector3(0,1,0).applyAxisAngle(new THREE.Vector3(1,0,0),inc).applyAxisAngle(new THREE.Vector3(0,1,0),node);
   const u=new THREE.Vector3(1,0,0).applyAxisAngle(new THREE.Vector3(0,1,0),node);const v=new THREE.Vector3().crossVectors(n,u).normalize();
   return ring[strategy]={R,u,v}}
-function sync(positions){const now=clock.getElapsedTime(),ids=new Set();let fresh=null;
-  positions.slice(0,MAX).forEach(p=>{const id=p.__k;ids.add(id);let t=trades.get(id);const v=+p.pnl||0;
+// CPU-side position of one trade (same maths as the shader) — used only for hover, tooltip and the eye's gaze
+function ease(t,now){let a=Math.min(1,Math.max(0,(now-t.born)/1.8));return 1-Math.pow(1-a,3)}
+function posOf(t,now,out){const a=ease(t,now),R=t.R*(1+(1-a)*2.2),ph=t.ph+now*t.w-(1-a)*1.2;return out.copy(t.u).multiplyScalar(Math.cos(ph)*R).addScaledVector(t.v,Math.sin(ph)*R)}
+function visOf(t){const now=U.time.value;return !t.dead&&ease(t,now)>.05}
+function sync(positions){const now=clock.getElapsedTime(),ids=new Set();let fresh=null;grow(positions.length+free.length+16);
+  for(const p of positions){const id=p.__k;ids.add(id);let t=trades.get(id);const v=+p.pnl||0,open=p.status==='open',size=(p.mode==='shadow'?.75:1)*(.85+Math.min(1.1,Math.log10(1+Math.abs(v))*.42));
     if(!t){const o=orbitFor(p.strategy||'?'),h=hash(id),h2=hash(id+'~');
-      const R=o.R+(h-.5)*.55,tilt=(h2-.5)*.18;
-      const u=o.u.clone(),vv=o.v.clone().applyAxisAngle(u,tilt);
-      t={id,R,u,v:vv,ph:h*Math.PI*2,w:.55/Math.pow(R,1.5)*(.85+h2*.3),born:first?now-5-h*2:now,dead:0,col:(v>0?C.pos:v<0?C.neg:C.zero).clone(),size:1};trades.set(id,t);if(!first&&!fresh)fresh=t}
-    t.p=p;t.pnl=v;t.open=p.status==='open';t.target=v>0?C.pos:v<0?C.neg:C.zero;t.dead=0;
-    t.size=(p.mode==='shadow'?.75:1)*(.85+Math.min(1.1,Math.log10(1+Math.abs(v))*.42))});
-  trades.forEach(t=>{if(!ids.has(t.id)&&!t.dead)t.dead=now});
-  first=false;list=[...trades.values()];if(fresh)gaze.fresh=fresh;
-  const tot=positions.reduce((a,p)=>a+(+p.pnl||0),0),won=positions.filter(p=>+p.pnl>0).length,lost=positions.filter(p=>+p.pnl<0).length;
-  const r=$('#readout');r.innerHTML=positions.length?`${positions.length} trades · <span class="pos">${won} won</span> · <span class="neg">${lost} lost</span> · <span class="${tot>0?'pos':tot<0?'neg':''}">${(tot<0?'\u2212':tot>0?'+':'')+Math.abs(tot).toLocaleString('en-US',{style:'currency',currency:'USD'})}</span>`:'Waiting for trades';r.classList.add('on')}
-let first=true;
+      const R=o.R+(h-.5)*.55,tilt=(h2-.5)*.18,u=o.u.clone(),vv=o.v.clone().applyAxisAngle(u,tilt);
+      t={id,slot:free.length?free.pop():nSlots++,R,u,v:vv,ph:h*Math.PI*2,w:.55/Math.pow(R,1.5)*(.85+h2*.3),born:first?now-5-h*2:now,dead:0,col:new THREE.Color(),size:0,open:null,pnl:null};
+      trades.set(id,t);if(!first&&!fresh)fresh=t}
+    t.p=p;if(t.pnl!==v||t.open!==open||t.size!==size||t.dead){t.pnl=v;t.open=open;t.size=size;t.dead=0;t.col.copy(v>0?C.pos:v<0?C.neg:C.zero);write(t)}}
+  trades.forEach(t=>{if(!ids.has(t.id)&&!t.dead){t.dead=now;write(t)}});
+  DU.dens.value=Math.min(1,Math.sqrt(1500/Math.max(1,positions.length)));first=false;list=[...trades.values()];recent=list.filter(t=>!t.dead).sort((a,b)=>(b.p.opened_at||0)-(a.p.opened_at||0)).slice(0,8);flush();if(fresh)gaze.fresh=fresh;
+  let tot=0,won=0,lost=0;for(const p of positions){const v=+p.pnl||0;tot+=v;if(v>0)won++;else if(v<0)lost++}
+  const r=$('#readout');r.innerHTML=positions.length?`${positions.length.toLocaleString('en-US')} trades · <span class="pos">${won.toLocaleString('en-US')} won</span> · <span class="neg">${lost.toLocaleString('en-US')} lost</span> · <span class="${tot>0?'pos':tot<0?'neg':''}">${(tot<0?'\u2212':tot>0?'+':'')+Math.abs(tot).toLocaleString('en-US',{style:'currency',currency:'USD'})}</span>`:'Waiting for trades';r.classList.add('on')}
+let first=true,glowT=null;
 const tmp=new THREE.Vector3();
-function posAt(t,ph,R,out){return out.copy(t.u).multiplyScalar(Math.cos(ph)*R).addScaledVector(t.v,Math.sin(ph)*R)}
-function updateTrades(now,dt){let n=0,m=0;const k=1-Math.exp(-dt*2.5);
-  for(const t of list){let a=Math.min(1,(now-t.born)/1.8);a=1-Math.pow(1-a,3);let fade=1;
-    if(t.dead){fade=1-(now-t.dead)/1.5;if(fade<=0){trades.delete(t.id);continue}}
-    t.col.lerp(t.target,k);const R=t.R*(1+(1-a)*2.2),ph=t.ph+now*t.w-(1-a)*1.2;
-    const pulse=t.open?.75+.35*Math.sin(now*4+t.ph*3):1,al=a*fade*pulse,sz=t.size*(.4+.6*a)*(t.open?1+.15*Math.sin(now*4+t.ph*3):1);
-    posAt(t,ph,R,tmp);t.x=tmp.x;t.y=tmp.y;t.z=tmp.z;t.vis=al>.05;
-    dots.P.setXYZ(n,tmp.x,tmp.y,tmp.z);const gl=t.glow||0;if(gl)t.glow=Math.max(0,gl-dt*.9);dots.S.setX(n,sz*(t===hover?1.8:1)*(1+.9*gl));dots.A.setX(n,Math.min(1.6,al*(t===hover?1.4:1)*(1+.6*gl)));dots.Co.setXYZ(n,t.col.r,t.col.g,t.col.b);n++;
-    for(let i=1;i<=TRAIL;i++){const f=1-i/(TRAIL+1);posAt(t,ph-i*.022*Math.sign(t.w),R,tmp);
-      trails.P.setXYZ(m,tmp.x,tmp.y,tmp.z);trails.S.setX(m,sz*(.25+.45*f));trails.A.setX(m,al*f*f*.3);trails.Co.setXYZ(m,t.col.r,t.col.g,t.col.b);m++}}
-  if(list.length!==trades.size)list=[...trades.values()];
-  for(const b of[[dots,n],[trails,m]]){const[o,c]=b;o.g.setDrawRange(0,c);[o.P,o.S,o.A,o.Co].forEach(x=>{x.needsUpdate=true})}}
+function updateTrades(now,dt){
+  // recycle slots of removed trades once faded out
+  let gone=false;for(const t of list)if(t.dead&&now-t.dead>1.6){trades.delete(t.id);free.push(t.slot);gone=true}
+  if(gone)list=[...trades.values()];
+  if(gaze.t&&gaze.t.glow>0)glowT=gaze.t;
+  if(glowT){glowT.glow=Math.max(0,(glowT.glow||0)-dt*.9);DU.glw.value=glowT.slot;DU.glv.value=glowT.glow;if(!glowT.glow)glowT=null}else DU.glv.value=0;
+  DU.hov.value=hover&&!hover.dead?hover.slot:-1}
 
 
 /* ---------- AI eye (volumetric, inside the orb) ---------- */
@@ -280,10 +299,10 @@ const vv=new THREE.Vector3(),Z=new THREE.Vector3(0,0,1),mLook=new THREE.Matrix4(
 const YAW=.85,PITCH=.48;
 function gdir(yaw,pitch,out){yaw=THREE.MathUtils.clamp(yaw,-YAW,YAW);pitch=THREE.MathUtils.clamp(pitch,-PITCH,PITCH);return out.set(Math.sin(yaw)*Math.cos(pitch),Math.sin(pitch),Math.cos(yaw)*Math.cos(pitch))}
 function clampDir(v){const y=Math.atan2(v.x,Math.max(v.z,.05)),p=Math.asin(THREE.MathUtils.clamp(v.y,-1,1));return gdir(y,p,v)}
-function tradeDir(t,out){out.set(t.x,t.y,t.z);eye.worldToLocal(out).normalize();return clampDir(out)}
-function pickTrade(){const vis=list.filter(t=>t.vis&&!t.dead&&t!==gaze.t);if(!vis.length)return null;
-  if(Math.random()<.4){const r=vis.slice().sort((a,b)=>String(b.p?.opened_at||'').localeCompare(String(a.p?.opened_at||''))).slice(0,8);return r[(Math.random()*r.length)|0]}
-  return vis[(Math.random()*vis.length)|0]}
+function tradeDir(t,out){posOf(t,U.time.value,out);eye.worldToLocal(out).normalize();return clampDir(out)}
+function pickTrade(){const ok=t=>t&&visOf(t)&&t!==gaze.t;
+  if(Math.random()<.4){const r=recent.filter(ok);if(r.length)return r[(Math.random()*r.length)|0]}
+  for(let k=0;k<12&&list.length;k++){const t=list[(Math.random()*list.length)|0];if(ok(t))return t}return null}
 // start a saccade from current gaze toward a point (or a trade); after landing, enter `then` mode
 function saccade(now,t,dir,then,hold){gaze.mode='sac';gaze.from.copy(gaze.cur);gaze.t=t;if(t)tradeDir(t,gaze.to);else gaze.to.copy(dir);
   const amp=gaze.from.angleTo(gaze.to);gaze.dur=.08+Math.min(.07,amp*.06);gaze.s0=now;gaze.next={mode:then,hold}}
@@ -309,7 +328,7 @@ function stepGaze(now,dt){
     gdir(w.a[0]+(w.b[0]-w.a[0])*e+(w.a[0]===w.b[0]?0:0)+(Math.abs(w.a[1]-w.b[1])>.6?arc:0),w.a[1]+(w.b[1]-w.a[1])*e+(Math.abs(w.a[1]-w.b[1])>.6?0:arc),gaze.cur);
     if(k>=1)planNext(now)}
   else{// fixation / analysis: track the trade (it orbits) + micro-jitter
-    if(gaze.t&&(gaze.t.dead||!gaze.t.vis))gaze.until=Math.min(gaze.until,now);
+    if(gaze.t&&!visOf(gaze.t))gaze.until=Math.min(gaze.until,now);
     if(now>gaze.jitAt){const a=m==='analyze'?.012:.022;gaze.jit.set((Math.random()-.5)*a,(Math.random()-.5)*a,0);gaze.jitAt=now+.06+Math.random()*.14}
     if(gaze.t&&!gaze.t.dead){tradeDir(gaze.t,gv);gaze.cur.copy(gv)}
     gaze.cur.add(gaze.jit.clone().multiplyScalar(dt*8)).normalize();
@@ -343,27 +362,22 @@ function updateEye(now,dt){phy.now=now;
 
 /* ---------- hover / tap ---------- */
 const tip=$('#tip');let hover=null,mouse=null,downAt=null;
-function pick(x,y){let best=null,bd=mobile?26:18;const v=new THREE.Vector3();
-  for(const t of list){if(!t.vis||t.dead)continue;v.set(t.x,t.y,t.z).project(camera);if(v.z>1)continue;
+function pick(x,y){let best=null,bd=mobile?26:18;const v=new THREE.Vector3(),now=U.time.value;
+  for(const t of list){if(!visOf(t))continue;posOf(t,now,v).project(camera);if(v.z>1)continue;
     const sx=(v.x+1)/2*innerWidth,sy=(1-v.y)/2*innerHeight,d=Math.hypot(sx-x,sy-y);if(d<bd){bd=d;best=t}}return best}
 function showTip(){if(!hover||hover.dead){tip.classList.remove('on');return}
-  const v=new THREE.Vector3(hover.x,hover.y,hover.z).project(camera);const x=(v.x+1)/2*innerWidth,y=(1-v.y)/2*innerHeight,p=hover.p;
+  const v=posOf(hover,U.time.value,new THREE.Vector3()).project(camera);const x=(v.x+1)/2*innerWidth,y=(1-v.y)/2*innerHeight,p=hover.p;
   tip.style.left=Math.max(70,Math.min(innerWidth-70,x))+'px';tip.style.top=y+'px';
   const html=`<b>${esc(assetName(p.asset))}${p.status==='open'?' ·':''}</b><span>${esc(p.strategy||'')}</span><i class="${hover.pnl>0?'pos':hover.pnl<0?'neg':''}">${money(hover.pnl)}</i>`;
   if(tip._h!==html){tip.innerHTML=html;tip._h=html}tip.classList.add('on')}
-canvas.addEventListener('pointermove',e=>{if(e.pointerType==='mouse'){mouse=[e.clientX,e.clientY]}});
+let mouseMoved=false,pf=0;canvas.addEventListener('pointermove',e=>{if(e.pointerType==='mouse'){mouse=[e.clientX,e.clientY];mouseMoved=true}});
 canvas.addEventListener('pointerleave',()=>{mouse=null;if(!mobile)hover=null});
 canvas.addEventListener('pointerdown',e=>{downAt=[e.clientX,e.clientY]});
 canvas.addEventListener('pointerup',e=>{if(e.pointerType!=='mouse'&&downAt&&Math.hypot(e.clientX-downAt[0],e.clientY-downAt[1])<8){hover=pick(e.clientX,e.clientY)}downAt=null});
 
 /* ---------- data ---------- */
-let lastOk=0;
-async function poll(){try{const b='?t='+Date.now(),idx=await(await fetch('data/positions/index.json'+b,{cache:'no-store'})).json(),all=[];
-  await Promise.all((idx.files||[]).map(async f=>{try{const d=await(await fetch('data/positions/'+f+b,{cache:'no-store'})).json();
-    (d.positions||[]).forEach(p=>{p.__k=f+':'+(p.id??(p.opened_at+p.asset+p.strategy));all.push(p)})}catch(e){}}));
-  all.sort((a,b)=>String(b.opened_at||'').localeCompare(String(a.opened_at||'')));
-  sync(all);lastOk=Date.now()}catch(e){console.warn(e)}}
-setInterval(()=>{const s=lastOk?Math.round((Date.now()-lastOk)/1e3):null;$('#ago').textContent=s==null?'Connecting':s<10?'Live':`Live · ${s}s`;$('#live').classList.toggle('stale',s!=null&&s>30)},1000);
+// shared loader (book.js): polls a tiny index every 38s; downloads/decodes the compact file only when updated_at changed
+function onBooks(books){const all=[];for(const k in books)for(const p of books[k].positions){p.__k=k+'.json:'+(p.id??(p.opened_at+p.asset+p.strategy));all.push(p)}sync(all)}
 
 /* ---------- loop ---------- */
 const portrait=()=>innerWidth/innerHeight<.8;
@@ -375,6 +389,6 @@ renderer.setAnimationLoop(()=>{const now=clock.getElapsedTime(),dt=Math.min(.05,
   const br=1+.06*Math.sin(now*1.6);halo1.scale.setScalar(6.5*br);heart.material.opacity=.06+.03*Math.sin(now*1.6);
   stars.rotation.y=now*.004;nebula.rotation.y=now*.006;
   updateTrades(now,dt);updateEye(now,dt);
-  if(mouse&&!downAt)hover=pick(mouse[0],mouse[1]);showTip();
+  if(mouse&&!downAt&&(mouseMoved||++pf%6===0)){hover=pick(mouse[0],mouse[1]);mouseMoved=false}showTip();
   controls.update();composer.render()});
-poll();setInterval(poll,POLL);
+PNL.watch(onBooks);PNL.liveBadge();

@@ -1,7 +1,7 @@
 'use strict';
-const POLL=7000;
+const POLL=38000;
 const $=s=>document.querySelector(s);
-let period='daily',projects={},order=[],charts={},lastOk=0,prev={};
+let raw={},period='daily',projects={},order=[],charts={},lastOk=0,prev={};
 const today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
 const keyLen={daily:10,monthly:7,yearly:4};
 const money=(v,c='USD',signed=true)=>{if(v==null||!isFinite(v))return'—';const a=Math.abs(v).toLocaleString('en-US',{style:'currency',currency:c||'USD'});return(v<0?'\u2212':signed&&v>0?'+':'')+a};
@@ -97,11 +97,14 @@ function render(){
 }
 async function poll(){
   try{const b='?t='+Date.now(),idx=await(await fetch('data/index.json'+b,{cache:'no-store'})).json(),next={};
-    await Promise.all((idx.files||[]).map(async f=>{try{next[f.replace(/\.json$/,'')]=norm(await(await fetch('data/'+f+b,{cache:'no-store'})).json())}catch(e){}}));
+    let same=Object.keys(raw).length===(idx.files||[]).length;
+    await Promise.all((idx.files||[]).map(async f=>{try{const k=f.replace(/\.json$/,''),tx=await(await fetch('data/'+f+b,{cache:'no-store'})).text();
+      if(raw[k]===tx&&projects[k]){next[k]=projects[k];return}same=false;raw[k]=tx;next[k]=norm(JSON.parse(tx))}catch(e){}}));
+    lastOk=Date.now();if(same)return;   // nothing changed: skip re-parse and re-render
     projects=next;const rk=s=>s==='mt5-atlas'?0:s==='polymarket-weather-v2'?1:2;order=Object.keys(next).sort((a,b)=>rk(a)-rk(b)||a.localeCompare(b));
     lastOk=Date.now();render()}catch(e){console.warn('poll failed',e)}
 }
 $('#seg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;period=b.dataset.p;const bs=[...document.querySelectorAll('#seg button')],i=bs.indexOf(b);
   bs.forEach(x=>x.classList.toggle('on',x===b));$('#seg .slider').style.transform=`translateX(${i*100}%)`;render()});
-setInterval(()=>{const s=lastOk?Math.round((Date.now()-lastOk)/1e3):null;$('#ago').textContent=s==null?'Connecting':s<10?'Live':`Live · ${s}s`;$('#live').classList.toggle('stale',s!=null&&s>30)},1000);
+setInterval(()=>{const s=lastOk?Math.round((Date.now()-lastOk)/1e3):null;$('#ago').textContent=s==null?'Connecting':s<45?'Live':`Live · ${s}s`;$('#live').classList.toggle('stale',s!=null&&s>95)},1000);
 poll();setInterval(poll,POLL);
