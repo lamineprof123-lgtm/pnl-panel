@@ -7,12 +7,12 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-24T08:07:03+04:00",
+ "updated_at": "2026-10-24T08:08:03+04:00",
  "balance": 101374.05,
  "equity": 102119.64,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": 7494.98,
- "combined_total_pnl": 8869.03,
+ "shadow_total_pnl": 7066.56,
+ "combined_total_pnl": 8440.61,
  "daily": [
   {
    "date": "2026-10-23",
@@ -28,9 +28,9 @@
    "pnl": 543.41,
    "balance": 101374.05,
    "trades": 4,
-   "shadow_pnl": 30268.19,
-   "shadow_trades": 6314,
-   "combined_pnl": 30811.6,
+   "shadow_pnl": 29839.77,
+   "shadow_trades": 6333,
+   "combined_pnl": 30383.18,
    "equity": 102119.64,
    "open_positions": 4
   }
@@ -18394,13 +18394,13 @@
    "open": 1
   },
   "NT_OBI_TOB_BTC": {
-   "pnl": 22439.76,
-   "trades": 2322,
+   "pnl": 22023.31,
+   "trades": 2327,
    "wins": 1224,
-   "sum_r": 56.123,
+   "sum_r": 55.083,
    "max_dd": 28516.27,
-   "today_pnl": 45956.31,
-   "today_trades": 1194,
+   "today_pnl": 45539.86,
+   "today_trades": 1199,
    "mode": "SHADOW",
    "symbol": "BTCUSD",
    "open": 1
@@ -18418,16 +18418,16 @@
    "open": 0
   },
   "NT_CMM_BTC": {
-   "pnl": -3488.35,
-   "trades": 179,
+   "pnl": -3491.84,
+   "trades": 180,
    "wins": 2,
-   "sum_r": -8.724,
-   "max_dd": 3488.35,
-   "today_pnl": -1494.3,
-   "today_trades": 68,
+   "sum_r": -8.733,
+   "max_dd": 3491.84,
+   "today_pnl": -1497.79,
+   "today_trades": 69,
    "mode": "SHADOW",
    "symbol": "BTCUSD",
-   "open": 1
+   "open": 0
   },
   "NT_HVPIN_BTC": {
    "pnl": -16.37,
@@ -18454,13 +18454,13 @@
    "open": 0
   },
   "NT_OBI_TOB_LINK": {
-   "pnl": -1131.84,
-   "trades": 930,
+   "pnl": -1131.91,
+   "trades": 931,
    "wins": 81,
    "sum_r": -2.787,
-   "max_dd": 1162.67,
-   "today_pnl": -1063.57,
-   "today_trades": 618,
+   "max_dd": 1162.74,
+   "today_pnl": -1063.64,
+   "today_trades": 619,
    "mode": "SHADOW",
    "symbol": "LINKUSD",
    "open": 1
@@ -18514,13 +18514,13 @@
    "open": 0
   },
   "NT_OBI_TOB_SUI": {
-   "pnl": -633.27,
-   "trades": 3004,
+   "pnl": -633.3,
+   "trades": 3007,
    "wins": 909,
    "sum_r": -1.541,
    "max_dd": 640.7,
-   "today_pnl": -334.04,
-   "today_trades": 1564,
+   "today_pnl": -334.07,
+   "today_trades": 1567,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
    "open": 1
@@ -18574,13 +18574,13 @@
    "open": 0
   },
   "NT_OBI_TOB_DOGE": {
-   "pnl": 665.06,
-   "trades": 2491,
+   "pnl": 662.99,
+   "trades": 2493,
    "wins": 1246,
-   "sum_r": 1.687,
+   "sum_r": 1.682,
    "max_dd": 1118.8,
-   "today_pnl": 1251.61,
-   "today_trades": 1401,
+   "today_pnl": 1249.54,
+   "today_trades": 1403,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
    "open": 1
@@ -18634,13 +18634,13 @@
    "open": 0
   },
   "NT_OBI_TOB_BNB": {
-   "pnl": -2135.75,
-   "trades": 1705,
-   "wins": 326,
-   "sum_r": -5.319,
+   "pnl": -2128.14,
+   "trades": 1711,
+   "wins": 332,
+   "sum_r": -5.299,
    "max_dd": 2480.77,
-   "today_pnl": -726.31,
-   "today_trades": 854,
+   "today_pnl": -718.7,
+   "today_trades": 860,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
    "open": 1
@@ -18658,13 +18658,13 @@
    "open": 1
   },
   "NT_CMM_BNB": {
-   "pnl": -3094.45,
-   "trades": 160,
+   "pnl": -3108.37,
+   "trades": 161,
    "wins": 3,
-   "sum_r": -7.734,
-   "max_dd": 3094.45,
-   "today_pnl": -1580.85,
-   "today_trades": 80,
+   "sum_r": -7.769,
+   "max_dd": 3108.37,
+   "today_pnl": -1594.77,
+   "today_trades": 81,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
    "open": 1
@@ -19014,7 +19014,7 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-24T08:07:03+04:00",
+  "updated_dubai": "2026-10-24T08:08:03+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
    "target_progress_pct": 13.7,
