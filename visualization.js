@@ -11,7 +11,7 @@ const assetName=a=>{const u=String(a??'').toUpperCase();for(const[r,n]of ASSETS)
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const money=v=>!isFinite(v)?'—':(v<0?'\u2212':v>0?'+':'')+Math.abs(v).toLocaleString('en-US',{style:'currency',currency:'USD'});
 const hash=s=>{let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return(h>>>0)/4294967296};
-const C={pos:new THREE.Color('#34d399'),neg:new THREE.Color('#ff8a1f'),zero:new THREE.Color('#c9d3dd')};
+const C={pos:new THREE.Color('#00ff88'),neg:new THREE.Color('#ff7a00'),zero:new THREE.Color('#c9d3dd')};
 
 /* ---------- renderer / scene ---------- */
 const canvas=$('#space'),mobile=matchMedia('(max-width:700px)').matches;
@@ -100,7 +100,7 @@ const shell=new THREE.Group();core.add(shell);
    so the CPU never touches the buffers per frame; a poll only patches changed / new slots. ---------- */
 const TRAIL=mobile?4:10;
 const DU={time:U.time,pr:U.pr,hov:{value:-1},glw:{value:-1},glv:{value:0},TR:{value:TRAIL},dens:{value:1}};
-const dotMat=new THREE.ShaderMaterial({uniforms:DU,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,
+const dotMat=new THREE.ShaderMaterial({uniforms:DU,transparent:true,depthWrite:false,blending:THREE.NormalBlending,
   vertexShader:`attribute vec3 ou;attribute vec3 ov;attribute vec4 orb;attribute vec4 meta;attribute vec3 col;attribute float slot;
   uniform float time;uniform float pr;uniform float hov;uniform float glw;uniform float glv;uniform float TR;uniform float dens;varying float a;varying vec3 vc;
   void main(){float b=clamp((time-orb.w)/1.8,0.,1.);b=1.-pow(1.-b,3.);float fade=meta.y>0.?clamp(1.-(time-meta.y)/1.5,0.,1.):1.;
@@ -112,7 +112,7 @@ const dotMat=new THREE.ShaderMaterial({uniforms:DU,transparent:true,depthWrite:f
    gl_PointSize=al<.002?0.:sz*pr*110./-mv.z;}`,
   fragmentShader:`varying float a;varying vec3 vc;void main(){float d=length(gl_PointCoord-.5)*2.;if(d>1.)discard;
    float core=smoothstep(.2,.0,d);float glow=exp(-d*d*7.)*.75+exp(-d*d*2.2)*.18;
-   gl_FragColor=vec4((vc*glow+mix(vc,vec3(1.),.55)*core)*a,1.);}`});
+   float al2=clamp((core+glow*.85)*a,0.,1.);gl_FragColor=vec4(vc*(.75+.35*core),al2);}`});
 const ATTR=[['ou',3],['ov',3],['orb',4],['meta',4],['col',3],['slot',1]];
 function makeBuf(cap,k){const g=new THREE.BufferGeometry(),A={};
   g.setAttribute('position',new THREE.BufferAttribute(new Float32Array(cap*k*3),3));
