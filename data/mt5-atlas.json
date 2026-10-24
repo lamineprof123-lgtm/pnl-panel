@@ -7,12 +7,12 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-24T08:54:28+04:00",
+ "updated_at": "2026-10-24T08:55:28+04:00",
  "balance": 101374.05,
  "equity": 102119.64,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": 1811.91,
- "combined_total_pnl": 3185.96,
+ "shadow_total_pnl": 1411.91,
+ "combined_total_pnl": 2785.96,
  "daily": [
   {
    "date": "2026-10-23",
@@ -28,9 +28,9 @@
    "pnl": 543.41,
    "balance": 101374.05,
    "trades": 4,
-   "shadow_pnl": 24585.12,
-   "shadow_trades": 6738,
-   "combined_pnl": 25128.53,
+   "shadow_pnl": 24185.12,
+   "shadow_trades": 6739,
+   "combined_pnl": 24728.53,
    "equity": 102119.64,
    "open_positions": 4
   }
@@ -394,7 +394,7 @@
    "today_trades": 20,
    "mode": "SHADOW",
    "symbol": "LINKUSD",
-   "open": 0
+   "open": 1
   },
   "SF_DOGE_SQZ": {
    "pnl": 304.6,
@@ -406,19 +406,19 @@
    "today_trades": 8,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
-   "open": 0
+   "open": 1
   },
   "SF_BNB_VOL": {
-   "pnl": 5553.5,
-   "trades": 50,
+   "pnl": 5153.5,
+   "trades": 51,
    "wins": 14,
-   "sum_r": 13.884,
-   "max_dd": 2400.0,
-   "today_pnl": -1200.0,
-   "today_trades": 23,
+   "sum_r": 12.884,
+   "max_dd": 2800.0,
+   "today_pnl": -1600.0,
+   "today_trades": 24,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
-   "open": 1
+   "open": 0
   },
   "SF_LINK_VWAP_V2": {
    "pnl": -532.23,
@@ -19014,7 +19014,7 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-24T08:54:29+04:00",
+  "updated_dubai": "2026-10-24T08:55:29+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
    "target_progress_pct": 13.7,
