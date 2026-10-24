@@ -7,12 +7,12 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-24T04:53:15+04:00",
+ "updated_at": "2026-10-24T04:54:15+04:00",
  "balance": 101374.05,
  "equity": 102119.64,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": -17717.47,
- "combined_total_pnl": -16343.42,
+ "shadow_total_pnl": -17716.99,
+ "combined_total_pnl": -16342.94,
  "daily": [
   {
    "date": "2026-10-23",
@@ -28,9 +28,9 @@
    "pnl": 543.41,
    "balance": 101374.05,
    "trades": 4,
-   "shadow_pnl": 5055.74,
-   "shadow_trades": 3847,
-   "combined_pnl": 5599.15,
+   "shadow_pnl": 5056.22,
+   "shadow_trades": 3849,
+   "combined_pnl": 5599.63,
    "equity": 102119.64,
    "open_positions": 4
   }
@@ -394,7 +394,7 @@
    "today_trades": 11,
    "mode": "SHADOW",
    "symbol": "LINKUSD",
-   "open": 0
+   "open": 1
   },
   "SF_DOGE_SQZ": {
    "pnl": -800.0,
@@ -16923,13 +16923,13 @@
    "open": 0
   },
   "NT_OBI_TOB_DOGE": {
-   "pnl": 1119.33,
-   "trades": 1765,
-   "wins": 1008,
-   "sum_r": 2.803,
+   "pnl": 1121.27,
+   "trades": 1766,
+   "wins": 1009,
+   "sum_r": 2.808,
    "max_dd": 980.22,
-   "today_pnl": 1705.88,
-   "today_trades": 675,
+   "today_pnl": 1707.82,
+   "today_trades": 676,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
    "open": 1
@@ -16983,13 +16983,13 @@
    "open": 0
   },
   "NT_OBI_TOB_BNB": {
-   "pnl": -2264.66,
-   "trades": 1420,
+   "pnl": -2266.12,
+   "trades": 1421,
    "wins": 202,
-   "sum_r": -5.64,
+   "sum_r": -5.644,
    "max_dd": 2281.81,
-   "today_pnl": -855.22,
-   "today_trades": 569,
+   "today_pnl": -856.68,
+   "today_trades": 570,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
    "open": 1
@@ -17028,7 +17028,7 @@
    "today_trades": 9,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
-   "open": 0
+   "open": 1
   },
   "NQ1AM_QQQ_PM": {
    "pnl": 0,
@@ -17363,7 +17363,7 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-24T04:53:16+04:00",
+  "updated_dubai": "2026-10-24T04:54:16+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
    "target_progress_pct": 13.7,
