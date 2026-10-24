@@ -7,12 +7,12 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-24T07:42:03+04:00",
+ "updated_at": "2026-10-24T07:43:03+04:00",
  "balance": 101374.05,
  "equity": 102119.64,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": 5238.75,
- "combined_total_pnl": 6612.8,
+ "shadow_total_pnl": 5236.83,
+ "combined_total_pnl": 6610.88,
  "daily": [
   {
    "date": "2026-10-23",
@@ -28,9 +28,9 @@
    "pnl": 543.41,
    "balance": 101374.05,
    "trades": 4,
-   "shadow_pnl": 28011.96,
-   "shadow_trades": 5970,
-   "combined_pnl": 28555.37,
+   "shadow_pnl": 28010.04,
+   "shadow_trades": 5974,
+   "combined_pnl": 28553.45,
    "equity": 102119.64,
    "open_positions": 4
   }
@@ -18514,13 +18514,13 @@
    "open": 0
   },
   "NT_OBI_TOB_SUI": {
-   "pnl": -595.06,
-   "trades": 2907,
+   "pnl": -595.78,
+   "trades": 2910,
    "wins": 886,
-   "sum_r": -1.449,
-   "max_dd": 595.06,
-   "today_pnl": -295.83,
-   "today_trades": 1467,
+   "sum_r": -1.451,
+   "max_dd": 595.78,
+   "today_pnl": -296.55,
+   "today_trades": 1470,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
    "open": 1
@@ -18574,13 +18574,13 @@
    "open": 0
   },
   "NT_OBI_TOB_DOGE": {
-   "pnl": 670.8,
-   "trades": 2431,
+   "pnl": 669.6,
+   "trades": 2432,
    "wins": 1223,
-   "sum_r": 1.703,
-   "max_dd": 1110.32,
-   "today_pnl": 1257.35,
-   "today_trades": 1341,
+   "sum_r": 1.7,
+   "max_dd": 1111.52,
+   "today_pnl": 1256.15,
+   "today_trades": 1342,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
    "open": 1
@@ -19014,7 +19014,7 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-24T07:42:03+04:00",
+  "updated_dubai": "2026-10-24T07:43:03+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
    "target_progress_pct": 13.7,
