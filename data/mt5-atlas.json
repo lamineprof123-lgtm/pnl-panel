@@ -7,12 +7,12 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-24T05:54:47+04:00",
+ "updated_at": "2026-10-24T05:55:47+04:00",
  "balance": 101374.05,
  "equity": 102119.64,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": 248.92,
- "combined_total_pnl": 1622.97,
+ "shadow_total_pnl": 238.48,
+ "combined_total_pnl": 1612.53,
  "daily": [
   {
    "date": "2026-10-23",
@@ -28,9 +28,9 @@
    "pnl": 543.41,
    "balance": 101374.05,
    "trades": 4,
-   "shadow_pnl": 23022.13,
-   "shadow_trades": 4648,
-   "combined_pnl": 23565.54,
+   "shadow_pnl": 23011.69,
+   "shadow_trades": 4665,
+   "combined_pnl": 23555.1,
    "equity": 102119.64,
    "open_positions": 4
   }
@@ -6742,7 +6742,7 @@
    "today_trades": 9,
    "mode": "SHADOW",
    "symbol": "ADAUSD",
-   "open": 0
+   "open": 1
   },
   "SF_ADA_TAKER_V4": {
    "pnl": 66.67,
@@ -6754,7 +6754,7 @@
    "today_trades": 6,
    "mode": "SHADOW",
    "symbol": "ADAUSD",
-   "open": 0
+   "open": 1
   },
   "PF_TREND_USTEC": {
    "pnl": 0,
@@ -18514,13 +18514,13 @@
    "open": 0
   },
   "NT_OBI_TOB_SUI": {
-   "pnl": -575.79,
-   "trades": 2597,
-   "wins": 792,
-   "sum_r": -1.402,
+   "pnl": -572.64,
+   "trades": 2608,
+   "wins": 803,
+   "sum_r": -1.396,
    "max_dd": 584.32,
-   "today_pnl": -276.56,
-   "today_trades": 1157,
+   "today_pnl": -273.41,
+   "today_trades": 1168,
    "mode": "SHADOW",
    "symbol": "SUIUSD",
    "open": 1
@@ -18574,13 +18574,13 @@
    "open": 0
   },
   "NT_OBI_TOB_DOGE": {
-   "pnl": 1765.73,
-   "trades": 1996,
+   "pnl": 1752.14,
+   "trades": 2002,
    "wins": 1222,
-   "sum_r": 4.418,
+   "sum_r": 4.384,
    "max_dd": 980.22,
-   "today_pnl": 2352.28,
-   "today_trades": 906,
+   "today_pnl": 2338.69,
+   "today_trades": 912,
    "mode": "SHADOW",
    "symbol": "DOGEUSD",
    "open": 1
@@ -19014,7 +19014,7 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-24T05:54:48+04:00",
+  "updated_dubai": "2026-10-24T05:55:48+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
    "target_progress_pct": 13.7,
