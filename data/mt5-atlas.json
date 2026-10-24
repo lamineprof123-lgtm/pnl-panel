@@ -7,12 +7,12 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-24T04:13:22+04:00",
+ "updated_at": "2026-10-24T04:14:22+04:00",
  "balance": 101374.05,
  "equity": 102119.64,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": -17759.65,
- "combined_total_pnl": -16385.6,
+ "shadow_total_pnl": -17759.59,
+ "combined_total_pnl": -16385.54,
  "daily": [
   {
    "date": "2026-10-23",
@@ -28,9 +28,9 @@
    "pnl": 543.41,
    "balance": 101374.05,
    "trades": 4,
-   "shadow_pnl": 5013.56,
-   "shadow_trades": 3360,
-   "combined_pnl": 5556.97,
+   "shadow_pnl": 5013.62,
+   "shadow_trades": 3361,
+   "combined_pnl": 5557.03,
    "equity": 102119.64,
    "open_positions": 4
   }
@@ -394,7 +394,7 @@
    "today_trades": 7,
    "mode": "SHADOW",
    "symbol": "LINKUSD",
-   "open": 1
+   "open": 0
   },
   "SF_DOGE_SQZ": {
    "pnl": -800.0,
@@ -454,7 +454,7 @@
    "today_trades": 4,
    "mode": "SHADOW",
    "symbol": "LINKUSD",
-   "open": 0
+   "open": 1
   },
   "SF_XAG_V4": {
    "pnl": 0,
@@ -16776,7 +16776,7 @@
    "today_trades": 38,
    "mode": "SHADOW",
    "symbol": "BTCUSD",
-   "open": 0
+   "open": 1
   },
   "NT_HVPIN_BTC": {
    "pnl": -15.91,
@@ -16983,13 +16983,13 @@
    "open": 0
   },
   "NT_OBI_TOB_BNB": {
-   "pnl": -2133.17,
-   "trades": 1364,
-   "wins": 193,
+   "pnl": -2133.11,
+   "trades": 1365,
+   "wins": 194,
    "sum_r": -5.313,
    "max_dd": 2281.81,
-   "today_pnl": -723.73,
-   "today_trades": 513,
+   "today_pnl": -723.67,
+   "today_trades": 514,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
    "open": 1
@@ -17363,7 +17363,7 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-24T04:13:22+04:00",
+  "updated_dubai": "2026-10-24T04:14:22+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
    "target_progress_pct": 13.7,
