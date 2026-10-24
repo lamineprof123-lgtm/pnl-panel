@@ -7,12 +7,12 @@
  "start_balance": 100000.0,
  "invested": 300,
  "account": "MetaQuotes-Demo 114494671 (demo)",
- "updated_at": "2026-10-24T07:30:03+04:00",
+ "updated_at": "2026-10-24T07:31:03+04:00",
  "balance": 101374.05,
  "equity": 102119.64,
  "note": "daily pnl/balance = live demo account (LIVE sleeves); SHADOW sleeves are virtual $400-risk trades (no broker symbol/trading disabled) and are NOT in balance; shadow_pnl/shadow_trades = those virtual trades per Dubai day; combined_pnl = pnl + shadow_pnl",
- "shadow_total_pnl": 5031.7,
- "combined_total_pnl": 6405.75,
+ "shadow_total_pnl": 5036.12,
+ "combined_total_pnl": 6410.17,
  "daily": [
   {
    "date": "2026-10-23",
@@ -28,9 +28,9 @@
    "pnl": 543.41,
    "balance": 101374.05,
    "trades": 4,
-   "shadow_pnl": 27804.91,
-   "shadow_trades": 5802,
-   "combined_pnl": 28348.32,
+   "shadow_pnl": 27809.33,
+   "shadow_trades": 5806,
+   "combined_pnl": 28352.74,
    "equity": 102119.64,
    "open_positions": 4
   }
@@ -18499,7 +18499,7 @@
    "today_trades": 16,
    "mode": "SHADOW",
    "symbol": "LINKUSD",
-   "open": 0
+   "open": 1
   },
   "NT_OBI_L2_SUI": {
    "pnl": 0,
@@ -18634,13 +18634,13 @@
    "open": 0
   },
   "NT_OBI_TOB_BNB": {
-   "pnl": -2266.9,
-   "trades": 1649,
-   "wins": 270,
-   "sum_r": -5.646,
+   "pnl": -2262.48,
+   "trades": 1653,
+   "wins": 274,
+   "sum_r": -5.634,
    "max_dd": 2480.77,
-   "today_pnl": -857.46,
-   "today_trades": 798,
+   "today_pnl": -853.04,
+   "today_trades": 802,
    "mode": "SHADOW",
    "symbol": "BNBUSD",
    "open": 1
@@ -19014,7 +19014,7 @@
  },
  "prop_rules": {
   "log_only": true,
-  "updated_dubai": "2026-10-24T07:30:03+04:00",
+  "updated_dubai": "2026-10-24T07:31:03+04:00",
   "ftmo_2step_100k": {
    "status": "IN_PROGRESS",
    "target_progress_pct": 13.7,
